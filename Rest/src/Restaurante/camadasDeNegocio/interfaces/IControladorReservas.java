@@ -1,7 +1,10 @@
 package Restaurante.camadasDeNegocio.interfaces;
 
-import Restaurante.entidade.abstrato.Reserva;
+import Restaurante.camadasDeNegocio.entidade.abstrato.Reserva;
 import Restaurante.excessoes.*;
+import Restaurante.excessoes.ObjetoExistencia.ObjetoEmUsoErro;
+import Restaurante.excessoes.ObjetoExistencia.ObjetoJaExisteErro;
+import Restaurante.excessoes.ObjetoExistencia.ObjetoNaoExisteErro;
 
 /**
  *  Abaixo temos a interface a ser implementada na camada "reservas", com suas assinaturas de métodos e exceções.

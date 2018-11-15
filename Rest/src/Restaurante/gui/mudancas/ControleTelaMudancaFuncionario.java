@@ -1,10 +1,8 @@
 package Restaurante.gui.mudancas;
 
-import Restaurante.entidade.pessoas.Pessoa;
-import Restaurante.entidade.pessoas.funcionario.Funcionario;
-import Restaurante.entidade.pessoas.funcionario.Gerente;
-import Restaurante.excessoes.LetraNoLugarDeNumeroErro;
-import Restaurante.excessoes.ObjetoNaoExisteErro;
+import Restaurante.camadasDeNegocio.entidade.pessoas.Pessoa;
+import Restaurante.camadasDeNegocio.entidade.pessoas.funcionario.Funcionario;
+import Restaurante.excessoes.ObjetoExistencia.ObjetoNaoExisteErro;
 import Restaurante.fachada.Fachada;
 import Restaurante.fachada.interfaceFachada.IFachada;
 import Restaurante.main.Main;

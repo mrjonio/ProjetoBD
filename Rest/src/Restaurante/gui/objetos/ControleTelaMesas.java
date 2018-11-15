@@ -1,7 +1,6 @@
 package Restaurante.gui.objetos;
 
-import Restaurante.entidade.concretos.Mesa;
-import Restaurante.excessoes.LetraNoLugarDeNumeroErro;
+import Restaurante.camadasDeNegocio.entidade.concretos.Mesa;
 import Restaurante.excessoes.ObjetosInsuficientesErro;
 import Restaurante.excessoes.RepositorioVazioErro;
 import Restaurante.fachada.Fachada;

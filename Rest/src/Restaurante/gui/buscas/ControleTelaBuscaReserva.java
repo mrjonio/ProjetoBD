@@ -1,9 +1,9 @@
 package Restaurante.gui.buscas;
 
-import Restaurante.entidade.abstrato.Reserva;
-import Restaurante.entidade.pessoas.Pessoa;
-import Restaurante.entidade.pessoas.cliente.Cliente;
-import Restaurante.excessoes.ObjetoNaoExisteErro;
+import Restaurante.camadasDeNegocio.entidade.abstrato.Reserva;
+import Restaurante.camadasDeNegocio.entidade.pessoas.Pessoa;
+import Restaurante.camadasDeNegocio.entidade.pessoas.cliente.Cliente;
+import Restaurante.excessoes.ObjetoExistencia.ObjetoNaoExisteErro;
 import Restaurante.fachada.Fachada;
 import Restaurante.fachada.interfaceFachada.IFachada;
 import Restaurante.main.Main;

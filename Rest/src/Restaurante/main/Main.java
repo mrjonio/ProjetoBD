@@ -1,8 +1,7 @@
 package Restaurante.main;
 
-import Restaurante.entidade.pessoas.Pessoa;
-import Restaurante.entidade.pessoas.funcionario.Gerente;
-import Restaurante.excessoes.ObjetoJaExisteErro;
+import Restaurante.camadasDeNegocio.entidade.pessoas.Pessoa;
+import Restaurante.excessoes.ObjetoExistencia.ObjetoJaExisteErro;
 import Restaurante.fachada.Fachada;
 import Restaurante.fachada.interfaceFachada.IFachada;
 import javafx.application.Application;

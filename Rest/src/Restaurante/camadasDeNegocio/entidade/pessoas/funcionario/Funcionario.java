@@ -1,21 +1,19 @@
-package Restaurante.entidade.pessoas.funcionario;
+package Restaurante.camadasDeNegocio.entidade.pessoas.funcionario;
 
-import Restaurante.excessoes.CampoVazioErro;
-import Restaurante.excessoes.ParametroInvalidoErro;
-import Restaurante.excessoes.PessoaMenorDeIdadeErro;
+import Restaurante.excessoes.*;
+import Restaurante.excessoes.ParametroValidade.ParametroInvalidoErro;
 
 /**
  * Classe modelo para os objetos do tipo "funcionário"; seus atributos e seu construtor.
  */
-//Classe precisa ser revista, a funcao dos funcionarios vai ter um impacto maior no projeto
 
 public class Funcionario {
-    protected String nome;
-    protected String cpf;
-    protected int idade;
-    protected String sexo;
-    protected String funcao;
-    protected double salario; //isso sai
+    private String nome;
+    private String cpf;
+    private int idade;
+    private String sexo;
+    private String funcao;
+    private double salario;
 
     public Funcionario(String nome, String cpf, int idade, String sexo, String funcao, double salario) {
         this.nome = nome;
@@ -104,16 +102,5 @@ public class Funcionario {
         return pessoaValida;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Funcionario)) return false;
-        if (!super.equals(o)) return false;
-
-        Funcionario that = (Funcionario) o;
-
-        if (Double.compare(that.getSalario(), getSalario()) != 0) return false;
-        return getFuncao().equals(that.getFuncao());
-    }
 
 }

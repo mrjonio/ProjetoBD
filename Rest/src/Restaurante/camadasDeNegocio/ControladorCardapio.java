@@ -1,11 +1,9 @@
 package Restaurante.camadasDeNegocio;
 
 import Restaurante.camadasDeNegocio.interfaces.IControladorCadapio;
-import Restaurante.entidade.concretos.Alimenticio.PratoCardapio;
-import Restaurante.excessoes.ObjetoJaExisteErro;
-import Restaurante.excessoes.ObjetoNaoExisteErro;
-import Restaurante.excessoes.ObjetosInsuficientesErro;
-import Restaurante.excessoes.RepositorioVazioErro;
+import Restaurante.camadasDeNegocio.entidade.concretos.Alimenticio.PratoCardapio;
+import Restaurante.excessoes.ObjetoExistencia.ObjetoJaExisteErro;
+import Restaurante.excessoes.ObjetoExistencia.ObjetoNaoExisteErro;
 import Restaurante.repositorios.RepositorioCardapio;
 import Restaurante.repositorios.interfaces.IRepositorioCardapio;
 
@@ -84,6 +82,16 @@ public class ControladorCardapio implements IControladorCadapio {
 		return prato;
 	}
 
+	@Override
+	public PratoCardapio pegarUmPrato(int indexDoPrato) throws ObjetoNaoExisteErro {
+		PratoCardapio pratoPego = this.repositorioCardapio.pegarPrato(indexDoPrato);
+		if (pratoPego != null){
+			return pratoPego;
+		} else{
+			throw new ObjetoNaoExisteErro("Prato buscado");
+		}
+	}
+
 	/**
 	 * Método para alterar o atributo de um prato. Busca o prato desejado, seleciona o índice da informação que será
 	 * alterada e a altera.
@@ -98,29 +106,7 @@ public class ControladorCardapio implements IControladorCadapio {
 		this.repositorioCardapio.alterarAtributoPrato(novoPrato, index);
 	}
 
-	/**
-	 * Método para a criação do vetor de pratos. Verifica se o repositório de cardápio está vazio.
-	 * Caso o repositório não esteja vazio, então o vetor é gerado, caso contrário, o vetor não será gerado, e uma
-	 * exceção será lançada. Se o tamanho do vetor for menor que 3, então outra exceção será lançada. Ambas as exceções
-	 * vão exibir uma mensagem ao usuário, informando o que houve de errado.
-	 * @return Vetor gerado (vetor de pratos).
-	 * @throws ObjetosInsuficientesErro Objetos (informações do prato) insuficientes.
-	 * @throws RepositorioVazioErro Repositório vazio.
-	 */
-	@Override
-	public PratoCardapio[] fazerVetorDePratos() throws ObjetosInsuficientesErro, RepositorioVazioErro {
-		boolean repositorioVazio = this.repositorioCardapio.verificarSeRepositorioEstaVazio();
-		PratoCardapio[] vetorDePratos;
-		if (!repositorioVazio){
-			vetorDePratos = this.repositorioCardapio.criarVetorPratos();
-			if (vetorDePratos.length < 3){
-				throw new ObjetosInsuficientesErro("Pratos");
-			}
-		} else {
-			throw new RepositorioVazioErro("Repositorio Pratos");
-		}
-		return vetorDePratos;
-	}
+
 }
 
 	

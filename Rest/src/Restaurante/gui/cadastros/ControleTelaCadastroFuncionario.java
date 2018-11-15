@@ -1,9 +1,10 @@
 package Restaurante.gui.cadastros;
 
-import Restaurante.entidade.pessoas.Pessoa;
-import Restaurante.entidade.pessoas.funcionario.Funcionario;
-import Restaurante.entidade.pessoas.funcionario.Gerente;
+import Restaurante.camadasDeNegocio.entidade.pessoas.Pessoa;
+import Restaurante.camadasDeNegocio.entidade.pessoas.funcionario.Funcionario;
 import Restaurante.excessoes.*;
+import Restaurante.excessoes.ObjetoExistencia.ObjetoJaExisteErro;
+import Restaurante.excessoes.ParametroValidade.ParametroInvalidoErro;
 import Restaurante.fachada.Fachada;
 import Restaurante.fachada.interfaceFachada.IFachada;
 import Restaurante.main.Main;

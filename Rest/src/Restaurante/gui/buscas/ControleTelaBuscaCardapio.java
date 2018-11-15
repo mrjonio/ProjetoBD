@@ -1,7 +1,7 @@
 package Restaurante.gui.buscas;
 
-import Restaurante.entidade.concretos.Alimenticio.PratoCardapio;
-import Restaurante.excessoes.ObjetoNaoExisteErro;
+import Restaurante.camadasDeNegocio.entidade.concretos.Alimenticio.PratoCardapio;
+import Restaurante.excessoes.ObjetoExistencia.ObjetoNaoExisteErro;
 import Restaurante.fachada.Fachada;
 import Restaurante.fachada.interfaceFachada.IFachada;
 import Restaurante.main.Main;

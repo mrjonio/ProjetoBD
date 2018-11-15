@@ -1,9 +1,9 @@
 package Restaurante.camadasDeNegocio;
 
 import Restaurante.camadasDeNegocio.interfaces.IControladorFuncionario;
-import Restaurante.entidade.pessoas.funcionario.Funcionario;
-import Restaurante.excessoes.ObjetoJaExisteErro;
-import Restaurante.excessoes.ObjetoNaoExisteErro;
+import Restaurante.camadasDeNegocio.entidade.pessoas.funcionario.Funcionario;
+import Restaurante.excessoes.ObjetoExistencia.ObjetoJaExisteErro;
+import Restaurante.excessoes.ObjetoExistencia.ObjetoNaoExisteErro;
 import Restaurante.repositorios.RepositorioFuncionario;
 import Restaurante.repositorios.interfaces.IRepositorioFuncionario;
 

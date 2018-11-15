@@ -1,6 +1,6 @@
 package Restaurante.repositorios;
 
-import Restaurante.entidade.concretos.Mesa;
+import Restaurante.camadasDeNegocio.entidade.concretos.Mesa;
 import Restaurante.repositorios.interfaces.IRepositorioMesas;
 
 //Mesas não podem ser deletadas, apenas criadas (max 101 mesas)
@@ -49,6 +49,11 @@ public class RepositorioMesas implements IRepositorioMesas{
     public void removerMesas(Mesa mesaQueSeraRemovida) {
         this.mesas.remove(mesaQueSeraRemovida);
         }
+
+    @Override
+    public void alterarAtributosMesa(Mesa novosAtributos, int index) {
+        this.mesas.set(index, novosAtributos);
+    }
 
     /**]
      * Método para verificar se o repositório de mesas está vazio.

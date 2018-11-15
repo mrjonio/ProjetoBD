@@ -1,8 +1,8 @@
 package Restaurante.gui.cadastros;
 
-import Restaurante.entidade.concretos.Alimenticio.PratoCardapio;
-import Restaurante.excessoes.ObjetoJaExisteErro;
-import Restaurante.excessoes.ParametroInvalidoErro;
+import Restaurante.camadasDeNegocio.entidade.concretos.Alimenticio.PratoCardapio;
+import Restaurante.excessoes.ObjetoExistencia.ObjetoJaExisteErro;
+import Restaurante.excessoes.ParametroValidade.ParametroInvalidoErro;
 import Restaurante.fachada.Fachada;
 import Restaurante.fachada.interfaceFachada.IFachada;
 import Restaurante.main.Main;

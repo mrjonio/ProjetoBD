@@ -1,6 +1,9 @@
 package Restaurante.camadasDeNegocio.interfaces;
 
-import Restaurante.entidade.concretos.Mesa;
+import Restaurante.camadasDeNegocio.entidade.concretos.Mesa;
+import Restaurante.excessoes.ObjetoExistencia.ObjetoEmUsoErro;
+import Restaurante.excessoes.ObjetoExistencia.ObjetoJaExisteErro;
+import Restaurante.excessoes.ObjetoExistencia.ObjetoNaoExisteErro;
 import Restaurante.excessoes.ObjetosInsuficientesErro;
 import Restaurante.excessoes.RepositorioVazioErro;
 
@@ -10,8 +13,9 @@ import Restaurante.excessoes.RepositorioVazioErro;
 
 public interface IControladorMesa {
 
-    void removerMesas(Mesa mesaQueSeraRemovida) throws RepositorioVazioErro;
-    Mesa pegarMesa(int index) throws RepositorioVazioErro, ObjetosInsuficientesErro;
-    void adicionarMesas(Mesa mesa);
+    void removerMesas(Mesa mesaQueSeraRemovida) throws RepositorioVazioErro, ObjetosInsuficientesErro, ObjetoEmUsoErro;
+    Mesa pegarMesa(int numeroDaMesa) throws RepositorioVazioErro, ObjetosInsuficientesErro;
+    void adicionarMesas(Mesa mesa) throws ObjetoJaExisteErro;
+    void editarMesa(Mesa novosAtributos, Mesa mesaAntiga) throws ObjetoNaoExisteErro;
     int qtdMesas();
 }

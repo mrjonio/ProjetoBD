@@ -1,6 +1,6 @@
 package Restaurante.repositorios.interfaces;
 
-import Restaurante.entidade.abstrato.Reserva;
+import Restaurante.camadasDeNegocio.entidade.abstrato.Reserva;
 
 /**
  *  Abaixo temos a interface a ser implementada no repositório de reservas, com suas assinaturas de métodos.
@@ -13,5 +13,4 @@ public interface IRepositorioReserva {
     int pegarIdex(Reserva reservaQueSeDesejaSaberIdex);
     Reserva pegarReserva(Reserva reserva) ;
     void mudarUmaReserva(Reserva novosDados, int idexDaReserva);
-    boolean verificarSeRepositorioEstaVazio();
 }

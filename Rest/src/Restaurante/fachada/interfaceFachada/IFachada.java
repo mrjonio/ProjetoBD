@@ -1,13 +1,16 @@
 package Restaurante.fachada.interfaceFachada;
 
-import Restaurante.entidade.abstrato.Pedido;
-import Restaurante.entidade.abstrato.Reserva;
-import Restaurante.entidade.concretos.Mesa;
-import Restaurante.entidade.concretos.Alimenticio.PratoCardapio;
-import Restaurante.entidade.pessoas.funcionario.Funcionario;
+import Restaurante.camadasDeNegocio.entidade.abstrato.Pedido;
+import Restaurante.camadasDeNegocio.entidade.abstrato.Reserva;
+import Restaurante.camadasDeNegocio.entidade.concretos.Mesa;
+import Restaurante.camadasDeNegocio.entidade.concretos.Alimenticio.PratoCardapio;
+import Restaurante.camadasDeNegocio.entidade.pessoas.funcionario.Funcionario;
 import Restaurante.excessoes.*;
+import Restaurante.excessoes.ObjetoExistencia.ObjetoEmUsoErro;
+import Restaurante.excessoes.ObjetoExistencia.ObjetoJaExisteErro;
+import Restaurante.excessoes.ObjetoExistencia.ObjetoNaoExisteErro;
+
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 /**
  * Abaixo temos a interface a ser implementada na fachada; contendo todas as assinaturas de método necessárias e suas exceções.

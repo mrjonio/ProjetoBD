@@ -1,4 +1,4 @@
-package Restaurante.entidade.abstrato;
+package Restaurante.camadasDeNegocio.entidade.abstrato;
 
 import java.time.LocalDateTime;
 
@@ -28,17 +28,10 @@ public class Reserva {
         return dataHora;
     }
 
-    public void setDataHora(LocalDateTime data) {
-        this.dataHora = data;
-    } //Reformular
-
     public String getClienteQueReservou() {
         return cpfClienteQueReservou;
     }
 
-    public void setCpfClienteQueReservou(String clienteQueReservou) {
-        this.cpfClienteQueReservou = clienteQueReservou;
-    }
 
 
 }

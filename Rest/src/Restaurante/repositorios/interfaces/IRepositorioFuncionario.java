@@ -1,6 +1,6 @@
 package Restaurante.repositorios.interfaces;
 
-import Restaurante.entidade.pessoas.funcionario.Funcionario;
+import Restaurante.camadasDeNegocio.entidade.pessoas.funcionario.Funcionario;
 
 /**
  *  Abaixo temos a interface a ser implementada no repositório de funcionários, com suas assinaturas de métodos.

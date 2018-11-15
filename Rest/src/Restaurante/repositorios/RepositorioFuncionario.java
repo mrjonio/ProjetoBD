@@ -1,6 +1,6 @@
 package Restaurante.repositorios;
 
-import Restaurante.entidade.pessoas.funcionario.Funcionario;
+import Restaurante.camadasDeNegocio.entidade.pessoas.funcionario.Funcionario;
 import Restaurante.repositorios.interfaces.IRepositorioFuncionario;
 
 

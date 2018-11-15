@@ -1,6 +1,6 @@
 package Restaurante.gui.remocao;
 
-import Restaurante.excessoes.ObjetoNaoExisteErro;
+import Restaurante.excessoes.ObjetoExistencia.ObjetoNaoExisteErro;
 import Restaurante.fachada.Fachada;
 import Restaurante.fachada.interfaceFachada.IFachada;
 import Restaurante.main.Main;

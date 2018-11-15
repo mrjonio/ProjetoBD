@@ -2,15 +2,13 @@ package Restaurante.camadasDeNegocio;
 
 
 import Restaurante.camadasDeNegocio.interfaces.IControladorPedidos;
-import Restaurante.entidade.abstrato.Pedido;
+import Restaurante.camadasDeNegocio.entidade.abstrato.Pedido;
 import Restaurante.excessoes.NaoOuveLucroErro;
 import Restaurante.excessoes.ObjetosInsuficientesErro;
 import Restaurante.repositorios.RepositorioPedidos;
 import Restaurante.repositorios.interfaces.IRepositorioPedidos;
+import java.time.LocalDateTime;
 
-import java.time.LocalDate;
-
-//Refazer
 /**
  * Classe ControladorPedidos, seus atributos e construtor.
  * Implementação da interface IControladorPedidos.
@@ -41,16 +39,11 @@ public class ControladorPedidos implements IControladorPedidos {
      * caso contrário, a exceção é lançada e uma mensagem é exibida ao usuário, informando o que houve de errado.
      * @param dataInicial Data inicial.
      * @param dataFinal Data final.
-     * @throws ObjetosInsuficientesErro Objetos (pedidos) insuficientes.
      */
     @Override
-    public void removerPedidosDeUmPeriodoDeTempo(LocalDate dataInicial, LocalDate dataFinal) throws ObjetosInsuficientesErro {
-        boolean existePeloMenosUmPedidoParaSerRemovido = this.repositorioPedidos.buscarPeloMenosUmPedido(dataInicial, dataFinal);
-        if (existePeloMenosUmPedidoParaSerRemovido) {
+    public void removerPedidosDeUmPeriodoDeTempo(LocalDateTime dataInicial, LocalDateTime dataFinal) {
             this.repositorioPedidos.deletarPedidos(dataInicial, dataFinal);
-        } else {
-            throw new ObjetosInsuficientesErro("Pedidos");
-        }
+
     }
 
     /**
@@ -64,21 +57,14 @@ public class ControladorPedidos implements IControladorPedidos {
      * @throws ObjetosInsuficientesErro Não houve pedidos para serem calculados em determinado período de tempo.
      */
     @Override
-    public double calcularLucroDosPedidos(LocalDate dataInicial, LocalDate dataFinal) throws NaoOuveLucroErro, ObjetosInsuficientesErro {
-        boolean existePeloMenosUmPratoParaCalcular = this.repositorioPedidos.buscarPeloMenosUmPedido(dataInicial, dataFinal);
+    public double calcularLucroDosPedidos(LocalDateTime dataInicial, LocalDateTime dataFinal) throws NaoOuveLucroErro, ObjetosInsuficientesErro {
         double lucroDosPratos;
-        if (existePeloMenosUmPratoParaCalcular) {
-            lucroDosPratos = this.repositorioPedidos.calcularLucro(dataInicial, dataFinal);
-            if (lucroDosPratos <= 0) {
-                throw new NaoOuveLucroErro();
-            }
-        } else {
-            throw new ObjetosInsuficientesErro("Pedidos");
+        lucroDosPratos = this.repositorioPedidos.calcularLucro(dataInicial, dataFinal);
+        if (lucroDosPratos <= 0) {
+            throw new NaoOuveLucroErro();
         }
         return lucroDosPratos;
     }
-
-
 
     /**
      * Método para armazenar um pedido.

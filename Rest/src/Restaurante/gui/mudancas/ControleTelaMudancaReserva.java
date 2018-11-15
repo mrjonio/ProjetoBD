@@ -1,9 +1,11 @@
 package Restaurante.gui.mudancas;
 
-import Restaurante.entidade.abstrato.Reserva;
-import Restaurante.entidade.concretos.Mesa;
-import Restaurante.entidade.pessoas.Pessoa;
+import Restaurante.camadasDeNegocio.entidade.abstrato.Reserva;
+import Restaurante.camadasDeNegocio.entidade.concretos.Mesa;
+import Restaurante.camadasDeNegocio.entidade.pessoas.Pessoa;
 import Restaurante.excessoes.*;
+import Restaurante.excessoes.ObjetoExistencia.ObjetoJaExisteErro;
+import Restaurante.excessoes.ObjetoExistencia.ObjetoNaoExisteErro;
 import Restaurante.fachada.Fachada;
 import Restaurante.fachada.interfaceFachada.IFachada;
 import Restaurante.main.Main;

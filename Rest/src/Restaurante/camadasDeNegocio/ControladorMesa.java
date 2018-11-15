@@ -1,13 +1,15 @@
 package Restaurante.camadasDeNegocio;
 
 import Restaurante.camadasDeNegocio.interfaces.IControladorMesa;
-import Restaurante.entidade.concretos.Mesa;
+import Restaurante.camadasDeNegocio.entidade.concretos.Mesa;
+import Restaurante.excessoes.ObjetoExistencia.ObjetoEmUsoErro;
+import Restaurante.excessoes.ObjetoExistencia.ObjetoJaExisteErro;
+import Restaurante.excessoes.ObjetoExistencia.ObjetoNaoExisteErro;
 import Restaurante.excessoes.ObjetosInsuficientesErro;
 import Restaurante.excessoes.RepositorioVazioErro;
 import Restaurante.repositorios.RepositorioMesas;
 import Restaurante.repositorios.interfaces.IRepositorioMesas;
 
-//Refazer
 /**
  * Classe ControladorMesa, seus atributos e construtor.
  * Implementação da interface IControladorMesa.
@@ -37,8 +39,23 @@ public class ControladorMesa implements IControladorMesa {
      * @param mesa Mesa que será adicionada.
      */
     @Override
-    public void adicionarMesas(Mesa mesa){
-        this.repositorioMesas.adicionarMesas(mesa);
+    public void adicionarMesas(Mesa mesa) throws ObjetoJaExisteErro {
+        boolean existe = this.repositorioMesas.indiceContemUmaMesa(mesa.getNumero());
+        if(!existe){
+            this.repositorioMesas.adicionarMesas(mesa);
+        } else{
+            throw new ObjetoJaExisteErro("Mesa a ser adicionada");
+        }
+    }
+
+    @Override
+    public void editarMesa(Mesa novosAtributos, Mesa mesaAntiga) throws ObjetoNaoExisteErro {
+        boolean existe = this.repositorioMesas.indiceContemUmaMesa(mesaAntiga.getNumero());
+        if (existe){
+            this.repositorioMesas.alterarAtributosMesa(novosAtributos, mesaAntiga.getNumero());
+        } else{
+            throw new ObjetoNaoExisteErro("Mesa a ser editada");
+        }
     }
 
     /**
@@ -56,8 +73,13 @@ public class ControladorMesa implements IControladorMesa {
      * @throws RepositorioVazioErro Repositório de mesas vazio.
      */
     @Override
-    public void removerMesas(Mesa mesaQueSeraRemovida) throws RepositorioVazioErro {
-        this.repositorioMesas.removerMesas(mesaQueSeraRemovida);
+    public void removerMesas(Mesa mesaQueSeraRemovida) throws RepositorioVazioErro, ObjetosInsuficientesErro, ObjetoEmUsoErro {
+        Mesa mesaBuscada = pegarMesa(mesaQueSeraRemovida.getNumero());
+        if(mesaBuscada.isDisponibilidade().equals("Vazia")){
+            this.repositorioMesas.removerMesas(mesaBuscada);
+        } else {
+            throw new ObjetoEmUsoErro("Mesa a ser removida");
+        }
     }
 
     /**]

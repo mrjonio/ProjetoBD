@@ -1,7 +1,7 @@
 package Restaurante.repositorios;
 
 import java.util.ArrayList;
-import Restaurante.entidade.concretos.Alimenticio.PratoCardapio;
+import Restaurante.camadasDeNegocio.entidade.concretos.Alimenticio.PratoCardapio;
 import Restaurante.repositorios.interfaces.IRepositorioCardapio;
 
 /**
@@ -66,19 +66,6 @@ public class RepositorioCardapio implements IRepositorioCardapio{
     }
 
     /**
-     * Método para a criação do vetor de pratos.
-     * @return Retorna o vetor criado.
-     */
-    @Override
-    public PratoCardapio[] criarVetorPratos() {
-        PratoCardapio[] vetorGerado = new PratoCardapio[this.pratos.size()];
-        for (int i = 0; i < vetorGerado.length; i++){
-            vetorGerado[i] = this.pratos.get(i);
-        }
-        return vetorGerado;
-    }
-
-    /**
      * Método para pegar um prato.
      * Se o prato solicitado tiver o mesmo nome de um prato no cardápio,
      * então esse prato será pego.
@@ -96,6 +83,15 @@ public class RepositorioCardapio implements IRepositorioCardapio{
         }
                return pratoPego;
         }
+
+    @Override
+    public PratoCardapio pegarPrato(int numeroPrato) {
+        if (numeroPrato > this.pratos.size()) {
+            return null;
+        } else {
+            return this.pratos.get(numeroPrato);
+        }
+    }
 
 
     /**

@@ -1,10 +1,8 @@
 package Restaurante.camadasDeNegocio.interfaces;
 
-import Restaurante.entidade.pessoas.funcionario.Funcionario;
-import Restaurante.excessoes.ObjetoJaExisteErro;
-import Restaurante.excessoes.ObjetoNaoExisteErro;
-import Restaurante.excessoes.ObjetosInsuficientesErro;
-import Restaurante.excessoes.RepositorioVazioErro;
+import Restaurante.camadasDeNegocio.entidade.pessoas.funcionario.Funcionario;
+import Restaurante.excessoes.ObjetoExistencia.ObjetoJaExisteErro;
+import Restaurante.excessoes.ObjetoExistencia.ObjetoNaoExisteErro;
 
 /**
  * Abaixo temos a interface a ser implementada na camada "funcionário", com suas assinaturas de métodos e exceções.

@@ -2,7 +2,7 @@ package Restaurante.repositorios;
 
 
 import java.util.ArrayList;
-import Restaurante.entidade.abstrato.Reserva;
+import Restaurante.camadasDeNegocio.entidade.abstrato.Reserva;
 import Restaurante.repositorios.interfaces.IRepositorioReserva;
 
 /**
@@ -98,14 +98,6 @@ public class RepositorioReserva implements IRepositorioReserva{
      }
 
 
-    /**
-     * Método para verificar se o repositório de reserva está vazio.
-     * @return Retorna se está vazio ou não.
-     */
-     @Override
-    public boolean verificarSeRepositorioEstaVazio(){
-         return this.reserva.isEmpty();
-     }
 
 
 

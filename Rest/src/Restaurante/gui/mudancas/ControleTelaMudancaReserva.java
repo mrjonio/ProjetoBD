@@ -6,8 +6,9 @@ import Restaurante.camadasDeNegocio.entidade.pessoas.Pessoa;
 import Restaurante.excessoes.*;
 import Restaurante.excessoes.ObjetoExistencia.ObjetoJaExisteErro;
 import Restaurante.excessoes.ObjetoExistencia.ObjetoNaoExisteErro;
+import Restaurante.excessoes.ObjetoExistencia.ObjetosInsuficientesErro;
 import Restaurante.fachada.Fachada;
-import Restaurante.fachada.interfaceFachada.IFachada;
+import Restaurante.fachada.interfaceFachada.IFachadaGerente;
 import Restaurante.main.Main;
 import Restaurante.main.MetodosOutros;
 import javafx.event.ActionEvent;
@@ -25,7 +26,7 @@ import java.time.LocalDateTime;
 import java.util.ResourceBundle;
 
 public class ControleTelaMudancaReserva implements Initializable {
-    private IFachada fachada;
+    private IFachadaGerente fachada;
 
     public ControleTelaMudancaReserva(){
         this.fachada = Fachada.getInstance();

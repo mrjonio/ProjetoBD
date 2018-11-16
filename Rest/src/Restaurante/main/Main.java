@@ -3,7 +3,7 @@ package Restaurante.main;
 import Restaurante.camadasDeNegocio.entidade.pessoas.Pessoa;
 import Restaurante.excessoes.ObjetoExistencia.ObjetoJaExisteErro;
 import Restaurante.fachada.Fachada;
-import Restaurante.fachada.interfaceFachada.IFachada;
+import Restaurante.fachada.interfaceFachada.IFachadaGerente;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -39,7 +39,7 @@ public class Main extends Application {
 
 
     public static void main(String[] args)  {
-        IFachada fachada = Fachada.getInstance();
+        IFachadaGerente fachada = Fachada.getInstance();
         Pessoa gerente = new Gerente("fasfasf", "111.111.111-11", 19, "Masculino", 1000, "alo");
         try {
             fachada.cadastrarUmFuncionario(gerente);

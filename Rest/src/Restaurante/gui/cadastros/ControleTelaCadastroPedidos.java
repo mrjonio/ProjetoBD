@@ -5,7 +5,7 @@ import Restaurante.camadasDeNegocio.entidade.concretos.Alimenticio.PratoCardapio
 import Restaurante.camadasDeNegocio.entidade.pessoas.Pessoa;
 import Restaurante.excessoes.ObjetoExistencia.ObjetoNaoExisteErro;
 import Restaurante.fachada.Fachada;
-import Restaurante.fachada.interfaceFachada.IFachada;
+import Restaurante.fachada.interfaceFachada.IFachadaGerente;
 import Restaurante.main.Main;
 import Restaurante.main.MetodosOutros;
 import javafx.event.ActionEvent;
@@ -22,7 +22,7 @@ import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 public class ControleTelaCadastroPedidos implements Initializable {
-    private IFachada fachada;
+    private IFachadaGerente fachada;
 
     public ControleTelaCadastroPedidos(){
         fachada = Fachada.getInstance();

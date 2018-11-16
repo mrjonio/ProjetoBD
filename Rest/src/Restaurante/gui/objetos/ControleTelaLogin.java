@@ -3,7 +3,8 @@ package Restaurante.gui.objetos;
 
 import Restaurante.camadasDeNegocio.entidade.pessoas.funcionario.Funcionario;
 import Restaurante.excessoes.ObjetoExistencia.ObjetoNaoExisteErro;
-import Restaurante.fachada.interfaceFachada.IFachada;
+import Restaurante.fachada.Fachada;
+import Restaurante.fachada.interfaceFachada.IFachadaGerente;
 import Restaurante.main.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,11 +17,11 @@ import javafx.scene.layout.Pane;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import Restaurante.fachada.Fachada;
+
 import javafx.stage.Stage;
 
 public class ControleTelaLogin implements Initializable{
-    private IFachada fachada;
+    private IFachadaGerente fachada;
 
     public ControleTelaLogin(){
         this.fachada = Fachada.getInstance();

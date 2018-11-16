@@ -1,10 +1,10 @@
 package Restaurante.gui.objetos;
 
 import Restaurante.camadasDeNegocio.entidade.concretos.Mesa;
-import Restaurante.excessoes.ObjetosInsuficientesErro;
+import Restaurante.excessoes.ObjetoExistencia.ObjetosInsuficientesErro;
 import Restaurante.excessoes.RepositorioVazioErro;
 import Restaurante.fachada.Fachada;
-import Restaurante.fachada.interfaceFachada.IFachada;
+import Restaurante.fachada.interfaceFachada.IFachadaGerente;
 import Restaurante.main.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -20,17 +20,17 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ControleTelaMesas implements Initializable {
-    private IFachada fachada;
+    private IFachadaGerente fachada;
 
     public ControleTelaMesas(){
         this.fachada = Fachada.getInstance();
     }
 
     @FXML
-    private Button btSend1, btSend2, btVoltar, btVoltar2, btRemove, btCadastrar, btSair;
+    private Button btSend1, btSend2, btVoltar, btVoltar2, btRemove, btSair;
 
     @FXML
-    private Label lbCadastro, lbRemover, lbQtd, lbQtdMesa;
+    private Label lbRemover, lbQtd, lbQtdMesa;
 
     @FXML
     private TextField txQtd;
@@ -45,18 +45,14 @@ public class ControleTelaMesas implements Initializable {
 
 
 
-    private void mudarVisibilidades(boolean a, boolean b){}
-
     @FXML
     private void cadastrar(ActionEvent a){
-        btCadastrar.setVisible(false);
         btRemove.setVisible(false);
         btSair.setVisible(false);
         btVoltar.setVisible(false);
         btVoltar2.setVisible(true);
         btSend1.setVisible(true);
         txQtd.setVisible(true);
-        lbCadastro.setVisible(false);
         lbRemover.setVisible(false);
         lbQtd.setVisible(true);
         lbQtdMesa.setVisible(false);
@@ -65,14 +61,12 @@ public class ControleTelaMesas implements Initializable {
 
     @FXML
     private void remover(ActionEvent a){
-        btCadastrar.setVisible(false);
         btRemove.setVisible(false);
         btSair.setVisible(false);
         btVoltar.setVisible(false);
         btVoltar2.setVisible(true);
         btSend2.setVisible(true);
         txQtd.setVisible(true);
-        lbCadastro.setVisible(false);
         lbRemover.setVisible(false);
         lbQtd.setVisible(true);
         lbQtdMesa.setVisible(false);
@@ -82,13 +76,11 @@ public class ControleTelaMesas implements Initializable {
 
     @FXML
     private void voltarTelaMesa(ActionEvent a){
-        btCadastrar.setVisible(true);
         btRemove.setVisible(true);
         btSair.setVisible(true);
         btVoltar.setVisible(false);
         btVoltar2.setVisible(false);
         txQtd.setVisible(false);
-        lbCadastro.setVisible(true);
         lbRemover.setVisible(true);
         lbQtd.setVisible(false);
         lbQtdMesa.setVisible(true);
@@ -106,38 +98,12 @@ public class ControleTelaMesas implements Initializable {
 
     @FXML
     private void acaoBotaoSend2(ActionEvent event) {
-        try{
-        int qtd = Integer.parseInt(this.txQtd.getText());
-        if (this.fachada.qtdMesas() > 0) {
-            for (int i = 0; i < qtd; i++) {
-                try {
-                    Mesa mesaQueSeraDeletada = this.fachada.buscarUmaMesa(0);
-                    this.fachada.deletarMesasDoSistema(mesaQueSeraDeletada);
-                } catch (RepositorioVazioErro repositorioVazioErro) {
-                } catch (ObjetosInsuficientesErro objetosInsuficientesErro) {
-                }
-            }
-            Main.chamarJanela("../gui/outros/TelaRemovidoComSucesso.fxml", 400, 150);
-        } else {
-            Main.chamarJanela("../gui/erros/TelaRepositorioVazioErro.fxml", 400, 150);
-        }
-        } catch (RuntimeException erro){
-            Main.chamarJanela("../gui/erros/TelaLetraNoLugarDeNumeroErro.fxml", 400, 150);
-        }
+        //Refazer
     }
 
     @FXML
     private void acaoBotaoSend1(ActionEvent event) {
-        try {
-            int qtd = Integer.parseInt(this.txQtd.getText());
-            for (int i = 0; i < qtd; i++) {
-                Mesa mesa = new Mesa();
-                this.fachada.adicionarUmaMesa(mesa);
-            }
-            Main.chamarJanela("../gui/outros/TelaCadastradoComSucesso.fxml", 400, 150);
-        } catch (RuntimeException erro){
-            Main.chamarJanela("../gui/erros/TelaLetraNoLugarDeNumeroErro.fxml", 400, 150);
-        }
+        //Refazer
     }
 
 

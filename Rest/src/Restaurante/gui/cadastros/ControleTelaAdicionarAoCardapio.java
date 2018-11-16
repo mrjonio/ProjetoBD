@@ -4,7 +4,7 @@ import Restaurante.camadasDeNegocio.entidade.concretos.Alimenticio.PratoCardapio
 import Restaurante.excessoes.ObjetoExistencia.ObjetoJaExisteErro;
 import Restaurante.excessoes.ParametroValidade.ParametroInvalidoErro;
 import Restaurante.fachada.Fachada;
-import Restaurante.fachada.interfaceFachada.IFachada;
+import Restaurante.fachada.interfaceFachada.IFachadaGerente;
 import Restaurante.main.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -20,7 +20,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ControleTelaAdicionarAoCardapio implements Initializable{
-    private IFachada fachada;
+    private IFachadaGerente fachada;
 
     public ControleTelaAdicionarAoCardapio(){
         this.fachada = Fachada.getInstance();

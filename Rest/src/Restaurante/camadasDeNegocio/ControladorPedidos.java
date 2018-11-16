@@ -4,7 +4,7 @@ package Restaurante.camadasDeNegocio;
 import Restaurante.camadasDeNegocio.interfaces.IControladorPedidos;
 import Restaurante.camadasDeNegocio.entidade.abstrato.Pedido;
 import Restaurante.excessoes.NaoOuveLucroErro;
-import Restaurante.excessoes.ObjetosInsuficientesErro;
+import Restaurante.excessoes.ObjetoExistencia.ObjetosInsuficientesErro;
 import Restaurante.repositorios.RepositorioPedidos;
 import Restaurante.repositorios.interfaces.IRepositorioPedidos;
 import java.time.LocalDateTime;

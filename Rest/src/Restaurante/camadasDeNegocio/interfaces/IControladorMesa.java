@@ -4,7 +4,7 @@ import Restaurante.camadasDeNegocio.entidade.concretos.Mesa;
 import Restaurante.excessoes.ObjetoExistencia.ObjetoEmUsoErro;
 import Restaurante.excessoes.ObjetoExistencia.ObjetoJaExisteErro;
 import Restaurante.excessoes.ObjetoExistencia.ObjetoNaoExisteErro;
-import Restaurante.excessoes.ObjetosInsuficientesErro;
+import Restaurante.excessoes.ObjetoExistencia.ObjetosInsuficientesErro;
 import Restaurante.excessoes.RepositorioVazioErro;
 
 /**

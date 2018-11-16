@@ -2,7 +2,7 @@ package Restaurante.gui.remocao;
 
 import Restaurante.excessoes.ObjetoExistencia.ObjetoNaoExisteErro;
 import Restaurante.fachada.Fachada;
-import Restaurante.fachada.interfaceFachada.IFachada;
+import Restaurante.fachada.interfaceFachada.IFachadaGerente;
 import Restaurante.main.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -18,7 +18,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ControleTelaRemoverFuncionario implements Initializable {
-    private IFachada fachada;
+    private IFachadaGerente fachada;
 
     public ControleTelaRemoverFuncionario(){
         this.fachada = Fachada.getInstance();

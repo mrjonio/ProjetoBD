@@ -2,7 +2,7 @@ package Restaurante.camadasDeNegocio.interfaces;
 
 import Restaurante.camadasDeNegocio.entidade.abstrato.Pedido;
 import Restaurante.excessoes.NaoOuveLucroErro;
-import Restaurante.excessoes.ObjetosInsuficientesErro;
+import Restaurante.excessoes.ObjetoExistencia.ObjetosInsuficientesErro;
 import java.time.LocalDateTime;
 
 /**
@@ -12,7 +12,6 @@ import java.time.LocalDateTime;
 public interface IControladorPedidos {
     void removerPedidosDeUmPeriodoDeTempo(LocalDateTime dataInicial, LocalDateTime dataFinal) throws ObjetosInsuficientesErro;
     double calcularLucroDosPedidos(LocalDateTime dataInicial, LocalDateTime dataFinal) throws NaoOuveLucroErro, ObjetosInsuficientesErro;
-   //refazer int[] criarRankingPratosMaisVendidos(PratoCardapio[] vetorDePratos, LocalDate dataInicial, LocalDate dataFinal) throws ObjetosInsuficientesErro;
     void armazenarUmPedido(Pedido pedidoQueSeraArmazenado);
 
 }

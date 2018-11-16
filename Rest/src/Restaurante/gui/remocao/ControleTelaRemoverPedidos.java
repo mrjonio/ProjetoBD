@@ -1,8 +1,8 @@
 package Restaurante.gui.remocao;
 
-import Restaurante.excessoes.ObjetosInsuficientesErro;
+import Restaurante.excessoes.ObjetoExistencia.ObjetosInsuficientesErro;
 import Restaurante.fachada.Fachada;
-import Restaurante.fachada.interfaceFachada.IFachada;
+import Restaurante.fachada.interfaceFachada.IFachadaGerente;
 import Restaurante.main.Main;
 import Restaurante.main.MetodosOutros;
 import javafx.event.ActionEvent;
@@ -19,7 +19,7 @@ import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 public class ControleTelaRemoverPedidos implements Initializable {
-    private IFachada fachada;
+    private IFachadaGerente fachada;
 
     public ControleTelaRemoverPedidos(){
         fachada = Fachada.getInstance();

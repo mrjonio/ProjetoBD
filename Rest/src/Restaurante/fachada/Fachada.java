@@ -1,6 +1,7 @@
 package Restaurante.fachada;
 
 import Restaurante.camadasDeNegocio.*;
+import Restaurante.camadasDeNegocio.entidade.concretos.Alimenticio.Ingrediente;
 import Restaurante.camadasDeNegocio.interfaces.*;
 import Restaurante.camadasDeNegocio.entidade.abstrato.Pedido;
 import Restaurante.camadasDeNegocio.entidade.abstrato.Reserva;
@@ -10,21 +11,27 @@ import Restaurante.excessoes.*;
 import Restaurante.excessoes.ObjetoExistencia.ObjetoEmUsoErro;
 import Restaurante.excessoes.ObjetoExistencia.ObjetoJaExisteErro;
 import Restaurante.excessoes.ObjetoExistencia.ObjetoNaoExisteErro;
-import Restaurante.fachada.interfaceFachada.IFachada;
+import Restaurante.excessoes.ObjetoExistencia.ObjetosInsuficientesErro;
+import Restaurante.fachada.interfaceFachada.IFachadaAtendente;
+import Restaurante.fachada.interfaceFachada.IFachadaCozinheiro;
+import Restaurante.fachada.interfaceFachada.IFachadaGerente;
 import Restaurante.camadasDeNegocio.entidade.pessoas.funcionario.Funcionario;
-import java.time.LocalDate;
+import Restaurante.fachada.interfaceFachada.IFachadaMesa;
+
+import java.time.LocalDateTime;
 
 /**
  * Abaixo temos a classe Fachada, seus atributos e seu construtor.
- * Implementação da interface IFachada.
+ * Implementação da interface IFachadaGerente.
  */
-public class Fachada implements IFachada{
+public class Fachada implements IFachadaGerente, IFachadaCozinheiro, IFachadaAtendente, IFachadaMesa {
     private IControladorPedidos camadaPedidos;
     private IControladorMesa camadaMesa;
     private IControladorReservas camadaReservas;
     private IControladorFuncionario camadaFuncionario;
     private IControladorCadapio camadaCadapio;
-    private static IFachada instancia;
+    private IControladorIngredientes camadaIngrediente;
+    private static Fachada instancia;
 
     private Fachada() {
         this.camadaPedidos = ControladorPedidos.getInstance();
@@ -32,14 +39,21 @@ public class Fachada implements IFachada{
         this.camadaReservas = ControladorReservas.getInstance();
         this.camadaFuncionario = ControladorFuncionario.getInstance();
         this.camadaCadapio = ControladorCardapio.getInstance();
+        this.camadaIngrediente = ControladorIngredientes.getInstance();
     }
 
 
-    public static IFachada getInstance(){
+    public static Fachada getInstance(){
         if (instancia == null){
             instancia = new Fachada();
         }
         return instancia;
+    }
+
+
+    @Override
+    public int qtdMesas() {
+        return this.camadaMesa.qtdMesas();
     }
 
     /**
@@ -54,24 +68,20 @@ public class Fachada implements IFachada{
     }
 
     @Override
-    public void cadastrarUmaNovaReserva(Reserva reservaQueSeraFeita) throws ObjetoJaExisteErro, ClienteJaReservouErro {
-        this.camadaReservas.fazerNovaReserva(reservaQueSeraFeita);
-    }
-
-    @Override
-    public void adicionarUmPratoAoCardapio(PratoCardapio pratoQueSeraAdicionado) throws ObjetoJaExisteErro {
-        this.camadaCadapio.adicionarPratoAoCardapio(pratoQueSeraAdicionado);
-    }
-
-    @Override
-    public void adicionarUmaMesa(Mesa mesaQueSeraAdicionada){
+    public void adicionarUmaMesa(Mesa mesaQueSeraAdicionada) throws ObjetoJaExisteErro {
         this.camadaMesa.adicionarMesas(mesaQueSeraAdicionada);
     }
 
     @Override
-    public void armazenarUmPedido(Pedido pedidoQueSeraArmazenado){
-        this.camadaPedidos.armazenarUmPedido(pedidoQueSeraArmazenado);
+    public PratoCardapio pegarUmPrato(int indexDoPrato) throws ObjetoNaoExisteErro {
+        return this.camadaCadapio.pegarUmPrato(indexDoPrato);
     }
+
+    @Override
+    public void editarMesa(Mesa novosAtributos, Mesa mesaAntiga) throws ObjetoNaoExisteErro {
+        this.camadaMesa.editarMesa(novosAtributos, mesaAntiga);
+    }
+
 
     @Override
     public Funcionario buscarUmFuncionario(String cpfDoFuncionario) throws ObjetoNaoExisteErro {
@@ -93,24 +103,10 @@ public class Fachada implements IFachada{
         return this.camadaMesa.pegarMesa(index);
     }
 
-    @Override
-    public int qtdMesas() {
-        return this.camadaMesa.qtdMesas();
-    }
 
     @Override
     public void alterarAtributosDeUmFuncionario(Funcionario atributosSubstituidos, String cpfAtualDoFuncionario) throws ObjetoNaoExisteErro {
         this.camadaFuncionario.mudarAtributosDeUmFuncionario(cpfAtualDoFuncionario, atributosSubstituidos);
-    }
-
-    @Override
-    public void alterarAtributosDeUmPratoDoCardapio(PratoCardapio novosAtributo, String nomeAtualDoPrato) throws ObjetoNaoExisteErro {
-        this.camadaCadapio.alterarAtributoDeUmPrato(novosAtributo, nomeAtualDoPrato);
-    }
-
-    @Override
-    public void alterarAtributosDeUmaReserva(Reserva novosAtributos, Reserva reservaAntiga) throws ObjetoJaExisteErro, ObjetoNaoExisteErro {
-        this.camadaReservas.mudarReserva(novosAtributos, reservaAntiga);
     }
 
     @Override
@@ -119,12 +115,12 @@ public class Fachada implements IFachada{
     }
 
     @Override
-    public void deletarMesasDoSistema(Mesa mesaQueSeraDeletada) throws RepositorioVazioErro {
+    public void deletarMesasDoSistema(Mesa mesaQueSeraDeletada) throws RepositorioVazioErro, ObjetoEmUsoErro, ObjetosInsuficientesErro {
         this.camadaMesa.removerMesas(mesaQueSeraDeletada);
     }
 
     @Override
-    public void deletarPedidosDeUmaDeterminadaEpoca(LocalDate dataInicialRemocao, LocalDate dataFinalRemocao) throws ObjetosInsuficientesErro {
+    public void deletarPedidosDeUmaDeterminadaEpoca(LocalDateTime dataInicialRemocao, LocalDateTime dataFinalRemocao) throws ObjetosInsuficientesErro {
         this.camadaPedidos.removerPedidosDeUmPeriodoDeTempo(dataInicialRemocao, dataFinalRemocao);
     }
 
@@ -134,18 +130,7 @@ public class Fachada implements IFachada{
     }
 
     @Override
-    public void cancelarOuDeletarUmaReserva(Reserva reservaQueSeraDeletada) throws ObjetoNaoExisteErro, ObjetoEmUsoErro {
-        this.camadaReservas.deletarUmaReserva(reservaQueSeraDeletada);
-    }
-
-    @Override
-    public boolean verificarExistenciaDeUmaReserva(Reserva reservaBuscada) throws ObjetoNaoExisteErro {
-        Reserva reserva =  this.camadaReservas.buscarReserva(reservaBuscada);
-        return true;
-    }
-
-    @Override
-    public double calcularLucroGeradoPorPedidosEmDetermiadoPeriodoDeTempo(LocalDate inicioDoPeriodo, LocalDate finalDoPeriodo) throws NaoOuveLucroErro, ObjetosInsuficientesErro {
+    public double calcularLucroGeradoPorPedidosEmDetermiadoPeriodoDeTempo(LocalDateTime inicioDoPeriodo, LocalDateTime finalDoPeriodo) throws NaoOuveLucroErro, ObjetosInsuficientesErro {
         return this.camadaPedidos.calcularLucroDosPedidos(inicioDoPeriodo, finalDoPeriodo);
     }
 
@@ -154,6 +139,76 @@ public class Fachada implements IFachada{
         return this.camadaFuncionario.calcularFolhaDePagamento();
     }
 
+    @Override
+    public void alterarAtributoDeUmPrato(PratoCardapio novoPrato, String nomeAtual) throws ObjetoNaoExisteErro {
+        this.camadaCadapio.alterarAtributoDeUmPrato(novoPrato, nomeAtual);
+    }
 
+
+    @Override
+    public void adicionarIngrediente(Ingrediente ingrediente) throws ObjetoJaExisteErro {
+        this.camadaIngrediente.adicionarIngrediente(ingrediente);
+    }
+
+    @Override
+    public void aumentarEstoque(Ingrediente ingrediente) throws ObjetoNaoExisteErro {
+        this.camadaIngrediente.aumentarEstoque(ingrediente);
+    }
+
+    @Override
+    public void removerIngrediente(String nomeDoIngrediente) throws ObjetoNaoExisteErro {
+        this.camadaIngrediente.removerIngrediente(nomeDoIngrediente);
+    }
+
+    @Override
+    public Ingrediente pegarUmIngrediente(String nomeDoIngrediente) throws ObjetoNaoExisteErro {
+        return this.camadaIngrediente.pegarUmIngrediente(nomeDoIngrediente);
+    }
+
+    @Override
+    public Ingrediente pegarUmIngrediente(int indexDoIngrediente) throws ObjetoNaoExisteErro {
+        return this.camadaIngrediente.pegarUmIngrediente(indexDoIngrediente);
+    }
+
+    @Override
+    public void diminuirQuantidadeDeIngrediente(Ingrediente ingredienteQueSeraDiminuido, int qtd) throws ObjetoNaoExisteErro, ObjetosInsuficientesErro {
+        this.camadaIngrediente.diminuirQuantidadeDeIngrediente(ingredienteQueSeraDiminuido, qtd);
+    }
+
+    @Override
+    public void alterarAtributoDeUmIngrediente(Ingrediente novosAtributos, String nomeAtual) throws ObjetoNaoExisteErro {
+        this.camadaIngrediente.alterarAtributoDeUmIngrediente(novosAtributos, nomeAtual);
+    }
+
+    @Override
+    public boolean verificarQuantidadeIngredientes(Ingrediente nomeDoIngrediente, int qtdNecessaria) throws ObjetoNaoExisteErro {
+        return this.camadaIngrediente.verificarQuantidade(nomeDoIngrediente, qtdNecessaria);
+    }
+
+
+    @Override
+    public void armazenarUmPedido(Pedido pedidoQueSeraArmazenado) {
+        this.camadaPedidos.armazenarUmPedido(pedidoQueSeraArmazenado);
+    }
+
+    @Override
+    public void adicionarPratoAoCardapio(PratoCardapio prato) throws ObjetoJaExisteErro {
+        this.camadaCadapio.adicionarPratoAoCardapio(prato);
+    }
+
+    @Override
+    public void fazerNovaReserva(Reserva reservaQueSeraFeita) throws ClienteJaReservouErro, ObjetoJaExisteErro {
+        this.camadaReservas.fazerNovaReserva(reservaQueSeraFeita);
+    }
+
+    @Override
+    public void deletarUmaReserva(Reserva reservaQueSeraDeletada) throws ObjetoEmUsoErro, ObjetoNaoExisteErro {
+        this.camadaReservas.deletarUmaReserva(reservaQueSeraDeletada);
+    }
+
+    @Override
+    public void mudarReserva(Reserva novosAtributos, Reserva antigaReserva) throws ObjetoJaExisteErro, ObjetoNaoExisteErro {
+        this.camadaReservas.mudarReserva(novosAtributos, antigaReserva);
+    }
 
 }

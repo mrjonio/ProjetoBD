@@ -1,5 +1,7 @@
 package Restaurante.camadasDeNegocio.entidade.abstrato;
 
+import Restaurante.camadasDeNegocio.entidade.concretos.Mesa;
+
 import java.time.LocalDateTime;
 
 /**
@@ -8,15 +10,17 @@ import java.time.LocalDateTime;
 public class Reserva {
     private LocalDateTime dataHora;
     private String cpfClienteQueReservou;
+    private Mesa mesaReservada;
 
     /**
      * Classe com as informações da reserva e seu construtor.
      * @param data Data para o uso da reserva.
      * @param cpfClienteQueReservou Informações do cliente que fez a reserva.
      */
-    public Reserva(LocalDateTime data,String cpfClienteQueReservou) { //Reformular
+    public Reserva(LocalDateTime data,String cpfClienteQueReservou, Mesa mesa) {
         this.dataHora = data;
         this.cpfClienteQueReservou = cpfClienteQueReservou;
+        this.mesaReservada = mesa;
     }
 
     /**
@@ -32,6 +36,8 @@ public class Reserva {
         return cpfClienteQueReservou;
     }
 
-
+    public int getMesa(){
+        return this.mesaReservada.getNumero();
+    }
 
 }

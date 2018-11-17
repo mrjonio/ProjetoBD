@@ -1,5 +1,6 @@
 package Restaurante.fachada.interfaceFachada;
 
+import Restaurante.camadasDeNegocio.entidade.abstrato.Pedido;
 import Restaurante.camadasDeNegocio.entidade.abstrato.Reserva;
 import Restaurante.camadasDeNegocio.entidade.concretos.Mesa;
 import Restaurante.camadasDeNegocio.entidade.concretos.Alimenticio.PratoCardapio;
@@ -11,6 +12,7 @@ import Restaurante.excessoes.ObjetoExistencia.ObjetoNaoExisteErro;
 import Restaurante.excessoes.ObjetoExistencia.ObjetosInsuficientesErro;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * Abaixo temos a interface a ser implementada na fachada; contendo todas as assinaturas de método necessárias e suas exceções.
@@ -32,7 +34,8 @@ public interface IFachadaGerente {
     double calcularLucroGeradoPorPedidosEmDetermiadoPeriodoDeTempo(LocalDateTime inicioDoPeriodo, LocalDateTime finalDoPeriodo) throws NaoOuveLucroErro, ObjetosInsuficientesErro;
     double calcularFolhaDePagamento();
     void alterarAtributoDeUmPrato(PratoCardapio novoPrato, String nomeAtual) throws ObjetoNaoExisteErro;
-
+    List<Pedido> criarListaPedidosDeterminadoPeriodo(LocalDateTime dataInicial, LocalDateTime dataFinal) throws ObjetosInsuficientesErro;
+    void removerUmDeterminadopedido(Pedido pedidoQueSeraRemovido) throws ObjetoNaoExisteErro;
 
 
 }

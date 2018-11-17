@@ -9,6 +9,6 @@ public interface IRepositorioIngrediente {
     void mudarAtributosIngrediente(Ingrediente ingrediente, int index);
     void mudarAtributosIngrediente(int qtd, int index);
     Ingrediente pegarIngrediente(String nome);
+    Ingrediente pegarIngrediente(int index);
     int pegarIdex(Ingrediente ingredienteQueSeraPegoIdex);
-    boolean verificarSeRepositorioEstaVazio();
 }

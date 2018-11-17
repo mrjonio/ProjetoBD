@@ -96,7 +96,7 @@ public class ControladorReservas implements IControladorReservas {
     public Reserva buscarReserva(Reserva reservaQueSeraBuscada) throws ObjetoNaoExisteErro {
         boolean existeReserva = this.repositorioReserva.verificarExistenciaReserva(reservaQueSeraBuscada);
         if (existeReserva){
-            return reservaQueSeraBuscada;
+            return this.repositorioReserva.pegarReserva(reservaQueSeraBuscada);
         } else {
             throw new ObjetoNaoExisteErro("Reserva");
         }

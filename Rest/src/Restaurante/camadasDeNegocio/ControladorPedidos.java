@@ -4,10 +4,12 @@ package Restaurante.camadasDeNegocio;
 import Restaurante.camadasDeNegocio.interfaces.IControladorPedidos;
 import Restaurante.camadasDeNegocio.entidade.abstrato.Pedido;
 import Restaurante.excessoes.NaoOuveLucroErro;
+import Restaurante.excessoes.ObjetoExistencia.ObjetoNaoExisteErro;
 import Restaurante.excessoes.ObjetoExistencia.ObjetosInsuficientesErro;
 import Restaurante.repositorios.RepositorioPedidos;
 import Restaurante.repositorios.interfaces.IRepositorioPedidos;
 import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * Classe ControladorPedidos, seus atributos e construtor.
@@ -57,7 +59,7 @@ public class ControladorPedidos implements IControladorPedidos {
      * @throws ObjetosInsuficientesErro Não houve pedidos para serem calculados em determinado período de tempo.
      */
     @Override
-    public double calcularLucroDosPedidos(LocalDateTime dataInicial, LocalDateTime dataFinal) throws NaoOuveLucroErro, ObjetosInsuficientesErro {
+    public double calcularLucroDosPedidos(LocalDateTime dataInicial, LocalDateTime dataFinal) throws NaoOuveLucroErro {
         double lucroDosPratos;
         lucroDosPratos = this.repositorioPedidos.calcularLucro(dataInicial, dataFinal);
         if (lucroDosPratos <= 0) {
@@ -73,6 +75,32 @@ public class ControladorPedidos implements IControladorPedidos {
     @Override
     public void armazenarUmPedido(Pedido pedidoQueSeraArmazenado) {
         this.repositorioPedidos.adicionarPedido(pedidoQueSeraArmazenado);
+    }
+
+    @Override
+    public List<Pedido> criarListaPedidosDeterminadoPeriodo(LocalDateTime dataInicial, LocalDateTime dataFinal) throws ObjetosInsuficientesErro {
+        List<Pedido> pedidosGerados = this.repositorioPedidos.gerarVetorPedido(dataInicial, dataFinal);
+        if (!pedidosGerados.isEmpty()){
+            return pedidosGerados;
+        } else{
+            throw new ObjetosInsuficientesErro("Pedidos");
+        }
+    }
+
+    @Override
+    public void removerUmDeterminadopedido(Pedido pedidoQueSeraRemovido) throws ObjetoNaoExisteErro {
+        Pedido pedidoBuscado = this.buscarUmDeterminadoPedido(pedidoQueSeraRemovido);
+        this.repositorioPedidos.removerPedido(pedidoBuscado);
+    }
+
+    @Override
+    public Pedido buscarUmDeterminadoPedido(Pedido pedidoBuscado) throws ObjetoNaoExisteErro {
+        Pedido pedidoBusc = this.repositorioPedidos.buscarPedido(pedidoBuscado);
+        if(pedidoBusc != null){
+            return pedidoBusc;
+        } else {
+            throw new ObjetoNaoExisteErro("Pedido buscado");
+        }
     }
 
 

@@ -6,6 +6,8 @@ import Restaurante.repositorios.interfaces.IRepositorioPedidos;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Abaixo temos a classe para o repositório de pedidos, que serve para armazenar em um arraylist todas os dados
  * dos pedidos cadastrados; e a implementação da interface IRepositorioPedido.
@@ -75,6 +77,17 @@ public class RepositorioPedidos implements IRepositorioPedidos {
             }
         }
         return pedido;
+    }
+
+    @Override
+    public List<Pedido> gerarVetorPedido(LocalDateTime inicio, LocalDateTime fim) {
+        List<Pedido> temp = new ArrayList<>();
+        for (Pedido ped: this.pedidos) {
+            if(ped.getDataDoPedido().isAfter(inicio) && ped.getDataDoPedido().isBefore(fim)){
+                temp.add(ped);
+            }
+        }
+        return temp;
     }
 
 

@@ -104,14 +104,6 @@ public class RepositorioCardapio implements IRepositorioCardapio{
     }
 
 
-    /**
-     * Método para verificar se o repositório está vazio.
-     * @return Retorna se está vazio ou não.
-     */
-    @Override
-    public boolean verificarSeRepositorioEstaVazio(){
-        return this.pratos.isEmpty();
-    }
 
 }
 

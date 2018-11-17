@@ -13,5 +13,6 @@ public interface IRepositorioMesas {
     void alterarAtributosMesa(Mesa novosAtributos, int index);
     boolean taVazio();
     boolean indiceContemUmaMesa(int idex);
+    int pegarIndex(Mesa mesa);
     int quantidadeDeMesas();
 }

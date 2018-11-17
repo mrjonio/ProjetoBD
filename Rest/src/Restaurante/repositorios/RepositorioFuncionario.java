@@ -107,14 +107,4 @@ public class RepositorioFuncionario implements IRepositorioFuncionario {
     public int pegarIdex(Funcionario funcionarioQueSeraPegoIdex){
         return this.funcionario.indexOf(funcionarioQueSeraPegoIdex);
     }
-
-
-    /**
-     * Método para verificar se o repositório está vazio.
-     * @return Retorna se está vazio ou não.
-     */
-    @Override
-    public boolean verificarSeRepositorioEstaVazio() {
-        return this.funcionario.isEmpty();
-    }
 }

@@ -1,4 +1,4 @@
-package Restaurante.excessoes;
+package Restaurante.excessoes.ParametroValidade;
 
 /**
  * Classe para tratar o erro de pessoa menor de idade; e seu construtor.

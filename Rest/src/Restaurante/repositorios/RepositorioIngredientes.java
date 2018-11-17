@@ -58,19 +58,17 @@ public class RepositorioIngredientes implements IRepositorioIngrediente {
     }
 
     @Override
-    public int pegarIdex(Ingrediente ingredienteQueSeraPegoIdex) {
-        int index = 0;
-        for (Ingrediente ing: this.ingredientes) {
-            if(ing.equals(ingredienteQueSeraPegoIdex)){
-                break;
-            }
-            index++;
+    public Ingrediente pegarIngrediente(int index) {
+        if(this.ingredientes.size() >= index) {
+            return this.ingredientes.get(index);
+        } else  {
+            return null;
         }
-        return index;
     }
 
     @Override
-    public boolean verificarSeRepositorioEstaVazio() {
-        return this.ingredientes.isEmpty();
+    public int pegarIdex(Ingrediente ingredienteQueSeraPegoIdex) {
+        return this.ingredientes.indexOf(ingredienteQueSeraPegoIdex);
     }
+
 }

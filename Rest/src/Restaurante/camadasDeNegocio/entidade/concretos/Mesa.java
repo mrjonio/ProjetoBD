@@ -36,7 +36,7 @@ public class Mesa {
         return disponibilidade;
     }
 
-    public void setDisponibilidade(String disponibilidade) throws ParametroInvalidoErro, ParametrosIguaisErro {
+    public void mudaDisponibilidade(String disponibilidade) throws ParametroInvalidoErro, ParametrosIguaisErro {
         if(!this.disponibilidade.equals(disponibilidade)){
             if(disponibilidade.equals("Oculpado") || disponibilidade.equals("Reservado") || disponibilidade.equals("Vazia")){
                 this.disponibilidade = disponibilidade;
@@ -68,7 +68,12 @@ public class Mesa {
 
     }
 
+    public List<Pedido> getPedidos(){
+        return this.pedidos;
+    }
+
     public boolean acabaramOsPedidos(){
         return this.pedidos.isEmpty();
     }
+
 }

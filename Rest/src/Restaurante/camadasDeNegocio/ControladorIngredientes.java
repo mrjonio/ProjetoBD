@@ -65,7 +65,7 @@ public class ControladorIngredientes implements IControladorIngredientes {
     public Ingrediente pegarUmIngrediente(String nomeDoIngrediente) throws ObjetoNaoExisteErro {
         boolean existe =  this.repositorioIngrediente.proucurarIngrediente(nomeDoIngrediente);
         if(existe){
-            return this.pegarUmIngrediente(nomeDoIngrediente);
+            return this.repositorioIngrediente.pegarIngrediente(nomeDoIngrediente);
         } else{
             throw new ObjetoNaoExisteErro("Ingrediente buscado");
         }
@@ -73,7 +73,7 @@ public class ControladorIngredientes implements IControladorIngredientes {
 
     @Override
     public Ingrediente pegarUmIngrediente(int indexDoIngrediente) throws ObjetoNaoExisteErro {
-            Ingrediente buscado = this.pegarUmIngrediente(indexDoIngrediente);
+            Ingrediente buscado = this.repositorioIngrediente.pegarIngrediente(indexDoIngrediente);
             if (buscado != null){
                 return buscado;
             } else {

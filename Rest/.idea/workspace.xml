@@ -4,41 +4,32 @@
     <list default="true" id="fcfa964e-41d6-4f15-918c-9738df4ad941" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Restaurante/camadasDeNegocio/ControladorIngredientes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Restaurante/camadasDeNegocio/ControladorIngredientes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Restaurante/camadasDeNegocio/ControladorMesa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Restaurante/camadasDeNegocio/ControladorMesa.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Restaurante/camadasDeNegocio/ControladorPedidos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Restaurante/camadasDeNegocio/ControladorPedidos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Restaurante/camadasDeNegocio/interfaces/IControladorIngredientes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Restaurante/camadasDeNegocio/interfaces/IControladorIngredientes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Restaurante/camadasDeNegocio/interfaces/IControladorMesa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Restaurante/camadasDeNegocio/interfaces/IControladorMesa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Restaurante/camadasDeNegocio/ControladorReservas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Restaurante/camadasDeNegocio/ControladorReservas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Restaurante/camadasDeNegocio/entidade/abstrato/Reserva.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Restaurante/camadasDeNegocio/entidade/abstrato/Reserva.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Restaurante/camadasDeNegocio/entidade/concretos/Alimenticio/PratoCardapio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Restaurante/camadasDeNegocio/entidade/concretos/Alimenticio/PratoCardapio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Restaurante/camadasDeNegocio/entidade/concretos/Mesa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Restaurante/camadasDeNegocio/entidade/concretos/Mesa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Restaurante/camadasDeNegocio/entidade/pessoas/funcionario/Funcionario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Restaurante/camadasDeNegocio/entidade/pessoas/funcionario/Funcionario.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Restaurante/camadasDeNegocio/interfaces/IControladorPedidos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Restaurante/camadasDeNegocio/interfaces/IControladorPedidos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Restaurante/excessoes/ObjetosInsuficientesErro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Restaurante/excessoes/ObjetoExistencia/ObjetosInsuficientesErro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Restaurante/excessoes/CampoVazioErro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Restaurante/excessoes/ParametroValidade/CampoVazioErro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Restaurante/excessoes/IngredienteJaAdicionado.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Restaurante/excessoes/LetraNoLugarDeNumeroErro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Restaurante/excessoes/ParametroValidade/LetraNoLugarDeNumeroErro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Restaurante/excessoes/PessoaMenorDeIdadeErro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Restaurante/excessoes/ParametroValidade/PessoaMenorDeIdadeErro.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Restaurante/fachada/Fachada.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Restaurante/fachada/Fachada.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Restaurante/fachada/interfaceFachada/IFachada.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Restaurante/fachada/interfaceFachada/IFachadaGerente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Restaurante/gui/buscas/ControleTelaBuscaCardapio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Restaurante/gui/buscas/ControleTelaBuscaCardapio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Restaurante/gui/buscas/ControleTelaBuscaFuncionario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Restaurante/gui/buscas/ControleTelaBuscaFuncionario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Restaurante/gui/buscas/ControleTelaBuscaReserva.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Restaurante/gui/buscas/ControleTelaBuscaReserva.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Restaurante/gui/cadastros/ControleTelaAdicionarAoCardapio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Restaurante/gui/cadastros/ControleTelaAdicionarAoCardapio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Restaurante/fachada/interfaceFachada/IFachadaCozinheiro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Restaurante/fachada/interfaceFachada/IFachadaCozinheiro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Restaurante/fachada/interfaceFachada/IFachadaGerente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Restaurante/fachada/interfaceFachada/IFachadaGerente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Restaurante/fachada/interfaceFachada/IFachadaMesa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Restaurante/fachada/interfaceFachada/IFachadaMesa.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Restaurante/gui/cadastros/ControleTelaCadastroFuncionario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Restaurante/gui/cadastros/ControleTelaCadastroFuncionario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Restaurante/gui/cadastros/ControleTelaCadastroPedidos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Restaurante/gui/cadastros/ControleTelaCadastroPedidos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Restaurante/gui/cadastros/ControleTelaCriacaoReserva.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Restaurante/gui/cadastros/ControleTelaCriacaoReserva.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Restaurante/gui/mudancas/ControleTelaMudancaFuncionario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Restaurante/gui/mudancas/ControleTelaMudancaFuncionario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Restaurante/gui/mudancas/ControleTelaMudancaPratoCardapio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Restaurante/gui/mudancas/ControleTelaMudancaPratoCardapio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Restaurante/gui/mudancas/ControleTelaMudancaReserva.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Restaurante/gui/mudancas/ControleTelaMudancaReserva.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Restaurante/gui/objetos/ControleTelaCadapio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Restaurante/gui/objetos/ControleTelaCadapio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Restaurante/gui/objetos/ControleTelaFuncionario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Restaurante/gui/objetos/ControleTelaFuncionario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Restaurante/gui/objetos/ControleTelaLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Restaurante/gui/objetos/ControleTelaLogin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Restaurante/gui/objetos/ControleTelaMesas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Restaurante/gui/objetos/ControleTelaMesas.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Restaurante/gui/objetos/ControleTelaPedidos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Restaurante/gui/objetos/ControleTelaPedidos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Restaurante/gui/objetos/ControleTelaPrincipal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Restaurante/gui/objetos/ControleTelaPrincipal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Restaurante/gui/objetos/ControleTelaReserva.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Restaurante/gui/objetos/ControleTelaReserva.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Restaurante/gui/outros/ControleFolhaDePagamento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Restaurante/gui/outros/ControleFolhaDePagamento.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Restaurante/gui/outros/ControleLucroPratos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Restaurante/gui/outros/ControleLucroPratos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Restaurante/gui/outros/ControleTelaConfirmarReserva.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Restaurante/gui/outros/ControleTelaConfirmarReserva.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Restaurante/gui/remocao/ControleTelaDeletarClientes.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Restaurante/gui/remocao/ControleTelaRemoverFuncionario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Restaurante/gui/remocao/ControleTelaRemoverFuncionario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Restaurante/gui/remocao/ControleTelaRemoverPedidos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Restaurante/gui/remocao/ControleTelaRemoverPedidos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Restaurante/gui/remocao/ControleTelaRemoverPratoDoCardapio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Restaurante/gui/remocao/ControleTelaRemoverPratoDoCardapio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Restaurante/gui/remocao/ControleTelaRemoverReserva.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Restaurante/gui/remocao/ControleTelaRemoverReserva.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Restaurante/gui/remocao/TelaDeletarCliente.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Restaurante/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Restaurante/main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Restaurante/repositorios/RepositorioCardapio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Restaurante/repositorios/RepositorioCardapio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Restaurante/repositorios/RepositorioFuncionario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Restaurante/repositorios/RepositorioFuncionario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Restaurante/repositorios/RepositorioIngredientes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Restaurante/repositorios/RepositorioIngredientes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Restaurante/repositorios/RepositorioMesas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Restaurante/repositorios/RepositorioMesas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Restaurante/repositorios/RepositorioPedidos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Restaurante/repositorios/RepositorioPedidos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Restaurante/repositorios/interfaces/IRepositorioCardapio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Restaurante/repositorios/interfaces/IRepositorioCardapio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Restaurante/repositorios/interfaces/IRepositorioFuncionario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Restaurante/repositorios/interfaces/IRepositorioFuncionario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Restaurante/repositorios/interfaces/IRepositorioIngrediente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Restaurante/repositorios/interfaces/IRepositorioIngrediente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Restaurante/repositorios/interfaces/IRepositorioMesas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Restaurante/repositorios/interfaces/IRepositorioMesas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Restaurante/repositorios/interfaces/IRepositorioPedidos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Restaurante/repositorios/interfaces/IRepositorioPedidos.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../RestauranteReborn/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../RestauranteReborn/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -52,34 +43,35 @@
     <session id="1239748491">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="4" />
+          <entry key="project.closed" value="5" />
           <entry key="project.open.time.28" value="1" />
           <entry key="project.open.time.29" value="2" />
+          <entry key="project.open.time.34" value="1" />
           <entry key="project.open.time.5" value="1" />
-          <entry key="project.opened" value="4" />
+          <entry key="project.opened" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="fxml" value="1" />
-          <entry key="java" value="130" />
+          <entry key="java" value="198" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="130" />
+          <entry key="JAVA" value="198" />
           <entry key="XML" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="79" />
-          <entry key="java" value="5854" />
+          <entry key="java" value="7186" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="5854" />
+          <entry key="JAVA" value="7186" />
           <entry key="PLAIN_TEXT" value="79" />
         </counts>
       </usages-collector>
@@ -88,10 +80,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Restaurante/camadasDeNegocio/interfaces/IControladorPedidos.java">
+        <entry file="file://$PROJECT_DIR$/src/Restaurante/fachada/interfaceFachada/IFachadaGerente.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="59" lean-forward="true" selection-start-line="14" selection-start-column="59" selection-end-line="14" selection-end-column="59" />
+            <state relative-caret-position="547">
+              <caret line="37" column="93" selection-start-line="37" selection-start-column="93" selection-end-line="37" selection-end-column="93" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -99,23 +91,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Restaurante/camadasDeNegocio/ControladorPedidos.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-513">
-              <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Restaurante/fachada/interfaceFachada/IFachadaCozinheiro.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" selection-start-line="7" selection-end-line="7" />
+            <state relative-caret-position="340">
+              <caret line="20" column="81" selection-start-line="20" selection-start-column="81" selection-end-line="20" selection-end-column="81" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -124,10 +104,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Restaurante/gui/objetos/ControleTelaCadapio.java">
+        <entry file="file://$PROJECT_DIR$/src/Restaurante/camadasDeNegocio/ControladorMesa.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1111">
-              <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+            <state relative-caret-position="453">
+              <caret line="101" column="51" lean-forward="true" selection-start-line="101" selection-start-column="31" selection-end-line="101" selection-end-column="51" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -136,12 +116,32 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Restaurante/camadasDeNegocio/interfaces/IControladorIngredientes.java">
+        <entry file="file://$PROJECT_DIR$/src/Restaurante/fachada/Fachada.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" column="34" lean-forward="true" selection-start-line="13" selection-start-column="34" selection-end-line="13" selection-end-column="34" />
+            <state relative-caret-position="2156">
+              <caret line="206" column="57" selection-start-line="206" selection-start-column="57" selection-end-line="206" selection-end-column="57" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Restaurante/camadasDeNegocio/entidade/concretos/Mesa.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1003">
+              <caret line="77" lean-forward="true" selection-start-line="77" selection-end-line="77" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Restaurante/camadasDeNegocio/entidade/abstrato/Reserva.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="561">
+              <caret line="39" column="46" selection-start-line="39" selection-start-column="46" selection-end-line="39" selection-end-column="46" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#1100#1101#0" expanded="true" />
+                <element signature="e#1126#1127#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -150,17 +150,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Restaurante/camadasDeNegocio/interfaces/IControladorMesa.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="18" column="24" lean-forward="true" selection-start-line="15" selection-end-line="19" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Restaurante/gui/objetos/ControleTelaMesas.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-312">
-              <caret line="77" column="47" selection-start-line="77" selection-start-column="47" selection-end-line="77" selection-end-column="47" />
+            <state relative-caret-position="306">
+              <caret line="18" column="31" selection-start-line="18" selection-end-line="19" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -169,30 +160,15 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Restaurante/gui/objetos/ControleTelaPedidos.java">
+        <entry file="file://$PROJECT_DIR$/src/Restaurante/camadasDeNegocio/interfaces/IControladorCadapio.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Restaurante/camadasDeNegocio/ControladorIngredientes.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1003">
-              <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+            <state relative-caret-position="204">
+              <caret line="12" selection-start-line="12" selection-end-line="12" selection-end-column="81" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Restaurante/gui/objetos/TelaMesas.fxml">
-          <provider editor-type-id="text-editor" />
-          <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
         </entry>
       </file>
     </leaf>
@@ -211,23 +187,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Restaurante/entidade/concretos/Alimenticio/Ingrediente.java" />
-        <option value="$PROJECT_DIR$/src/Restaurante/entidade/pessoas/funcionario/Gerente.java" />
-        <option value="$PROJECT_DIR$/src/Restaurante/entidade/pessoas/funcionario/Privilegiados/IGerente.java" />
-        <option value="$PROJECT_DIR$/src/Restaurante/entidade/pessoas/funcionario/Privilegiados/ICozinheiro.java" />
-        <option value="$PROJECT_DIR$/src/Restaurante/entidade/abstrato/Pedido.java" />
-        <option value="$PROJECT_DIR$/src/Restaurante/entidade/pessoas/funcionario/Privilegiados/IAtendente.java" />
-        <option value="$PROJECT_DIR$/src/Restaurante/entidade/pessoas/funcionario/Funcionario.java" />
-        <option value="$PROJECT_DIR$/src/Restaurante/entidade/abstrato/Reserva.java" />
-        <option value="$PROJECT_DIR$/src/Restaurante/repositorios/interfaces/IRepositorioCardapio.java" />
-        <option value="$PROJECT_DIR$/src/Restaurante/repositorios/RepositorioCardapio.java" />
-        <option value="$PROJECT_DIR$/src/Restaurante/repositorios/RepositorioIngredientes.java" />
-        <option value="$PROJECT_DIR$/src/Restaurante/repositorios/interfaces/IRepositorioMesas.java" />
-        <option value="$PROJECT_DIR$/src/Restaurante/repositorios/RepositorioMesas.java" />
-        <option value="$PROJECT_DIR$/src/Restaurante/repositorios/interfaces/IRepositorioPedidos.java" />
-        <option value="$PROJECT_DIR$/src/Restaurante/repositorios/RepositorioPedidos.java" />
-        <option value="$PROJECT_DIR$/src/Restaurante/repositorios/interfaces/IRepositorioReserva.java" />
-        <option value="$PROJECT_DIR$/src/Restaurante/repositorios/RepositorioReserva.java" />
         <option value="$PROJECT_DIR$/src/Restaurante/camadasDeNegocio/interfaces/IControladorCadapio.java" />
         <option value="$PROJECT_DIR$/src/Restaurante/camadasDeNegocio/ControladorCardapio.java" />
         <option value="$PROJECT_DIR$/src/Restaurante/camadasDeNegocio/interfaces/IControladorFuncionario.java" />
@@ -236,7 +195,6 @@
         <option value="$PROJECT_DIR$/src/Restaurante/excessoes/ObjetoJaExisteErro.java" />
         <option value="$PROJECT_DIR$/src/Restaurante/excessoes/ExcecaoObjetoExistencia.java" />
         <option value="$PROJECT_DIR$/src/Restaurante/excessoes/ObjetoNaoExisteErro.java" />
-        <option value="$PROJECT_DIR$/src/Restaurante/excessoes/ParametroValidade/ExceptionParametro.java" />
         <option value="$PROJECT_DIR$/src/Restaurante/excessoes/ParametroInvalidoErro.java" />
         <option value="$PROJECT_DIR$/src/Restaurante/excessoes/ParametrosIguaisErro.java" />
         <option value="$PROJECT_DIR$/src/Restaurante/camadasDeNegocio/ControladorMesa.java" />
@@ -246,22 +204,40 @@
         <option value="$PROJECT_DIR$/src/Restaurante/excessoes/ParametroValidade/ParametroInvalidoErro.java" />
         <option value="$PROJECT_DIR$/src/Restaurante/excessoes/ParametroValidade/ParametrosIguaisErro.java" />
         <option value="$PROJECT_DIR$/src/Restaurante/entidade/concretos/Mesa.java" />
-        <option value="$PROJECT_DIR$/src/Restaurante/camadasDeNegocio/ControladorPedidos.java" />
         <option value="$PROJECT_DIR$/src/Restaurante/gui/objetos/ControleTelaLogin.java" />
         <option value="$PROJECT_DIR$/src/Restaurante/excessoes/ObjetosInsuficientesErro.java" />
         <option value="$PROJECT_DIR$/src/Restaurante/excessoes/ObjetoExistencia/ObjetosInsuficientesErro.java" />
-        <option value="$PROJECT_DIR$/src/Restaurante/repositorios/interfaces/IRepositorioIngrediente.java" />
         <option value="$PROJECT_DIR$/src/Restaurante/camadasDeNegocio/interfaces/IControladorIngredientes.java" />
-        <option value="$PROJECT_DIR$/src/Restaurante/camadasDeNegocio/ControladorIngredientes.java" />
         <option value="$PROJECT_DIR$/src/Restaurante/fachada/interfaceFachada/IFachada.java" />
-        <option value="$PROJECT_DIR$/src/Restaurante/camadasDeNegocio/interfaces/IControladorPedidos.java" />
         <option value="$PROJECT_DIR$/src/Restaurante/fachada/interfaceFachada/IFachadaAtendente.java" />
-        <option value="$PROJECT_DIR$/src/Restaurante/fachada/interfaceFachada/IFachadaGerente.java" />
-        <option value="$PROJECT_DIR$/src/Restaurante/fachada/Fachada.java" />
-        <option value="$PROJECT_DIR$/src/Restaurante/fachada/interfaceFachada/IFachadaMesa.java" />
         <option value="$PROJECT_DIR$/src/Restaurante/gui/remocao/ControleTelaDeletarClientes.java" />
-        <option value="$PROJECT_DIR$/src/Restaurante/fachada/interfaceFachada/IFachadaCozinheiro.java" />
         <option value="$PROJECT_DIR$/src/Restaurante/gui/objetos/ControleTelaMesas.java" />
+        <option value="$PROJECT_DIR$/src/Restaurante/camadasDeNegocio/entidade/concretos/Alimenticio/PratoCardapio.java" />
+        <option value="$PROJECT_DIR$/src/Restaurante/camadasDeNegocio/entidade/concretos/Mesa.java" />
+        <option value="$PROJECT_DIR$/src/Restaurante/camadasDeNegocio/entidade/pessoas/funcionario/Funcionario.java" />
+        <option value="$PROJECT_DIR$/src/Restaurante/repositorios/interfaces/IRepositorioPedidos.java" />
+        <option value="$PROJECT_DIR$/src/Restaurante/repositorios/RepositorioPedidos.java" />
+        <option value="$PROJECT_DIR$/src/Restaurante/camadasDeNegocio/interfaces/IControladorPedidos.java" />
+        <option value="$PROJECT_DIR$/src/Restaurante/camadasDeNegocio/ControladorPedidos.java" />
+        <option value="$PROJECT_DIR$/src/Restaurante/repositorios/interfaces/IRepositorioCardapio.java" />
+        <option value="$PROJECT_DIR$/src/Restaurante/repositorios/RepositorioCardapio.java" />
+        <option value="$PROJECT_DIR$/src/Restaurante/repositorios/interfaces/IRepositorioFuncionario.java" />
+        <option value="$PROJECT_DIR$/src/Restaurante/repositorios/RepositorioFuncionario.java" />
+        <option value="$PROJECT_DIR$/src/Restaurante/repositorios/interfaces/IRepositorioIngrediente.java" />
+        <option value="$PROJECT_DIR$/src/Restaurante/camadasDeNegocio/ControladorIngredientes.java" />
+        <option value="$PROJECT_DIR$/src/Restaurante/repositorios/interfaces/IRepositorioMesas.java" />
+        <option value="$PROJECT_DIR$/src/Restaurante/repositorios/RepositorioIngredientes.java" />
+        <option value="$PROJECT_DIR$/src/Restaurante/repositorios/RepositorioMesas.java" />
+        <option value="$PROJECT_DIR$/src/Restaurante/camadasDeNegocio/ControladorReservas.java" />
+        <option value="$PROJECT_DIR$/src/Restaurante/excessoes/ParametroValidade/CampoVazioErro.java" />
+        <option value="$PROJECT_DIR$/src/Restaurante/excessoes/ParametroValidade/LetraNoLugarDeNumeroErro.java" />
+        <option value="$PROJECT_DIR$/src/Restaurante/gui/objetos/ControleTelaPrincipal.java" />
+        <option value="$PROJECT_DIR$/src/Restaurante/excessoes/ParametroValidade/ExceptionParametro.java" />
+        <option value="$PROJECT_DIR$/src/Restaurante/fachada/interfaceFachada/IFachadaGerente.java" />
+        <option value="$PROJECT_DIR$/src/Restaurante/fachada/interfaceFachada/IFachadaMesa.java" />
+        <option value="$PROJECT_DIR$/src/Restaurante/fachada/interfaceFachada/IFachadaCozinheiro.java" />
+        <option value="$PROJECT_DIR$/src/Restaurante/fachada/Fachada.java" />
+        <option value="$PROJECT_DIR$/src/Restaurante/camadasDeNegocio/entidade/abstrato/Reserva.java" />
       </list>
     </option>
   </component>
@@ -297,51 +273,16 @@
               <item name="Rest" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="Rest" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Rest" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Restaurante" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Rest" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Rest" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Restaurante" type="462c0819:PsiDirectoryNode" />
-              <item name="camadasDeNegocio" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Rest" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Rest" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Restaurante" type="462c0819:PsiDirectoryNode" />
-              <item name="camadasDeNegocio" type="462c0819:PsiDirectoryNode" />
-              <item name="interfaces" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Rest" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Rest" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Restaurante" type="462c0819:PsiDirectoryNode" />
-              <item name="excessoes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Rest" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Rest" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Restaurante" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542339519713" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542427369905" />
     <property name="last_opened_file_path" value="$USER_HOME$/Documents/javafx-sdk-11/lib" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
@@ -395,7 +336,7 @@
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25771812" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26107383" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -423,7 +364,7 @@
       <window_info anchor="right" id="Maven Projects" order="7" weight="0.3295302" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2590604" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26107383" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -455,170 +396,44 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/Restaurante/gui/objetos/ControleTelaCadapio.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Restaurante/gui/objetos/ControleTelaMesas.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="986">
+          <caret line="77" column="47" selection-start-line="77" selection-start-column="47" selection-end-line="77" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Restaurante/gui/objetos/ControleTelaPedidos.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Restaurante/gui/objetos/TelaMesas.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+      <provider editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Restaurante/camadasDeNegocio/entidade/abstrato/Pedido.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="29" column="27" selection-start-line="29" selection-start-column="27" selection-end-line="29" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Restaurante/repositorios/RepositorioFuncionario.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="850">
-          <caret line="100" column="8" lean-forward="true" selection-start-line="100" selection-start-column="8" selection-end-line="100" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Restaurante/repositorios/interfaces/IRepositorioMesas.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="23" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Restaurante/repositorios/RepositorioMesas.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="54" column="46" selection-start-line="54" selection-start-column="46" selection-end-line="54" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Restaurante/repositorios/interfaces/IRepositorioReserva.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="64" selection-start-line="14" selection-start-column="64" selection-end-line="14" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Restaurante/repositorios/RepositorioReserva.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1564">
-          <caret line="100" selection-start-line="100" selection-end-line="100" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Restaurante/camadasDeNegocio/ControladorFuncionario.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Restaurante/repositorios/interfaces/IRepositorioPedidos.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="53" selection-start-line="18" selection-start-column="53" selection-end-line="18" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Restaurante/excessoes/IngredienteJaAdicionado.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="41" selection-start-line="4" selection-start-column="41" selection-end-line="4" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Restaurante/excessoes/ObjetoExistencia/ExcecaoObjetoExistencia.java">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Restaurante/excessoes/ObjetoExistencia/ObjetoEmUsoErro.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Restaurante/excessoes/ObjetoExistencia/ObjetoJaExisteErro.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding>
-            <element signature="e#309#310#0" expanded="true" />
-            <element signature="e#332#333#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Restaurante/excessoes/ObjetoExistencia/ObjetoNaoExisteErro.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Restaurante/excessoes/ParametroValidade/ParametroInvalidoErro.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Restaurante/excessoes/ParametroValidade/ParametrosIguaisErro.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Restaurante/excessoes/ParametroValidade/ExceptionParametro.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Restaurante/camadasDeNegocio/entidade/concretos/Mesa.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="58" column="34" lean-forward="true" selection-start-line="58" selection-start-column="34" selection-end-line="58" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Restaurante/repositorios/RepositorioPedidos.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Restaurante/gui/objetos/ControleTelaLogin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="66" selection-start-line="4" selection-start-column="66" selection-end-line="4" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Restaurante/excessoes/ObjetoExistencia/ObjetosInsuficientesErro.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding>
-            <element signature="e#357#358#0" expanded="true" />
-            <element signature="e#390#391#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Restaurante/repositorios/RepositorioCardapio.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="101" column="40" selection-start-line="101" selection-start-column="40" selection-end-line="101" selection-end-column="40" />
         </state>
       </provider>
     </entry>
@@ -629,102 +444,145 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Restaurante/camadasDeNegocio/entidade/concretos/Alimenticio/PratoCardapio.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="48" column="28" lean-forward="true" selection-start-line="48" selection-start-column="28" selection-end-line="48" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1074#1075#0" expanded="true" />
+            <element signature="e#1109#1110#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Restaurante/camadasDeNegocio/entidade/pessoas/funcionario/Funcionario.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="80" column="9" lean-forward="true" selection-start-line="80" selection-start-column="9" selection-end-line="80" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Restaurante/repositorios/RepositorioPedidos.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="436">
+          <caret line="81" column="13" lean-forward="true" selection-start-line="81" selection-start-column="13" selection-end-line="81" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Restaurante/camadasDeNegocio/ControladorPedidos.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="63" column="30" selection-start-line="63" selection-start-column="30" selection-end-line="63" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Restaurante/repositorios/interfaces/IRepositorioCardapio.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="54" selection-start-line="15" selection-start-column="54" selection-end-line="15" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Restaurante/repositorios/interfaces/IRepositorioFuncionario.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="58" selection-start-line="16" selection-start-column="58" selection-end-line="16" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Restaurante/repositorios/interfaces/IRepositorioIngrediente.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="44" selection-start-line="12" selection-start-column="44" selection-end-line="12" selection-end-column="44" />
+        <state relative-caret-position="187">
+          <caret line="11" column="44" selection-start-line="11" selection-start-column="44" selection-end-line="11" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Restaurante/camadasDeNegocio/ControladorFuncionario.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1054">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Restaurante/camadasDeNegocio/ControladorIngredientes.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="102" column="57" lean-forward="true" selection-start-line="102" selection-start-column="57" selection-end-line="102" selection-end-column="57" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Restaurante/repositorios/RepositorioCardapio.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="64" column="29" selection-start-line="64" selection-start-column="29" selection-end-line="64" selection-end-column="29" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Restaurante/camadasDeNegocio/ControladorCardapio.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="15" selection-start-line="15" selection-end-line="31" selection-end-column="5" />
+        <state relative-caret-position="385">
+          <caret line="104" column="40" lean-forward="true" selection-start-line="104" selection-start-column="40" selection-end-line="104" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Restaurante/gui/buscas/ControleTelaBuscaCardapio.java">
+    <entry file="file://$PROJECT_DIR$/src/Restaurante/repositorios/interfaces/IRepositorioMesas.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="255">
+          <caret line="15" column="30" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Restaurante/repositorios/RepositorioIngredientes.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="62">
-          <caret line="44" column="17" lean-forward="true" selection-start-line="43" selection-start-column="37" selection-end-line="44" selection-end-column="17" />
+        <state relative-caret-position="487">
+          <caret line="70" column="69" selection-start-line="70" selection-start-column="69" selection-end-line="70" selection-end-column="69" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Restaurante/repositorios/RepositorioFuncionario.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="521">
+          <caret line="108" column="5" selection-start-line="108" selection-start-column="5" selection-end-line="108" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Restaurante/repositorios/interfaces/IRepositorioPedidos.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="16" column="28" lean-forward="true" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Restaurante/repositorios/interfaces/IRepositorioReserva.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="18" lean-forward="true" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Restaurante/camadasDeNegocio/ControladorReservas.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Restaurante/excessoes/CampoVazioErro.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Restaurante/excessoes/CarregamentoDeTelaErro.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Restaurante/excessoes/LimiteDeFuncionarioAtingidoErro.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Restaurante/excessoes/NaoOuveLucroErro.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Restaurante/fachada/interfaceFachada/IFachadaCliente.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="32" selection-start-line="2" selection-start-column="32" selection-end-line="2" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Restaurante/camadasDeNegocio/ControladorMesa.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="470">
-          <caret line="75" column="16" selection-start-line="75" selection-start-column="16" selection-end-line="75" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Restaurante/fachada/interfaceFachada/IFachadaAtendente.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" selection-start-line="16" selection-end-line="16" selection-end-column="88" />
+        <state relative-caret-position="408">
+          <caret line="98" column="77" selection-start-line="98" selection-start-column="77" selection-end-line="98" selection-end-column="77" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -741,75 +599,56 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Restaurante/camadasDeNegocio/interfaces/IControladorFuncionario.java">
+    <entry file="file://$PROJECT_DIR$/src/Restaurante/repositorios/RepositorioMesas.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+        <state relative-caret-position="833">
+          <caret line="90" column="16" selection-start-line="90" selection-start-column="16" selection-end-line="90" selection-end-column="16" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#2444#2445#0" expanded="true" />
+            <element signature="e#2492#2493#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Restaurante/camadasDeNegocio/interfaces/IControladorCadapio.java">
+    <entry file="file://$PROJECT_DIR$/src/Restaurante/excessoes/IngredienteJaAdicionado.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+        <state relative-caret-position="34">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Restaurante/fachada/Fachada.java">
+    <entry file="file://$PROJECT_DIR$/src/Restaurante/excessoes/LimiteDeFuncionarioAtingidoErro.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2225">
-          <caret line="143" column="72" selection-start-line="143" selection-start-column="72" selection-end-line="143" selection-end-column="72" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2232#2233#0" expanded="true" />
-            <element signature="e#2256#2257#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="102">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Restaurante/fachada/interfaceFachada/IFachadaGerente.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="530">
-          <caret line="34" selection-start-line="34" selection-end-line="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Restaurante/fachada/interfaceFachada/IFachadaMesa.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Restaurante/gui/remocao/ControleTelaDeletarClientes.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-85">
-          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Restaurante/fachada/interfaceFachada/IFachadaCozinheiro.java">
+    <entry file="file://$PROJECT_DIR$/src/Restaurante/excessoes/ParametroValidade/CampoVazioErro.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
+          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#271#272#0" expanded="true" />
+            <element signature="e#307#308#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Restaurante/gui/objetos/ControleTelaCadapio.java">
+    <entry file="file://$PROJECT_DIR$/src/Restaurante/excessoes/ParametroValidade/LetraNoLugarDeNumeroErro.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1111">
+        <state relative-caret-position="136">
+          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+          <folding>
+            <element signature="e#307#308#0" expanded="true" />
+            <element signature="e#343#344#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Restaurante/gui/objetos/ControleTelaPrincipal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
           <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -817,38 +656,69 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Restaurante/gui/objetos/TelaMesas.fxml">
-      <provider editor-type-id="text-editor" />
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Restaurante/gui/objetos/ControleTelaMesas.java">
+    <entry file="file://$PROJECT_DIR$/src/Restaurante/gui/erros/ControleTelaDeErros.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-312">
-          <caret line="77" column="47" selection-start-line="77" selection-start-column="47" selection-end-line="77" selection-end-column="47" />
+        <state relative-caret-position="68">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Restaurante/gui/erros/ControleTelaObjetoEmUsoErro.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Restaurante/gui/cadastros/ControleTelaCadastroPedidos.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-136">
+          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Restaurante/gui/erros/ControleTelaParametroInvalidoErro.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-68">
+          <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Restaurante/gui/objetos/ControleTelaPedidos.java">
+    <entry file="file://$PROJECT_DIR$/src/Restaurante/excessoes/ParametroValidade/ExceptionParametro.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+        <state relative-caret-position="85">
+          <caret line="7" column="5" lean-forward="true" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Restaurante/camadasDeNegocio/interfaces/IControladorMesa.java">
+    <entry file="file://$PROJECT_DIR$/src/Restaurante/excessoes/ParametroValidade/PessoaMenorDeIdadeErro.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="18" column="24" lean-forward="true" selection-start-line="15" selection-end-line="19" selection-end-column="19" />
+        <state relative-caret-position="102">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Restaurante/camadasDeNegocio/interfaces/IControladorPedidos.java">
+    <entry file="file://$PROJECT_DIR$/src/Restaurante/excessoes/CarregamentoDeTelaErro.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="59" lean-forward="true" selection-start-line="14" selection-start-column="59" selection-end-line="14" selection-end-column="59" />
+        <state relative-caret-position="102">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Restaurante/excessoes/ClienteJaReservouErro.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Restaurante/camadasDeNegocio/interfaces/IControladorFuncionario.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="38" lean-forward="true" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -857,28 +727,114 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Restaurante/camadasDeNegocio/interfaces/IControladorIngredientes.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="34" lean-forward="true" selection-start-line="13" selection-start-column="34" selection-end-line="13" selection-end-column="34" />
+        <state relative-caret-position="204">
+          <caret line="12" column="52" lean-forward="true" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="52" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Restaurante/camadasDeNegocio/ControladorPedidos.java">
+    <entry file="file://$PROJECT_DIR$/src/Restaurante/camadasDeNegocio/interfaces/IControladorPedidos.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-513">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        <state relative-caret-position="289">
+          <caret line="17" selection-start-line="17" selection-end-line="18" selection-end-column="93" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Restaurante/camadasDeNegocio/ControladorIngredientes.java">
+    <entry file="file://$PROJECT_DIR$/src/Restaurante/camadasDeNegocio/ControladorMesa.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1003">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        <state relative-caret-position="453">
+          <caret line="101" column="51" lean-forward="true" selection-start-line="101" selection-start-column="31" selection-end-line="101" selection-end-column="51" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Restaurante/camadasDeNegocio/interfaces/IControladorMesa.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="31" selection-start-line="18" selection-end-line="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Restaurante/fachada/interfaceFachada/IFachadaMesa.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Restaurante/camadasDeNegocio/interfaces/IControladorCadapio.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" selection-start-line="12" selection-end-line="12" selection-end-column="81" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Restaurante/camadasDeNegocio/entidade/abstrato/Reserva.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="39" column="46" selection-start-line="39" selection-start-column="46" selection-end-line="39" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1100#1101#0" expanded="true" />
+            <element signature="e#1126#1127#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Restaurante/camadasDeNegocio/entidade/concretos/Mesa.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1003">
+          <caret line="77" lean-forward="true" selection-start-line="77" selection-end-line="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Restaurante/fachada/interfaceFachada/IFachadaAtendente.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="27" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Restaurante/fachada/Fachada.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2156">
+          <caret line="206" column="57" selection-start-line="206" selection-start-column="57" selection-end-line="206" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Restaurante/fachada/interfaceFachada/IFachadaGerente.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="547">
+          <caret line="37" column="93" selection-start-line="37" selection-start-column="93" selection-end-line="37" selection-end-column="93" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Restaurante/fachada/interfaceFachada/IFachadaCozinheiro.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="81" selection-start-line="20" selection-start-column="81" selection-end-line="20" selection-end-column="81" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

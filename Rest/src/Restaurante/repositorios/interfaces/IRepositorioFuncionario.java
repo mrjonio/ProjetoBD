@@ -15,6 +15,5 @@ public interface IRepositorioFuncionario {
     void mudarAtributosFuncionario(Funcionario funcionario, int index);
     Funcionario pegarFuncionario(String cpf);
     int pegarIdex(Funcionario funcionarioQueSeraPegoIdex);
-    boolean verificarSeRepositorioEstaVazio();
 
 }

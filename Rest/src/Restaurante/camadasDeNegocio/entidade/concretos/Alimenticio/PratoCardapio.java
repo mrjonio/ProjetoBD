@@ -4,6 +4,7 @@ package Restaurante.camadasDeNegocio.entidade.concretos.Alimenticio;
  * Aqui temos a classe modelo para os objetos do tipo "prato"; seus atributos e o seu construtor.
  */
 
+import Restaurante.excessoes.ObjetoExistencia.ObjetoJaExisteErro;
 import javafx.scene.image.Image;
 
 import java.util.List;
@@ -28,16 +29,8 @@ public class PratoCardapio {
         this.nome = nome;
     }
 
-    public void setPreco(double preco) {
-        this.preco = preco;
-    }
-
     public double getPreco() {
         return preco;
-    }
-
-    public void setPreco(int preco) {
-        this.preco = preco;
     }
 
     public Image getFoto() {
@@ -52,7 +45,18 @@ public class PratoCardapio {
         return ingredientes;
     }
 
-    public void setIngredientes(List<Ingrediente> ingredientes) {
-        this.ingredientes = ingredientes;
+    public void adicionarNovoIngrediente(Ingrediente novo) throws ObjetoJaExisteErro {
+        boolean flag = true;
+        for (Ingrediente ing: ingredientes) {
+            if (ing.equals(novo)){
+                flag = false;
+                break;
+            }
+        }
+        if (flag){
+            this.ingredientes.add(novo);
+        } else {
+            throw new ObjetoJaExisteErro(novo.getNome());
+        }
     }
 }

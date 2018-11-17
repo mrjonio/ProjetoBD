@@ -19,6 +19,7 @@ import Restaurante.camadasDeNegocio.entidade.pessoas.funcionario.Funcionario;
 import Restaurante.fachada.interfaceFachada.IFachadaMesa;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * Abaixo temos a classe Fachada, seus atributos e seu construtor.
@@ -142,6 +143,16 @@ public class Fachada implements IFachadaGerente, IFachadaCozinheiro, IFachadaAte
     @Override
     public void alterarAtributoDeUmPrato(PratoCardapio novoPrato, String nomeAtual) throws ObjetoNaoExisteErro {
         this.camadaCadapio.alterarAtributoDeUmPrato(novoPrato, nomeAtual);
+    }
+
+    @Override
+    public List<Pedido> criarListaPedidosDeterminadoPeriodo(LocalDateTime dataInicial, LocalDateTime dataFinal) throws ObjetosInsuficientesErro {
+        return this.camadaPedidos.criarListaPedidosDeterminadoPeriodo(dataInicial, dataFinal);
+    }
+
+    @Override
+    public void removerUmDeterminadopedido(Pedido pedidoQueSeraRemovido) throws ObjetoNaoExisteErro {
+        this.camadaPedidos.removerUmDeterminadopedido(pedidoQueSeraRemovido);
     }
 
 

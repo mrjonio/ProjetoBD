@@ -38,7 +38,13 @@ public class RepositorioMesas implements IRepositorioMesas{
      */
     @Override
     public Mesa pegarMesa(int index){
-        return mesas.get(index);
+        Mesa contemMesa = null;
+        for (Mesa mes: this.mesas) {
+            if (mes.getNumero() == index){
+                contemMesa = mes;
+                break;
+            }
+        } return contemMesa;
     }
 
     /**
@@ -72,10 +78,17 @@ public class RepositorioMesas implements IRepositorioMesas{
     @Override
     public boolean indiceContemUmaMesa(int idex) {
         boolean contemMesa = false;
-        if (mesas.size() >= idex){
-            contemMesa = true;
-        }
-        return contemMesa;
+        for (Mesa mes: this.mesas) {
+            if (mes.getNumero() == idex){
+                contemMesa = true;
+                break;
+            }
+        } return contemMesa;
+    }
+
+    @Override
+    public int pegarIndex(Mesa mesa) {
+         return this.mesas.indexOf(mesa);
     }
 
     /**

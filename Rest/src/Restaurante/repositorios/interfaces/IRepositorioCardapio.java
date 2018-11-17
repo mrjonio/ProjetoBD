@@ -14,5 +14,4 @@ public interface IRepositorioCardapio {
     void removerPrato(PratoCardapio nomePrato);
     void alterarAtributoPrato(PratoCardapio nomePrato, int index);
     int pegarIdex(PratoCardapio pratoQueSeraPegoIdex);
-    boolean verificarSeRepositorioEstaVazio();
 }

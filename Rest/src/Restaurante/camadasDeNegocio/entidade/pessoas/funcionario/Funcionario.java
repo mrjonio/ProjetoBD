@@ -1,7 +1,8 @@
 package Restaurante.camadasDeNegocio.entidade.pessoas.funcionario;
 
-import Restaurante.excessoes.*;
+import Restaurante.excessoes.ParametroValidade.CampoVazioErro;
 import Restaurante.excessoes.ParametroValidade.ParametroInvalidoErro;
+import Restaurante.excessoes.ParametroValidade.PessoaMenorDeIdadeErro;
 
 /**
  * Classe modelo para os objetos do tipo "funcionário"; seus atributos e seu construtor.
@@ -28,16 +29,8 @@ public class Funcionario {
         return funcao;
     }
 
-    public void setFuncao(String funcao) {
-        this.funcao = funcao;
-    } //Adicionar regras de negocio
-
     public double getSalario() {
         return salario;
-    }
-
-    public void setSalario(double salario) {
-        this.salario = salario;
     }
 
     public String getNome() {
@@ -56,50 +49,37 @@ public class Funcionario {
         return idade;
     }
 
-    public void setIdade(int idade) {
-        this.idade = idade;
-    }
-
     public String getSexo() {
         return sexo;
     }
 
-    public void transicaoSexo(String sexo) {
-        this.sexo = sexo;
-    }
 
     /**
      * Método para verificar se as informações para criar um novo funcionário são válidas.
      * Verifica se há algum campo vazio, se o tamanho do cpf é o tamanho correto, se o salário é menor que 900,
      * se a pessoa é maior de idade e se o gênero foi selecionado. Se tudo estiver ok, então o funcionário é válido.
-     * @return Retorna se é válido.
      * @throws ParametroInvalidoErro Parâmetro inválido.
      * @throws PessoaMenorDeIdadeErro Pessoa menor de idade.
      * @throws CampoVazioErro Campo de informação vazio.
      */
 
-    public boolean eValido() throws ParametroInvalidoErro, PessoaMenorDeIdadeErro, CampoVazioErro{
-        boolean pessoaValida = false;
-        if (!this.nome.isEmpty() && !this.cpf.isEmpty() && !this.sexo.isEmpty() && !this.funcao.isEmpty()){
+    public void eValido() throws ParametroInvalidoErro, PessoaMenorDeIdadeErro, CampoVazioErro{
+        if (this.nome.isEmpty() || this.cpf.isEmpty() || this.sexo.isEmpty() || this.funcao.isEmpty()) {
+            throw new CampoVazioErro("Nome, Cpf ou Sexo");
+        } else {
             char[] tamanhoCpf = this.cpf.toCharArray();
-            if (tamanhoCpf.length == 14 || this.salario < 900.00){
-                if (this.idade >= 18){
-                    if (this.sexo.equals("Masculino") || this.sexo.equals("Feminino")){
-                        pessoaValida = true;
-                    }
-                    else{
+            if (tamanhoCpf.length != 14 && !(this.salario < 900.00)) {
+                throw new ParametroInvalidoErro("Cpf");
+            } else {
+                if (this.idade < 18) {
+                    throw new PessoaMenorDeIdadeErro();
+                } else {
+                    if (!this.sexo.equals("Masculino") && !this.sexo.equals("Feminino")) {
                         throw new ParametroInvalidoErro("Sexo");
                     }
-                } else{
-                    throw new PessoaMenorDeIdadeErro();
                 }
-            } else {
-                throw new ParametroInvalidoErro("Cpf");
             }
-        } else {
-            throw new CampoVazioErro("Nome, Cpf ou Sexo");
         }
-        return pessoaValida;
     }
 
 

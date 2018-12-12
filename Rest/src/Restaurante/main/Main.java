@@ -1,6 +1,5 @@
 package Restaurante.main;
 
-import Restaurante.camadasDeNegocio.entidade.pessoas.Pessoa;
 import Restaurante.excessoes.ObjetoExistencia.ObjetoJaExisteErro;
 import Restaurante.fachada.Fachada;
 import Restaurante.fachada.interfaceFachada.IFachadaGerente;
@@ -39,14 +38,6 @@ public class Main extends Application {
 
 
     public static void main(String[] args)  {
-        IFachadaGerente fachada = Fachada.getInstance();
-        Pessoa gerente = new Gerente("fasfasf", "111.111.111-11", 19, "Masculino", 1000, "alo");
-        try {
-            fachada.cadastrarUmFuncionario(gerente);
-            launch(args);
-        } catch (ObjetoJaExisteErro objetoJaExisteErro) {
-            objetoJaExisteErro.printStackTrace();
-        }
-
+        launch(args);
     }
 }

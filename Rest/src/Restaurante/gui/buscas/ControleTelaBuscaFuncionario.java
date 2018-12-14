@@ -1,7 +1,7 @@
 package Restaurante.gui.buscas;
 
 import Restaurante.camadasDeNegocio.entidade.pessoas.funcionario.Funcionario;
-import Restaurante.excessoes.ObjetoExistencia.ObjetoNaoExisteErro;
+import Restaurante.excessoes.ObjetoExistencia.ExcecaoObjetoExistencia;
 import Restaurante.fachada.Fachada;
 import Restaurante.fachada.interfaceFachada.IFachadaGerente;
 import Restaurante.main.Main;
@@ -37,8 +37,6 @@ public class ControleTelaBuscaFuncionario implements Initializable {
     @FXML
     private Pane pane;
 
-    private Stage tela;
-
     @FXML
     private TextField tfNomeBuscado;
 
@@ -69,9 +67,8 @@ public class ControleTelaBuscaFuncionario implements Initializable {
 
     @FXML
     private void acaoBotaoSend(ActionEvent event) {
-        String nomeDoPratoBuscado = this.tfNomeBuscado.getText();
         try {
-            Funcionario clienteBuscado = (Funcionario) this.fachada.buscarUmFuncionario(this.tfNomeBuscado.getText());
+            Funcionario clienteBuscado = this.fachada.buscarUmFuncionario(this.tfNomeBuscado.getText());
             this.lbNomeClientePego.setText(clienteBuscado.getNome());
             String preco = String.valueOf(clienteBuscado.getIdade());
             this.lbIdadePega.setText(preco);
@@ -79,15 +76,15 @@ public class ControleTelaBuscaFuncionario implements Initializable {
             this.lbSexoPego.setText(clienteBuscado.getSexo());
             this.lbCpfPego.setText(clienteBuscado.getCpf());
             mudarVisibilidades(false, true);
-        } catch (ObjetoNaoExisteErro objetoNaoExisteErro) {
-            Main.chamarJanela("../gui/erros/TelaPessoaNaoExisteErro.fxml", 400, 150);
+        } catch (ExcecaoObjetoExistencia objetoNaoExisteErro) {
+            objetoNaoExisteErro.mostrarErro();
         }
     }
 
     @FXML
     private void acaoBotaoCancelar(ActionEvent event){
         Main.chamarJanela("../gui/objetos/TelaFuncionario.fxml", 711, 480);
-        this.tela = (Stage) this.pane.getScene().getWindow();
+        Stage tela = (Stage) this.pane.getScene().getWindow();
         tela.close();
     }
 

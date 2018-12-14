@@ -1,5 +1,6 @@
 package Restaurante.main;
 
+
 import Restaurante.camadasDeNegocio.entidade.pessoas.funcionario.Funcionario;
 import Restaurante.fachada.Fachada;
 import Restaurante.fachada.interfaceFachada.IFachadaAtendente;
@@ -12,7 +13,6 @@ public class Main {
 
 
     public static void main(String[] args)  {
-
 
     }
 }

@@ -19,23 +19,33 @@ import java.util.List;
  */
 public interface IFachadaGerente {
 
-    int qtdMesas();
+
+    //Funcionarios
     void cadastrarUmFuncionario(Funcionario funcionarioQueSeraCadastrado) throws ObjetoJaExisteErro;
-    void adicionarUmaMesa(Mesa mesaQueSeraAdicionada) throws ObjetoJaExisteErro;
     Funcionario buscarUmFuncionario(String cpfDoFuncionario) throws ObjetoNaoExisteErro;
-    PratoCardapio buscarUmPratoDoCardapio(String nomeDoPrato) throws ObjetoNaoExisteErro;
-    Reserva buscarUmaReserva(Reserva reservaBuscada) throws ObjetoNaoExisteErro;
-    Mesa buscarUmaMesa(int index) throws RepositorioVazioErro, ObjetosInsuficientesErro;
     void alterarAtributosDeUmFuncionario(Funcionario atributosSubstituidos, String cpfAtualDoFuncionario) throws ObjetoNaoExisteErro;
     void deletarUmFuncionario(String cpfDoFuncionarioQueSeraRemovido) throws ObjetoNaoExisteErro;
-    void retirarUmPratoDoCardapio(String nomeDoPratoQueSeraRetirado) throws ObjetoNaoExisteErro;
+    double calcularFolhaDePagamento();
+
+    //Mesas
+    void adicionarUmaMesa(Mesa mesaQueSeraAdicionada) throws ObjetoJaExisteErro;
+    Mesa buscarUmaMesa(int index) throws RepositorioVazioErro, ObjetosInsuficientesErro;
+    int qtdMesas();
     void deletarMesasDoSistema(Mesa mesaQueSeraDeletada) throws RepositorioVazioErro, ObjetoEmUsoErro, ObjetosInsuficientesErro;
+
+    //Pratos
+    PratoCardapio buscarUmPratoDoCardapio(String nomeDoPrato) throws ObjetoNaoExisteErro;
+    void retirarUmPratoDoCardapio(String nomeDoPratoQueSeraRetirado) throws ObjetoNaoExisteErro;
+    void alterarAtributoDeUmPrato(PratoCardapio novoPrato, String nomeAtual) throws ObjetoNaoExisteErro;
+
+    //Reserva
+    Reserva buscarUmaReserva(Reserva reservaBuscada) throws ObjetoNaoExisteErro;
+
+
+    //Pedidos
     void deletarPedidosDeUmaDeterminadaEpoca(LocalDateTime dataInicialRemocao, LocalDateTime dataFinalRemocao) throws ObjetosInsuficientesErro;
     double calcularLucroGeradoPorPedidosEmDetermiadoPeriodoDeTempo(LocalDateTime inicioDoPeriodo, LocalDateTime finalDoPeriodo) throws NaoOuveLucroErro, ObjetosInsuficientesErro;
-    double calcularFolhaDePagamento();
-    void alterarAtributoDeUmPrato(PratoCardapio novoPrato, String nomeAtual) throws ObjetoNaoExisteErro;
     List<Pedido> criarListaPedidosDeterminadoPeriodo(LocalDateTime dataInicial, LocalDateTime dataFinal) throws ObjetosInsuficientesErro;
     void removerUmDeterminadopedido(Pedido pedidoQueSeraRemovido) throws ObjetoNaoExisteErro;
-
 
 }

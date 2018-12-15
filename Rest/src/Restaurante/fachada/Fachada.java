@@ -79,6 +79,11 @@ public class Fachada implements IFachadaGerente, IFachadaCozinheiro, IFachadaAte
     }
 
     @Override
+    public PratoCardapio pegarUmPrato(String nomeDoPrato) throws ObjetoNaoExisteErro {
+        return this.camadaCadapio.pegarUmPrato(nomeDoPrato);
+    }
+
+    @Override
     public void editarMesa(Mesa novosAtributos, Mesa mesaAntiga) throws ObjetoNaoExisteErro {
         this.camadaMesa.editarMesa(novosAtributos, mesaAntiga);
     }

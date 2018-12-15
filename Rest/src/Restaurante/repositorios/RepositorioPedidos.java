@@ -32,7 +32,8 @@ public class RepositorioPedidos implements IRepositorioPedidos {
         double lucroDosPedidos = 0;
         for (Pedido pedido : this.pedidos) {
             if (pedido.getDataDoPedido().isAfter(dataInicial) && pedido.getDataDoPedido().isBefore(dataFinal)) {
-                lucroDosPedidos += pedido.getPratoPedido().getPreco();
+                //TODO: arrumar isso aqui
+                //lucroDosPedidos += pedido.getPratoPedido().getPreco();
             }
         }
         return lucroDosPedidos;
@@ -60,6 +61,7 @@ public class RepositorioPedidos implements IRepositorioPedidos {
      */
     @Override
     public void adicionarPedido(Pedido pedidoQueSeraAdicionado){
+        System.out.println("Pedido armazenado");
         this.pedidos.add(pedidoQueSeraAdicionado);
     }
 

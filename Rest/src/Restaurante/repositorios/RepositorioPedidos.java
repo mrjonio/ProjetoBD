@@ -6,6 +6,7 @@ import Restaurante.repositorios.interfaces.IRepositorioPedidos;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -47,11 +48,14 @@ public class RepositorioPedidos implements IRepositorioPedidos {
      */
     @Override
     public void deletarPedidos(LocalDateTime dataInicial, LocalDateTime dataFinal){
-        for (Pedido pedidoFor : pedidos){
+
+        for (Iterator<Pedido> iterator = this.pedidos.iterator(); iterator.hasNext();) {
+            Pedido pedidoFor = iterator.next();
             if (pedidoFor.getDataDoPedido().isAfter(dataInicial) && pedidoFor.getDataDoPedido().isBefore(dataFinal)){
-                pedidos.remove(pedidoFor);
+                iterator.remove();
             }
         }
+
     }
 
 
@@ -61,7 +65,6 @@ public class RepositorioPedidos implements IRepositorioPedidos {
      */
     @Override
     public void adicionarPedido(Pedido pedidoQueSeraAdicionado){
-        System.out.println("Pedido armazenado");
         this.pedidos.add(pedidoQueSeraAdicionado);
     }
 
@@ -73,6 +76,7 @@ public class RepositorioPedidos implements IRepositorioPedidos {
     @Override
     public Pedido buscarPedido(Pedido pedidoQueSeraBuscado) {
         Pedido pedido = null;
+        //TODO: isso não não suficiente se criar um pedido novo, nao funciona
         for (Pedido ped: this.pedidos) {
             if(ped.equals(pedidoQueSeraBuscado)){
                 pedido = ped;

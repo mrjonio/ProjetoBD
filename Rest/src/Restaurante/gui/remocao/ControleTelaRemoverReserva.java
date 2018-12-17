@@ -1,6 +1,5 @@
 package Restaurante.gui.remocao;
 
-import Restaurante.camadasDeNegocio.entidade.pessoas.Pessoa;
 import Restaurante.excessoes.ObjetoExistencia.ObjetoEmUsoErro;
 import Restaurante.excessoes.ObjetoExistencia.ObjetoNaoExisteErro;
 import Restaurante.fachada.Fachada;

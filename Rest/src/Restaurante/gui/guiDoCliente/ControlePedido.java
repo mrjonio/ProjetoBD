@@ -60,7 +60,7 @@ public class ControlePedido {
             try {
                 essaMessa = this.fachadaMesa.buscarUmaMesa(0);
                 Pedido p = new Pedido(this.pedidos, essaMessa);
-                this.fachadaMesa.armazenarUmPedido(p);
+                essaMessa.adicionarPedido(p);
                 this.limparPedido();
             } catch (Exception e) {
                 Alert alert = new Alert(Alert.AlertType.WARNING);

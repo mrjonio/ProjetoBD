@@ -4,7 +4,8 @@ import Restaurante.camadasDeNegocio.entidade.pessoas.funcionario.Funcionario;
 import Restaurante.repositorios.interfaces.IRepositorioFuncionario;
 
 
-import java.util.ArrayList;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  * Abaixo temos a classe para o repositório de funcionários, que serve para armazenar em um arraylist todas os dados
@@ -13,20 +14,47 @@ import java.util.ArrayList;
  */
 
 public class RepositorioFuncionario implements IRepositorioFuncionario {
-    private ArrayList<Funcionario> funcionario;
-    
-    public RepositorioFuncionario(){
-        this.funcionario = new ArrayList<>();
-    }
+    private DBCenter dbCenter;
 
+    public RepositorioFuncionario(){
+        this.dbCenter = new DBCenter();
+    }
 
     /**
      * Método para adicionar um novo funcionário.
      * @param funcionario Informações do funcionário a ser adicionado.
      */
+
     @Override
-    public void adicionarPessoa(Funcionario funcionario){
-        this.funcionario.add(funcionario);
+    public void adicionarPessoa(Funcionario funcionario) {
+        String funcao = funcionario.getFuncao();
+        String cpf = funcionario.getCpf();
+        String idade = String.valueOf(funcionario.getIdade());
+        String nome = funcionario.getNome();
+        String salario = String.valueOf(funcionario.getSalario());
+        String sexo = funcionario.getSexo();
+        String sql = "INSERT INTO funcionarios (funcao, cpf, idade, nome, salario, sexo) VALUES ('" + funcao + "', '" +
+                cpf + "', '" + idade + "', '" + nome + "', '" + salario + "', '" + "', '" + sexo + "')";
+        try {
+            dbCenter.executarChamada(sql);
+            if (funcao.equals("Cozinheiro")) {
+                String sql2 = "INSERT INTO cozinheiros (funcao, cpf, idade, nome, salario, sexo) VALUES ('" + funcao + "', '" +
+                        cpf + "', '" + idade + "', '" + nome + "', '" + salario + "', '" + "', '" + sexo + "')";
+                dbCenter.executarChamada(sql2);
+            }
+            if (funcao.equals("Gerente")) {
+                String sql2 = "INSERT INTO gerentes (funcao, cpf, idade, nome, salario, sexo) VALUES ('" + funcao + "', '" +
+                        cpf + "', '" + idade + "', '" + nome + "', '" + salario + "', '" + "', '" + sexo + "')";
+                dbCenter.executarChamada(sql2);
+            }
+            if (funcao.equals("Atendente")) {
+                String sql2 = "INSERT INTO atendentes (funcao, cpf, idade, nome, salario, sexo) VALUES ('" + funcao + "', '" +
+                        cpf + "', '" + idade + "', '" + nome + "', '" + salario + "', '" + "', '" + sexo + "')";
+                dbCenter.executarChamada(sql2);
+            }
+        }catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
     }
 
 
@@ -37,14 +65,17 @@ public class RepositorioFuncionario implements IRepositorioFuncionario {
      */
     @Override
     public boolean proucurarPessoa(String cpf) {
-        boolean flag = false;
-        for (Funcionario aFuncionario : funcionario) {
-            if (cpf.equals(aFuncionario.getCpf())) {
-                flag = true;
-                break;
+        String sql = "SELECT * FROM funcionarios WHERE cpf = '" + cpf + "'";
+        try {
+            ResultSet resultSet = dbCenter.executarChamada(sql);
+            if (resultSet.next()) {
+                return true;
+            } else {
+                return false;
             }
+        } catch (SQLException | ClassNotFoundException e) {
+            return false;
         }
-        return flag;
     }
 
 
@@ -54,7 +85,27 @@ public class RepositorioFuncionario implements IRepositorioFuncionario {
      */
     @Override
     public void removerPessoa(Funcionario funcionarioQueSeraRemovido){
-        this.funcionario.remove(funcionarioQueSeraRemovido);
+        try {
+            if (funcionarioQueSeraRemovido.getFuncao().equals("Cozinheiro")) {
+                String sql = "DELETE * FROM funcionarios, cozinheiros WHERE cpf = '" + funcionarioQueSeraRemovido.getCpf() + "'";
+                dbCenter.executarChamada(sql);
+            }
+            if (funcionarioQueSeraRemovido.getFuncao().equals("Gerente")) {
+                String sql = "DELETE * FROM funcionarios, gerentes WHERE cpf = '" + funcionarioQueSeraRemovido.getCpf() + "'";
+                dbCenter.executarChamada(sql);
+            }
+            if (funcionarioQueSeraRemovido.getFuncao().equals("Atendente")) {
+                String sql = "DELETE * FROM funcionarios, atendentes WHERE cpf = '" + funcionarioQueSeraRemovido.getCpf() + "'";
+                dbCenter.executarChamada(sql);
+            } else {
+                String sql = "DELETE * FROM funcionarios WHERE cpf = '" + funcionarioQueSeraRemovido.getCpf() + "'";
+                dbCenter.executarChamada(sql);
+            }
+
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
     }
 
     /**
@@ -64,7 +115,14 @@ public class RepositorioFuncionario implements IRepositorioFuncionario {
      */
     @Override
     public void mudarAtributosFuncionario(Funcionario funcionario, int index) {
-        this.funcionario.set(index, funcionario);
+        try{
+        String sql = "UPDATE funcionarios NATURAL JOIN cozinheiros NATURAL JOIN gerentes NATURAL JOIN atendentes" +
+                " SET nome ='" + funcionario.getNome() +"',  funcao='"+ funcionario.getFuncao() +"', sexo ='" + funcionario.getSexo() +"', salario= '" + funcionario.getSalario() +
+                "', idade ='" + funcionario.getIdade() + "'" + "WHERE cpf = '" + funcionario.getCpf() + "'";
+        dbCenter.executarChamada(sql);
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -74,13 +132,23 @@ public class RepositorioFuncionario implements IRepositorioFuncionario {
      */
     @Override
     public Funcionario pegarFuncionario(String cpf) {
-        Funcionario funcionarioQueSeraPego = null;
-        for (Funcionario aFuncionario : this.funcionario) {
-            if (aFuncionario.getCpf().equals(cpf)) {
-                funcionarioQueSeraPego = aFuncionario;
+        String sql = "SELECT * FROM funcionarios WHERE cpf = '" + cpf + "'";
+        try {
+            ResultSet resultSet = dbCenter.executarChamada(sql);
+            if (resultSet.next()) {
+                String nome = resultSet.getString("nome");
+                String cpfB = resultSet.getString("cpf");
+                String sexo = resultSet.getString("sexo");
+                String funcao = resultSet.getString("funcao");
+                int idade = Integer.parseInt(resultSet.getString("idade"));
+                double salario = Double.parseDouble(resultSet.getString("salario"));
+                return new Funcionario(nome, cpfB, idade, sexo, funcao, salario);
+            } else {
+                return null;
             }
+        } catch (SQLException | ClassNotFoundException e) {
+            return null;
         }
-        return funcionarioQueSeraPego;
     }
 
 
@@ -91,11 +159,17 @@ public class RepositorioFuncionario implements IRepositorioFuncionario {
      */
     @Override
     public double calcularFolhaDePagamento(){
-        double total = 0;
-        for (Funcionario aFuncionario : this.funcionario) {
-            total += aFuncionario.getSalario();
+        String sql = "SELECT * FROM folhaPagamento";
+        try {
+            ResultSet resultSet = dbCenter.executarChamada(sql);
+            if (resultSet.next()){
+                return Double.parseDouble(resultSet.getString("salario"));
+            }else{
+                return 0;
+            }
+        } catch (ClassNotFoundException | SQLException e) {
+            return 0;
         }
-        return total;
     }
 
     /**]
@@ -105,6 +179,6 @@ public class RepositorioFuncionario implements IRepositorioFuncionario {
      */
     @Override
     public int pegarIdex(Funcionario funcionarioQueSeraPegoIdex){
-        return this.funcionario.indexOf(funcionarioQueSeraPegoIdex);
+        return 0;
     }
 }

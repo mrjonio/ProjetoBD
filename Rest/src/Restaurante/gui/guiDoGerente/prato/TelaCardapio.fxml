@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Restaurante.gui.guiDoGerente.prato.TelaCardapio">
+
+
+
+
+<children>
+    <ImageView fx:id="imgTop" fitHeight="488.0" fitWidth="720.0" pickOnBounds="true" preserveRatio="true">
+        <image>
+            <Image url="@../../../imagens/telaCardapio.png" />
+        </image></ImageView>
+
+    <Button layoutX="284.0" layoutY="159.0" mnemonicParsing="false" onAction="#buscarPrato" prefHeight="57.0" prefWidth="139.0" text="Ver prato">
+        <font>
+            <Font name="Arial Bold" size="18.0" />
+        </font>
+    </Button>
+    <Button layoutX="284.0" layoutY="227.0" mnemonicParsing="false" onAction="#removerPrato" prefHeight="57.0" prefWidth="139.0" text="Apagar Prato">
+        <font>
+            <Font name="Arial Bold" size="18.0" />
+        </font>
+    </Button>
+    <Button layoutX="284.0" layoutY="295.0" mnemonicParsing="false" onAction="#adicionarPrato" prefHeight="57.0" prefWidth="139.0" text="Novo Prato">
+        <font>
+            <Font name="Arial Bold" size="18.0" />
+        </font>
+    </Button>
+    <Button layoutX="284.0" layoutY="362.0" mnemonicParsing="false" onAction="#alterarPrato" prefHeight="57.0" prefWidth="139.0" text="Mudar Prato">
+        <font>
+         <Font name="Arial Bold" size="18.0" />
+        </font>
+    </Button>
+</children>
+
+
+
+
+
+
+</AnchorPane>

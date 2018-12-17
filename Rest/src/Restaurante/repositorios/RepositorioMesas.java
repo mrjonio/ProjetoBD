@@ -1,10 +1,13 @@
 package Restaurante.repositorios;
 
+import Restaurante.camadasDeNegocio.entidade.abstrato.Pedido;
+import Restaurante.camadasDeNegocio.entidade.concretos.Alimenticio.Ingrediente;
+import Restaurante.camadasDeNegocio.entidade.concretos.Alimenticio.PratoCardapio;
 import Restaurante.camadasDeNegocio.entidade.concretos.Mesa;
 import Restaurante.repositorios.interfaces.IRepositorioMesas;
 
-//Mesas não podem ser deletadas, apenas criadas (max 101 mesas)
-
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
@@ -13,39 +16,75 @@ import java.util.ArrayList;
  * Criação do arraylist para guardar os objetos do tipo "mesas".
  */
 
-public class RepositorioMesas implements IRepositorioMesas{
+public class RepositorioMesas implements IRepositorioMesas {
     private ArrayList<Mesa> mesas;
+    private DBCenter dbCenter;
 
 
-    public RepositorioMesas(){
+    public RepositorioMesas() {
         this.mesas = new ArrayList<>();
+        this.dbCenter = new DBCenter();
     }
 
     /**
      * Método para adicionar uma nova mesa.
+     *
      * @param mesa Mesa a ser adicionada.
      */
     @Override
-    public void adicionarMesas(Mesa mesa){
+    public void adicionarMesas(Mesa mesa) {
         mesas.add(mesa);
     }
 
 
     /**
      * Método para pegar uma mesa, através de seu índice.
+     *
      * @param index Índice da mesa a ser pega.
      * @return Retorna o índice da mesa.
      */
     @Override
-    public Mesa pegarMesa(int index){
-        Mesa contemMesa = null;
-        for (Mesa mes: this.mesas) {
-            if (mes.getNumero() == index){
-                contemMesa = mes;
-                break;
+    public Mesa pegarMesa(int index) {
+        String sql = "SELECT * FROM mesasOculpadas, mesasReservadas";
+        Mesa mesa = null;
+        try {
+            ResultSet mesas = this.dbCenter.executarChamada(sql);
+            while (mesas.next()) {
+                if (Integer.parseInt(mesas.getString("numero")) == index) {
+                    String disponibilidade = mesas.getString("disponibilidade");
+                    mesa = new Mesa(index, disponibilidade);
+                    String sql2 = "SELECT * FROM pedidosMesa WHERE numeroMesa = '" + index + "'";
+                    ResultSet pedidos = this.dbCenter.executarChamada(sql2);
+                    ArrayList<Pedido> pedido = new ArrayList<>();
+                    while (pedidos.next()){
+                        String sql3 = "SELECT * FROM pratosPedidos WHERE idPedido = '" + pedidos.getString("idPedido") + "'";
+                        ResultSet pratos = this.dbCenter.executarChamada(sql3);
+                        ArrayList<PratoCardapio> prato = new ArrayList<>();
+                        while (pratos.next()){
+                            String sql4 = "SELECT * FROM ingredientesPrato WHERE nome_prato = '" + pratos.getString("nome_prato") + "'";
+                            ResultSet ingrediente = this.dbCenter.executarChamada(sql3);
+                            ArrayList<Ingrediente> ingredientes = new ArrayList<>();
+                            while (ingrediente.next()){
+                                Ingrediente ing = new Ingrediente(ingrediente.getString("nome_ingrediente"), Integer.parseInt(ingrediente.getString("quantidade")));
+                                ingredientes.add(ing);
+                            }
+                            PratoCardapio prat = new PratoCardapio(pratos.getString("nome_prato"), Float.parseFloat(pratos.getString("preco_prato")), ingredientes);
+                            prato.add(prat);
+                        }
+                        Pedido ped = new Pedido(prato, mesa);
+                        pedido.add(ped);
+                    }
+                    for (Pedido p: pedido) {
+                        mesa.adicionarPedido(p);
+                    }
+                }
             }
-        } return contemMesa;
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+        return mesa;
     }
+
 
     /**
      * Método para remover uma mesa.
@@ -53,12 +92,24 @@ public class RepositorioMesas implements IRepositorioMesas{
      */
     @Override
     public void removerMesas(Mesa mesaQueSeraRemovida) {
-        this.mesas.remove(mesaQueSeraRemovida);
+        String sql = "DELETE * FROM mesas NATURAL JOIN mesas_faz_pedidos NATURAL JOIN pedidos_tem_pratos WHERE numero = '" + mesaQueSeraRemovida.getNumero() + "'";
+        try {
+            this.dbCenter.executarChamada(sql);
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
         }
+    }
 
     @Override
     public void alterarAtributosMesa(Mesa novosAtributos, int index) {
-        this.mesas.set(index, novosAtributos);
+        String sql =  "UPDATE mesas\n" +
+                "SET numero ='" + novosAtributos.getNumero() +"', disponibilidade ='"+ novosAtributos.isDisponibilidade() +"'\n" +
+                "WHERE numero = '" + index + "'";
+        try {
+            this.dbCenter.executarChamada(sql);
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     /**]

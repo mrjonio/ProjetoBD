@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Restaurante.gui.guiDoAtendente.TelaAtendente">
+
+
+    <ImageView fx:id="imgTop" fitHeight="488.0" fitWidth="720.0" pickOnBounds="true" preserveRatio="true">
+        <image>
+            <Image url="@../../imagens/telaCardapio.png" />
+        </image>
+    </ImageView>
+
+    <Button layoutX="259.0" layoutY="141.0" mnemonicParsing="false" onAction="#verReserva" prefHeight="57.0" prefWidth="279.0" text="Ver reserva">
+        <font>
+            <Font name="Arial Bold" size="18.0" />
+        </font>
+    </Button>
+
+    <Button layoutX="259.0" layoutY="284.0" mnemonicParsing="false" onAction="#novaReserva" prefHeight="57.0" prefWidth="279.0" text="Nova reserva">
+        <font>
+            <Font name="Arial Bold" size="18.0" />
+        </font>
+    </Button>
+
+    <Button layoutX="259.0" layoutY="216.0" mnemonicParsing="false" onAction="#apagarReserva" prefHeight="57.0" prefWidth="279.0" text="Apagar reserva">
+        <font>
+            <Font name="Arial Bold" size="18.0" />
+        </font>
+    </Button>
+
+    <Button layoutX="-34.0" layoutY="141.0" mnemonicParsing="false" onAction="#mudarReserva" prefHeight="57.0" prefWidth="279.0" text="Mudar reserva">
+        <font>
+            <Font name="Arial Bold" size="18.0" />
+        </font>
+    </Button>
+
+
+
+</AnchorPane>

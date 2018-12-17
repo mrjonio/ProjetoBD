@@ -87,7 +87,8 @@ public class ControladorIngredientes implements IControladorIngredientes {
         Ingrediente buscado = this.pegarUmIngrediente(ingredienteQueSeraDiminuido.getNome());
         if(buscado != null){
             if (buscado.getQtd() >= qtd){
-                buscado.setQtd(qtd);
+                //setQtd soma, entao se quero diminuir tenho somar c um negativo
+                buscado.setQtd(( (-1) * qtd));
             } else{
                 throw new ObjetosInsuficientesErro("Ingrediente a ser usado");
             }

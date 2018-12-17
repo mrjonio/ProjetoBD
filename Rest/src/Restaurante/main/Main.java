@@ -1,11 +1,14 @@
 package Restaurante.main;
 
 
+<<<<<<< HEAD
 import Restaurante.camadasDeNegocio.entidade.abstrato.Pedido;
 import Restaurante.camadasDeNegocio.entidade.abstrato.Reserva;
 import Restaurante.camadasDeNegocio.entidade.concretos.Alimenticio.Ingrediente;
 import Restaurante.camadasDeNegocio.entidade.concretos.Alimenticio.PratoCardapio;
 import Restaurante.camadasDeNegocio.entidade.concretos.Mesa;
+=======
+>>>>>>> parent of 6700452... Adicionando objetos
 import Restaurante.camadasDeNegocio.entidade.pessoas.funcionario.Funcionario;
 import Restaurante.fachada.Fachada;
 import javafx.application.Application;
@@ -14,6 +17,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+<<<<<<< HEAD
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -47,10 +51,14 @@ public class Main extends Application {
         }
         return loader;
     }
+=======
+public class Main {
+>>>>>>> parent of 6700452... Adicionando objetos
 
 
 
     public static void main(String[] args)  {
+<<<<<<< HEAD
 
         Fachada fachada =  Fachada.getInstance();
 
@@ -96,5 +104,8 @@ public class Main extends Application {
 
         launch(args);
 
+=======
+
+>>>>>>> parent of 6700452... Adicionando objetos
     }
 }

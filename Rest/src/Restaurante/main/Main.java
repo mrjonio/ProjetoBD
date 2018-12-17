@@ -1,5 +1,6 @@
 package Restaurante.main;
 
+
 import Restaurante.camadasDeNegocio.entidade.abstrato.Pedido;
 import Restaurante.camadasDeNegocio.entidade.abstrato.Reserva;
 import Restaurante.camadasDeNegocio.entidade.concretos.Alimenticio.Ingrediente;
@@ -28,19 +29,12 @@ public class Main extends Application {
         primaryStage.show();
     }
 
-    public static void chamarJanela(String nomeDaJanela, int width, int heigt) {
-        Stage stage = new Stage();
-        Parent root;
-        try {
-            root = FXMLLoader.load(Main.class.getResource(nomeDaJanela));
-            stage.setResizable(false);
-            stage.setScene(new Scene(root, width, heigt));
-            stage.setTitle("Restaurante");
-            stage.show();
-        } catch (IOException e) {
 
-        }
-    }
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+
+public class Main {
+
 
     public static FXMLLoader chamarJanelaLoader(String nomeDaJanela, int width, int heigt) {
         Stage stage = new Stage();
@@ -77,6 +71,7 @@ public class Main extends Application {
 
         Funcionario gerente =  new Funcionario("Carlos", "111.111.111-11", 18, "masc", "Gerente", 1999999.00);
         PratoCardapio prat0 = new PratoCardapio("Pão de Queijo", 20.00, ingredientes);
+
         Mesa mesa2 = new Mesa(1, "Vazia");
         Mesa mesa = new Mesa(0, "Oculpado");
         Reserva reserva = new Reserva(LocalDateTime.now().plusDays(1), "111.111.111-11", mesa2);
@@ -86,6 +81,7 @@ public class Main extends Application {
 
         Pedido p = new Pedido(arr, mesa);
         mesa.adicionarPedido(p);
+
 
 
         try {
@@ -104,5 +100,6 @@ public class Main extends Application {
 
 
         launch(args);
+
     }
 }

@@ -16,8 +16,9 @@ public interface IFachadaCozinheiro {
     Ingrediente pegarUmIngrediente(int indexDoIngrediente) throws ObjetoNaoExisteErro;
     void diminuirQuantidadeDeIngrediente(Ingrediente ingredienteQueSeraDiminuido, int qtd) throws ObjetoNaoExisteErro, ObjetosInsuficientesErro;
     void alterarAtributoDeUmIngrediente(Ingrediente novosAtributos, String nomeAtual) throws ObjetoNaoExisteErro;
+
+
     boolean verificarQuantidadeIngredientes(Ingrediente nomeDoIngrediente, int qtdNecessaria) throws ObjetoNaoExisteErro;
     void armazenarUmPedido(Pedido pedidoQueSeraArmazenado);
     void adicionarPratoAoCardapio(PratoCardapio prato) throws ObjetoJaExisteErro;
-
 }

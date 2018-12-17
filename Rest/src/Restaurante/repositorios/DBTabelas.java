@@ -65,6 +65,8 @@ public class DBTabelas {
     private void criarTabFuncionarios() {
         String atributos = "cpf VARCHAR(14) NOT NULL," +
                 "  nome TEXT NOT NULL," +
+                "  sexo TEXT NOT NULL," +
+                "  funcao TEXT NOT NULL," +
                 "  salario FLOAT UNSIGNED NOT NULL," +
                 "  idade INT UNSIGNED NOT NULL," +
                 "  PRIMARY KEY (cpf)";
@@ -117,7 +119,7 @@ public class DBTabelas {
     private void criarTabPedidos () {
         String atributos = "idpedidos INT UNSIGNED NOT NULL,\n" +
                 "  data DATETIME NOT NULL,\n" +
-                "  PRIMARY KEY (idpedidos)";
+                "  PRIMARY KEY (idpedidos, data)";
 
         String cmd = criarCmd.replace("$atributos$", atributos);
         cmd = cmd.replace("$tabela$", tabPedidos);
@@ -199,6 +201,7 @@ public class DBTabelas {
     private void criarTabPedidosTemPratos () {
         String atributos = "idpedidos INT UNSIGNED NOT NULL,\n" +
                 "  nome_prato VARCHAR(50) NOT NULL,\n" +
+                "  preco FLOAT UNSIGNED NOT NULL, \n" +
                 "  PRIMARY KEY (idpedidos, nome_prato),\n" +
                 "  CONSTRAINT PEDIDO_FEITO\n" +
                 "    FOREIGN KEY (idpedidos)\n" +
@@ -256,7 +259,7 @@ public class DBTabelas {
         this.executarCmd(cmd);
     }
 
-    private void criarTabelas() {
+    public void criarTabelas() {
         this.criarTabFuncionarios();
         this.criarTabPedidos();
         this.criarTabCozinheiros();

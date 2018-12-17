@@ -82,5 +82,15 @@ public class Funcionario {
         }
     }
 
-
+    @Override
+    public String toString() {
+        return "Funcionario{" +
+                "nome='" + nome + '\'' +
+                ", cpf='" + cpf + '\'' +
+                ", idade=" + idade +
+                ", sexo='" + sexo + '\'' +
+                ", funcao='" + funcao + '\'' +
+                ", salario=" + salario +
+                '}';
+    }
 }

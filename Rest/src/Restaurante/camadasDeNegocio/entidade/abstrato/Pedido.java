@@ -14,6 +14,7 @@ public class Pedido{
     private ArrayList<PratoCardapio> pratoPedido;
     private LocalDateTime dataDoPedido;
     private Mesa mesaQuePediu;
+    private int idPedido;
 
     public Pedido(ArrayList<PratoCardapio> pratosPedido, Mesa mesaQuePediu){
         //Mudando a forma pradrao de tempo para evistar os segundos
@@ -38,6 +39,14 @@ public class Pedido{
 
     public Mesa getMesaQuePediu(){
         return mesaQuePediu;
+    }
+
+    public int getIdPedido(){
+        return this.idPedido;
+    }
+
+    public void setIdPedido(int id){
+        this.idPedido = id;
     }
 
     @Override

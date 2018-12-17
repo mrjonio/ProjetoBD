@@ -21,7 +21,7 @@ public class RepositorioIngredientes implements IRepositorioIngrediente {
     public void adicionarIngrediente(Ingrediente ingredienteQueSeraAdicionado) {
         String nome = ingredienteQueSeraAdicionado.getNome();
         String qtd = String.valueOf(ingredienteQueSeraAdicionado.getQtd());
-        String sql = "INSERT INTO ingredientes (nome, qtd) VALUES ('" + nome + "', '" + qtd + "')";
+        String sql = "INSERT INTO ingredientes (nome, quantidade) VALUES ('" + nome + "', '" + qtd + "')";
         try {
             dbCenter.executarChamada(sql);
         } catch (ClassNotFoundException | SQLException e) {
@@ -49,11 +49,11 @@ public class RepositorioIngredientes implements IRepositorioIngrediente {
 
     @Override
     public void removerIngrediente(Ingrediente ingredienteQueSeraRemovido) {
-        String sql = "DELETE * FROM ingredientes NATURAL JOIN pratos_possuem_ingredientes WHERE nome = '" + ingredienteQueSeraRemovido.getNome() + "'";
+        String sql = "DELETE * FROM ingredientes WHERE nome = '" + ingredienteQueSeraRemovido.getNome() + "'";
         try {
             this.dbCenter.executarChamada(sql);
         } catch (ClassNotFoundException | SQLException e) {
-
+            System.out.println("NAO DEU AAAAAAA");
         }
     }
 

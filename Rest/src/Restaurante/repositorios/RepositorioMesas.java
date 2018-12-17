@@ -33,7 +33,29 @@ public class RepositorioMesas implements IRepositorioMesas {
      */
     @Override
     public void adicionarMesas(Mesa mesa) {
-        mesas.add(mesa);
+        try {
+            for (Pedido p : mesa.getPedidos()) {
+                for (PratoCardapio c : p.getPratoPedido()) {
+                    for (Ingrediente i : c.getIngredientes()) {
+                        String pratoIng = "INSERT INTO pratos_possuem_ingredientes (nome_prato, nome_ingrediente, quantidade) VALUES" +
+                                "('" + c.getNome() + "', '" + i.getNome() + "', '" + i.getQtd() + "')";
+                        dbCenter.executarChamada(pratoIng);
+                    }
+                    String prato = "INSERT INTO pedidos_tem_pratos (nome_prato, preco, idPedidos) VALUES" +
+                            "('" + c.getNome() + "', '" + c.getPreco() + "', '" + p.getIdPedido() + "')";
+                    dbCenter.executarChamada(prato);
+
+                }
+                String pedido = "INSERT INTO mesas_faz_pedidos (numeroMesa, idPedido) VALUES " +
+                        "('" + mesa.getNumero() + "', '" + p.getIdPedido() + "')";
+                dbCenter.executarChamada(pedido);
+            }
+            String mess = "INSERT INTO mesas (numero, disponibilidade) VALUES ('" +
+                    mesa.getNumero() + "', '" + mesa.isDisponibilidade() + "')";
+            dbCenter.executarChamada(mess);
+        }  catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
 

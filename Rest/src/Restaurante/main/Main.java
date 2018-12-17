@@ -1,17 +1,11 @@
 package Restaurante.main;
 
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 9ea9c1998f63b85615caefc6fd7228822b760563
 import Restaurante.camadasDeNegocio.entidade.abstrato.Pedido;
 import Restaurante.camadasDeNegocio.entidade.abstrato.Reserva;
 import Restaurante.camadasDeNegocio.entidade.concretos.Alimenticio.Ingrediente;
 import Restaurante.camadasDeNegocio.entidade.concretos.Alimenticio.PratoCardapio;
 import Restaurante.camadasDeNegocio.entidade.concretos.Mesa;
-=======
->>>>>>> parent of 6700452... Adicionando objetos
 import Restaurante.camadasDeNegocio.entidade.pessoas.funcionario.Funcionario;
 import Restaurante.fachada.Fachada;
 import javafx.application.Application;
@@ -19,8 +13,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-<<<<<<< HEAD
-=======
 
 import java.io.IOException;
 import java.time.LocalDateTime;
@@ -37,45 +29,6 @@ public class Main extends Application {
         primaryStage.show();
     }
 
->>>>>>> 9ea9c1998f63b85615caefc6fd7228822b760563
-
-<<<<<<< HEAD
-import java.io.IOException;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-
-public class Main extends Application {
-
-    @Override
-    public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("../gui/TelaSelecao.fxml"));
-        primaryStage.setScene(new Scene(root, 710, 468));
-        primaryStage.setResizable(false);
-        primaryStage.setTitle("Restaurante");
-        primaryStage.show();
-    }
-    
-
-
-    public static FXMLLoader chamarJanelaLoader(String nomeDaJanela, int width, int heigt) {
-        Stage stage = new Stage();
-        Parent root;
-        FXMLLoader loader = null;
-        try {
-            loader = new FXMLLoader(Main.class.getResource(nomeDaJanela));
-            root = loader.load();
-            stage.setResizable(false);
-            stage.setScene(new Scene(root, width, heigt));
-            stage.setTitle("Restaurante");
-            stage.show();
-        } catch (IOException e) {
-
-        }
-        return loader;
-    }
-=======
-public class Main {
->>>>>>> parent of 6700452... Adicionando objetos
 
 
     public static FXMLLoader chamarJanelaLoader(String nomeDaJanela, int width, int heigt) {
@@ -98,10 +51,6 @@ public class Main {
 
 
     public static void main(String[] args)  {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 9ea9c1998f63b85615caefc6fd7228822b760563
 
         Fachada fachada =  Fachada.getInstance();
 
@@ -147,11 +96,5 @@ public class Main {
 
         launch(args);
 
-<<<<<<< HEAD
-=======
-
->>>>>>> parent of 6700452... Adicionando objetos
-=======
->>>>>>> 9ea9c1998f63b85615caefc6fd7228822b760563
     }
 }

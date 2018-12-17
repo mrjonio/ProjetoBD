@@ -3,8 +3,11 @@ package Restaurante.main;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import Restaurante.excessoes.ObjetoExistencia.ObjetoJaExisteErro;
 =======
+=======
+>>>>>>> parent of 2b5b33d... Merge branch 'master' into master
 =======
 >>>>>>> parent of 2b5b33d... Merge branch 'master' into master
 =======
@@ -41,7 +44,10 @@ public class Main extends Application {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of 2b5b33d... Merge branch 'master' into master
 =======
 >>>>>>> parent of 2b5b33d... Merge branch 'master' into master
 =======

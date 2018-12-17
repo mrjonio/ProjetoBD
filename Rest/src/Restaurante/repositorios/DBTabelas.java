@@ -242,7 +242,9 @@ public class DBTabelas {
     private void criarTabAtendenteReservaMesas () {
         String atributos = "cpfAtendente VARCHAR(14) NOT NULL,\n" +
                 "  numeroMesa INT UNSIGNED NOT NULL,\n" +
-                "  PRIMARY KEY (cpfAtendente, numeroMesa),\n" +
+                "  data DATETIME NOT NULL,\n" +
+                "  cpfCliente VARCHAR(14) NOT NULL,\n" +
+                "  PRIMARY KEY (cpfAtendente, numeroMesa, data),\n" +
                 "  CONSTRAINT MESA_RESERVADA\n" +
                 "    FOREIGN KEY (numeroMesa)\n" +
                 "    REFERENCES mesas (numero)\n" +
@@ -254,12 +256,13 @@ public class DBTabelas {
                 "    ON DELETE NO ACTION\n" +
                 "    ON UPDATE NO ACTION";
 
+
         String cmd = criarCmd.replace("$atributos$", atributos);
         cmd = cmd.replace("$tabela$", tabAtendenteReservaMesas);
         this.executarCmd(cmd);
     }
 
-    public void criarTabelas() {
+    private void criarTabelas() {
         this.criarTabFuncionarios();
         this.criarTabPedidos();
         this.criarTabCozinheiros();

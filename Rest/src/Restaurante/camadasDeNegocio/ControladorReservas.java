@@ -75,10 +75,8 @@ public class ControladorReservas implements IControladorReservas {
     @Override
     public void mudarReserva(Reserva novosAtributos, Reserva reservaAntiga) throws ObjetoJaExisteErro, ObjetoNaoExisteErro {
         boolean reservaJaExiste = this.repositorioReserva.verificarExistenciaReserva(novosAtributos);
-        Reserva reservaAtual = buscarReserva(reservaAntiga);
         if (!reservaJaExiste){
-            int idexDaReserva = this.repositorioReserva.pegarIdex(reservaAtual);
-            this.repositorioReserva.mudarUmaReserva(novosAtributos, idexDaReserva);
+            this.repositorioReserva.mudarUmaReserva(novosAtributos, reservaAntiga);
         } else {
             throw new ObjetoJaExisteErro("Reserva");
         }

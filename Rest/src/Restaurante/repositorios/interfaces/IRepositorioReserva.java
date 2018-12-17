@@ -8,12 +8,13 @@ import Restaurante.camadasDeNegocio.entidade.abstrato.Reserva;
  */
 
 public interface IRepositorioReserva {
-    void adicionarReserva(Reserva reserva);
-    void deletarReserva(Reserva reservaQueSeraDeletada);
-    boolean verificarExistenciaReserva(Reserva reservaQueSeraComparada);
-    boolean verificarExistenciaReserva(String cpf);
-    int pegarIdex(Reserva reservaQueSeDesejaSaberIdex);
-    Reserva pegarReserva(Reserva reserva) ;
-    Reserva pegarReserva(String cpf) ;
-    void mudarUmaReserva(Reserva novosDados, int idexDaReserva);
+    //TODO: por enquanto só pode ter 1 reserva por cpf
+    void adicionarReserva(Reserva reserva); //OK
+    void deletarReserva(Reserva reservaQueSeraDeletada); //OK
+    boolean verificarExistenciaReserva(Reserva reservaQueSeraComparada); //OK
+    boolean verificarExistenciaReserva(String cpf); //OK
+    int pegarIdex(Reserva reservaQueSeDesejaSaberIdex); //NAO PRECISA
+    Reserva pegarReserva(Reserva reserva) ; //OK
+    Reserva pegarReserva(String cpf) ; // OK
+    void mudarUmaReserva(Reserva novosDados, Reserva antiga); //OK
 }

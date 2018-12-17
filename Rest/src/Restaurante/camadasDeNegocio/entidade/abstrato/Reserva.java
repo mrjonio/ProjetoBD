@@ -40,4 +40,16 @@ public class Reserva {
         return this.mesaReservada.getNumero();
     }
 
+    @Override
+    public boolean equals(Object reserva) {
+        if (reserva instanceof Reserva) {
+            if (((Reserva) reserva).cpfClienteQueReservou.equals(this.getClienteQueReservou())
+                    && ((Reserva) reserva).dataHora.toString().equals(this.getDataHora().toString())
+                    && ((Reserva) reserva).getMesa() == this.getMesa()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 }

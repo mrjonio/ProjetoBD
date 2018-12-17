@@ -35,7 +35,7 @@
          <font>
             <Font name="Arial Bold" size="18.0" />
          </font></Button>
-      <Button fx:id="btCancelar" layoutX="352.0" layoutY="408.0" mnemonicParsing="false" onAction="#acaoBotaoCancelar" text="Cancelar">
+      <Button fx:id="btCancelar" layoutX="352.0" layoutY="408.0" mnemonicParsing="false"  text="Cancelar">
          <font>
             <Font name="Arial Bold" size="18.0" />
          </font></Button>

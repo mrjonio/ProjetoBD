@@ -1,26 +1,15 @@
 package Restaurante.main;
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 import Restaurante.excessoes.ObjetoExistencia.ObjetoJaExisteErro;
-=======
-=======
->>>>>>> parent of 2b5b33d... Merge branch 'master' into master
-=======
->>>>>>> parent of 2b5b33d... Merge branch 'master' into master
-=======
->>>>>>> parent of 2b5b33d... Merge branch 'master' into master
 import Restaurante.camadasDeNegocio.entidade.abstrato.Pedido;
 import Restaurante.camadasDeNegocio.entidade.abstrato.Reserva;
 import Restaurante.camadasDeNegocio.entidade.concretos.Alimenticio.Ingrediente;
 import Restaurante.camadasDeNegocio.entidade.concretos.Alimenticio.PratoCardapio;
 import Restaurante.camadasDeNegocio.entidade.concretos.Mesa;
 import Restaurante.camadasDeNegocio.entidade.pessoas.funcionario.Funcionario;
->>>>>>> parent of 2b5b33d... Merge branch 'master' into master
+
 import Restaurante.fachada.Fachada;
 import Restaurante.fachada.interfaceFachada.IFachadaGerente;
+import Restaurante.repositorios.DBTabelas;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -28,12 +17,14 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 
 public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("../gui/objetos/TelaLogin.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../gui/TelaSelecao.fxml"));
         primaryStage.setScene(new Scene(root, 780, 411));
         primaryStage.setResizable(false);
         primaryStage.setTitle("Restaurante");
@@ -41,17 +32,6 @@ public class Main extends Application {
     }
 
     public static void chamarJanela(String nomeDaJanela, int width, int heigt) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> parent of 2b5b33d... Merge branch 'master' into master
-=======
->>>>>>> parent of 2b5b33d... Merge branch 'master' into master
-=======
->>>>>>> parent of 2b5b33d... Merge branch 'master' into master
         Stage stage = new Stage();
         Parent root;
         try {
@@ -66,11 +46,12 @@ public class Main extends Application {
     }
 
     public static FXMLLoader chamarJanelaLoader(String nomeDaJanela, int width, int heigt) {
->>>>>>> parent of 2b5b33d... Merge branch 'master' into master
-        Stage stage = new Stage();
+      Stage stage = new Stage();
         Parent root;
+        FXMLLoader loader = null;
         try {
-            root = FXMLLoader.load(Main.class.getResource(nomeDaJanela));
+            loader = new FXMLLoader(Main.class.getResource(nomeDaJanela));
+            root = loader.load();
             stage.setResizable(false);
             stage.setScene(new Scene(root, width, heigt));
             stage.setTitle("Restaurante");
@@ -78,14 +59,15 @@ public class Main extends Application {
         } catch (IOException e) {
 
         }
+        return loader;
     }
 
 
     public static void main(String[] args)  {
-<<<<<<< HEAD
-=======
 
         Fachada fachada =  Fachada.getInstance();
+
+        (new DBTabelas()).migrar();
 
         ArrayList<Ingrediente> ingredientes = new ArrayList<>();
 
@@ -124,8 +106,6 @@ public class Main extends Application {
         } catch (Exception objetoJaExisteErro) {
         }
 
-
->>>>>>> parent of 2b5b33d... Merge branch 'master' into master
         launch(args);
     }
 }

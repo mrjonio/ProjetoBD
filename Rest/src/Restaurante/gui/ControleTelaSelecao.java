@@ -16,18 +16,25 @@ public class ControleTelaSelecao {
     private void clienteView(ActionEvent event) {
         Main.chamarJanela("../gui/guiDoCliente/TelaCardapioCliente.fxml",710, 468);
         this.tela = ((Node)event.getTarget()).getScene().getWindow();
-        ((Stage) this.tela.getScene().getWindow()).close();
+        //((Stage) this.tela.getScene().getWindow()).close();
     }
     @FXML
     private void cozinheiroView(ActionEvent event) {
+        Main.chamarJanela("../gui/guiDoCozinheiro/TelaCozinheiro.fxml",710, 468);
         this.tela = ((Node)event.getTarget()).getScene().getWindow();
-        ((Stage) this.tela.getScene().getWindow()).close();
+        //((Stage) this.tela.getScene().getWindow()).close();
     }
     @FXML
     private void gerenteView(ActionEvent event) {
         Main.chamarJanela("../gui/guiDoGerente/SelecaoGerenciamento.fxml",710, 468);
         this.tela = ((Node)event.getTarget()).getScene().getWindow();
-        ((Stage) this.tela.getScene().getWindow()).close();
+        //((Stage) this.tela.getScene().getWindow()).close();
+    }
+    @FXML
+    private void atendenteView(ActionEvent event) {
+        Main.chamarJanela("../gui/guiDoAtendente/TelaAtendente.fxml",710, 468);
+        this.tela = ((Node)event.getTarget()).getScene().getWindow();
+        //((Stage) this.tela.getScene().getWindow()).close();
     }
 
 }

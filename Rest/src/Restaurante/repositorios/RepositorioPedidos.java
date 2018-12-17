@@ -2,6 +2,7 @@ package Restaurante.repositorios;
 
 
 import Restaurante.camadasDeNegocio.entidade.abstrato.Pedido;
+import Restaurante.camadasDeNegocio.entidade.concretos.Alimenticio.PratoCardapio;
 import Restaurante.repositorios.interfaces.IRepositorioPedidos;
 
 import java.time.LocalDateTime;
@@ -33,7 +34,7 @@ public class RepositorioPedidos implements IRepositorioPedidos {
         for (Pedido pedido : this.pedidos) {
             if (pedido.getDataDoPedido().isAfter(dataInicial) && pedido.getDataDoPedido().isBefore(dataFinal)) {
                 //TODO: arrumar isso aqui
-                //lucroDosPedidos += pedido.getPratoPedido().getPreco();
+                //lucroDosPedidos += pedido.getPratoPedido().stream().map(PratoCardapio::getPreco;));
             }
         }
         return lucroDosPedidos;

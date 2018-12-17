@@ -4,7 +4,7 @@ package Restaurante.repositorios;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 
-class DBTabelas {
+public class DBTabelas {
 
     private DBCenter dbCenter;
 
@@ -272,7 +272,7 @@ class DBTabelas {
         this.criarTabGerentes();
     }
 
-    void migrar() {
+    public void migrar() {
         this.dbCenter = new DBCenter();
         this.excluirTabelas();
         this.criarTabelas();

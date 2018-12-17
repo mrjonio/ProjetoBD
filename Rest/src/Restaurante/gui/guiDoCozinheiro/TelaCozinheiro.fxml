@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Restaurante.gui.guiDoCozinheiro.TelaCozinheiro">
+
+    <ImageView fx:id="imgTop" fitHeight="488.0" fitWidth="720.0" pickOnBounds="true" preserveRatio="true">
+        <image>
+            <Image url="@../../imagens/telaCardapio.png" />
+        </image>
+    </ImageView>
+
+    <TabPane prefHeight="488.0" prefWidth="720.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <Tab closable="false" text="Pedidos">
+         <content>
+            <AnchorPane>
+               <children>
+                  <Button layoutX="153.0" layoutY="201.0" mnemonicParsing="false" onAction="#adicionarPratoAoCardapio" prefHeight="57.0" prefWidth="316.0" text="Adicionar prato ao cardapio">
+                     <font>
+                        <Font name="Arial Bold" size="18.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="259.0" layoutY="141.0" mnemonicParsing="false" onAction="#cozinharPedido" prefHeight="57.0" prefWidth="279.0" text="COZINHAR FINALMENTE">
+                     <font>
+                        <Font name="Arial Bold" size="18.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+         </content></Tab>
+
+        <Tab closable="false" text="Ingredientes">
+            <AnchorPane>
+
+                <Button layoutX="135.0" layoutY="141.0" mnemonicParsing="false" onAction="#adicionarIngrediente" prefHeight="57.0" prefWidth="117.0" text="Adicionar Ingrediente">
+                    <font>
+                        <Font name="Arial Bold" size="18.0" />
+                    </font>
+                </Button>
+
+                <Button layoutX="259.0" layoutY="141.0" mnemonicParsing="false" onAction="#aumentarEstoque" prefHeight="57.0" prefWidth="117.0" text="Aumentar Estoque">
+                    <font>
+                        <Font name="Arial Bold" size="18.0" />
+                    </font>
+                </Button>
+
+                <Button layoutX="135.0" layoutY="201.0" mnemonicParsing="false" onAction="#removerIngrediente" prefHeight="57.0" prefWidth="117.0" text="Remover Ingrediente">
+                    <font>
+                        <Font name="Arial Bold" size="18.0" />
+                    </font>
+                </Button>
+
+                <Button layoutX="383.0" layoutY="141.0" mnemonicParsing="false" onAction="#pegarUmIngrediente" prefHeight="57.0" prefWidth="117.0" text="Ver Ingrediente">
+                    <font>
+                        <Font name="Arial Bold" size="18.0" />
+                    </font>
+                </Button>
+
+                <Button layoutX="259.0" layoutY="201.0" mnemonicParsing="false" onAction="#diminuirQuantidadeDeIngrediente" prefHeight="57.0" prefWidth="117.0" text="Diminuir Ingrediente">
+                    <font>
+                        <Font name="Arial Bold" size="18.0" />
+                    </font>
+                </Button>
+
+                <Button layoutX="383.0" layoutY="201.0" mnemonicParsing="false" onAction="#alterarAtributoDeUmIngrediente" prefHeight="57.0" prefWidth="117.0" text="Alterar Ingrediente">
+                    <font>
+                        <Font name="Arial Bold" size="18.0" />
+                    </font>
+                </Button>
+
+            </AnchorPane>
+
+        </Tab>
+    </TabPane>
+
+
+</AnchorPane>

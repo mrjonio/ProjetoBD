@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Restaurante.gui.guiDoGerente.mesa.TelaMesa">
+
+
+    <children>
+        <ImageView fx:id="imgTop" fitHeight="488.0" fitWidth="720.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../imagens/telaCardapio.png" />
+            </image></ImageView>
+        
+        <Button layoutX="269.0" layoutY="327.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="168.0" text="Nova mesa" onAction="#novaMesa">
+            <font>
+                <Font name="Arial Bold" size="18.0" />
+            </font>
+        </Button>
+        <Button layoutX="269.0" layoutY="180.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="168.0" text="Ver mesa" onAction="#verMesa">
+            <font>
+                <Font name="Arial Bold" size="18.0" />
+            </font>
+        </Button>
+        <Button layoutX="269.0" layoutY="256.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="168.0" text="Remover mesa" onAction="#apagarMesa">
+            <font>
+                <Font name="Arial Bold" size="18.0" />
+            </font>
+        </Button>
+      <Label layoutX="85.0" layoutY="209.0" text="Ocupadas" />
+      <Label layoutX="85.0" layoutY="229.0" text="Livres" />
+      <Label layoutX="85.0" layoutY="248.0" text="Total" />
+      <Label fx:id="ocupadasCount" layoutX="145.0" layoutY="209.0" text="Label" />
+      <Label fx:id="livresCount" layoutX="145.0" layoutY="229.0" text="Label" />
+      <Label fx:id="totalCount" layoutX="145.0" layoutY="248.0" text="Label" />
+    </children>
+
+</AnchorPane>

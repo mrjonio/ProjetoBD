@@ -105,10 +105,14 @@ public class Fachada implements IFachadaGerente, IFachadaCozinheiro, IFachadaAte
     }
 
     @Override
+    public Reserva buscarUmaReserva(String cpf) throws ObjetoNaoExisteErro {
+        return this.camadaReservas.buscarReserva(cpf);
+    }
+
+    @Override
     public Mesa buscarUmaMesa(int index) throws RepositorioVazioErro, ObjetosInsuficientesErro {
         return this.camadaMesa.pegarMesa(index);
     }
-
 
     @Override
     public void alterarAtributosDeUmFuncionario(Funcionario atributosSubstituidos, String cpfAtualDoFuncionario) throws ObjetoNaoExisteErro {

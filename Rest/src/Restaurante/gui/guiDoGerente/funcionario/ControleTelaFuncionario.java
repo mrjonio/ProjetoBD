@@ -40,42 +40,42 @@ public class ControleTelaFuncionario implements Initializable {
 
     @FXML
     private void acaoBotaoCadastro (ActionEvent event) {
-        Main.chamarJanela("../gui/cadastros/TelaCadastroFuncionario.fxml", 711, 480);
+        Main.chamarJanela("../gui/guiDoGerente/funcionario/TelaCadastroFuncionario.fxml", 711, 480);
         this.tela = (Stage) this.pane.getScene().getWindow();
         tela.close();
     }
 
     @FXML
     private void acaoBotaoRemove (ActionEvent event) {
-        Main.chamarJanela("../gui/remocao/TelaRemoverFuncionario.fxml", 711, 480);
+        Main.chamarJanela("../gui/guiDoGerente/funcionario/TelaRemoverFuncionario.fxml", 711, 480);
         this.tela = (Stage) this.pane.getScene().getWindow();
         tela.close();
     }
 
     @FXML
     private void acaoBotaoBusca (ActionEvent event) {
-        Main.chamarJanela("../gui/buscas/TelaBuscaFuncionario.fxml", 711, 480);
+        Main.chamarJanela("../gui/guiDoGerente/funcionario/TelaBuscaFuncionario.fxml", 711, 480);
         this.tela = (Stage) this.pane.getScene().getWindow();
         tela.close();
     }
 
     @FXML
     private void acaoBotaoLista (ActionEvent event) {
-        Main.chamarJanela("../gui/listagens/TelaListarFuncionarios.fxml", 627, 400);
+        Main.chamarJanela("../gui/guiDoGerente/funcionario/TelaListarFuncionarios.fxml", 627, 400);
         this.tela = (Stage) this.pane.getScene().getWindow();
         tela.close();
     }
 
     @FXML
     private void acaoBotaoAlteraAtributo (ActionEvent event) {
-        Main.chamarJanela("../gui/mudancas/TelaMudancaFuncionario.fxml", 711, 480);
+        Main.chamarJanela("../gui/guiDoGerente/funcionario/TelaMudancaFuncionario.fxml", 711, 480);
         this.tela = (Stage) this.pane.getScene().getWindow();
         tela.close();
     }
 
     @FXML
     private void acaoBotaoCalcularFolha (ActionEvent event) {
-        Main.chamarJanela("../gui/outros/FolhaDePagamento.fxml", 711, 480);
+        Main.chamarJanela(".../gui/guiDoGerente/funcionario/FolhaDePagamento.fxml", 711, 480);
         this.tela = (Stage) this.pane.getScene().getWindow();
         tela.close();
     }
@@ -83,7 +83,7 @@ public class ControleTelaFuncionario implements Initializable {
 
     @FXML
     private void acaoBotaoVolta (ActionEvent event) {
-        Main.chamarJanela("../gui/objetos/TelaPrincipal.fxml", 780, 411);
+        //Main.chamarJanela("../gui/objetos/TelaPrincipal.fxml", 780, 411);
         this.tela = (Stage) this.pane.getScene().getWindow();
         tela.close();
     }

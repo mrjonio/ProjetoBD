@@ -98,7 +98,30 @@ public class RepositorioReserva implements IRepositorioReserva{
      }
 
 
+    @Override
+    public Reserva pegarReserva(String cpf) {
 
+        Reserva reservaQueSeraPega = null;
+        for (Reserva reservaDoFor : this.reserva) {
+            if (reservaDoFor.getClienteQueReservou().equals(cpf)) {
+                reservaQueSeraPega = reservaDoFor;
+                break;
+            }
+        }
+        return reservaQueSeraPega;
+
+    }
+
+    @Override
+    public boolean verificarExistenciaReserva(String cpf){
+        boolean flag = false;
+        for (Reserva aReserva : reserva) {
+            if (cpf.equals(aReserva.getClienteQueReservou())) {
+                flag = true;
+            }
+        }
+        return flag;
+    }
 
 
 }

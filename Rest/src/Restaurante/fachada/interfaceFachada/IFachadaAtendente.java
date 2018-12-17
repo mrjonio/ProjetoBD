@@ -14,9 +14,6 @@ public interface IFachadaAtendente {
     void deletarUmaReserva(Reserva reservaQueSeraDeletada) throws ObjetoEmUsoErro, ObjetoNaoExisteErro;
     void mudarReserva(Reserva novosAtributos, Reserva antigaReserva) throws ObjetoJaExisteErro, ObjetoNaoExisteErro;
     Reserva buscarUmaReserva(Reserva reservaBuscada) throws ObjetoNaoExisteErro;
-    Reserva buscarUmaReserva(String cpf) throws ObjetoNaoExisteErro;
-
-
     Mesa buscarUmaMesa(int index) throws RepositorioVazioErro, ObjetosInsuficientesErro;
     void deletarMesasDoSistema(Mesa mesaQueSeraDeletada) throws RepositorioVazioErro, ObjetoEmUsoErro, ObjetosInsuficientesErro;
     void adicionarUmaMesa(Mesa mesaQueSeraAdicionada) throws ObjetoJaExisteErro;

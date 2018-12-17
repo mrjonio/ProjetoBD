@@ -102,16 +102,6 @@ public class ControladorReservas implements IControladorReservas {
         }
     }
 
-    @Override
-    public Reserva buscarReserva(String cpf) throws ObjetoNaoExisteErro {
-        boolean existeReserva = this.repositorioReserva.verificarExistenciaReserva(cpf);
-        if (existeReserva){
-            return this.repositorioReserva.pegarReserva(cpf);
-        } else {
-            throw new ObjetoNaoExisteErro("Reserva");
-        }
-    }
-
 }
 
 

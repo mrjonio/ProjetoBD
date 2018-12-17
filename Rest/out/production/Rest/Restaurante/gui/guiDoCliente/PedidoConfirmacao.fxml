@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" >
+
+   <ListView fx:id="listView" layoutX="14.0" layoutY="14.0" prefHeight="316.0" prefWidth="600.0" AnchorPane.bottomAnchor="84.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+   <Button layoutX="300.0" layoutY="365.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="284.0" text="Limpar Pedido" fx:id="btLimparPedido" />
+   <Button layoutX="300.0" layoutY="325.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="284.0" text="Confirmar Pedido" fx:id="btConfirmarPedido"/>
+   <Label layoutX="83.0" layoutY="350.0" text="Total:" />
+   <Label fx:id="totalLabel" layoutX="161.0" layoutY="350.0" text="Label" />
+
+</AnchorPane>

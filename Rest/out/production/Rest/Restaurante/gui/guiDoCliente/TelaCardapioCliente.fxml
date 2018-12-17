@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Restaurante.gui.guiDoCliente.ControleTelaCardapioCliente">
+
+
+   <ListView fx:id="listView" layoutX="14.0" layoutY="14.0" prefHeight="346.0" prefWidth="600.0" AnchorPane.bottomAnchor="54.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+   <Button layoutX="383.0" layoutY="365.0" mnemonicParsing="false" onAction="#limparPedido" prefHeight="33.0" prefWidth="201.0" text="Limpar Pedido" />
+   <Button layoutX="14.0" layoutY="365.0" mnemonicParsing="false" onAction="#verPedido" prefHeight="33.0" prefWidth="201.0" text="Ver Pedido" />
+   <Button layoutX="228.0" layoutY="365.0" mnemonicParsing="false" onAction="#confirmarPedido" prefHeight="33.0" prefWidth="144.0" text="Confirmar Pedido" />
+
+</AnchorPane>

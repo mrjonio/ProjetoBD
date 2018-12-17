@@ -1,6 +1,8 @@
-package Restaurante.gui.guiDoGerente.funcionario;
+package Restaurante.gui.buscas;
 
-import Restaurante.camadasDeNegocio.entidade.pessoas.funcionario.Funcionario;
+import Restaurante.camadasDeNegocio.entidade.abstrato.Reserva;
+import Restaurante.camadasDeNegocio.entidade.pessoas.Pessoa;
+import Restaurante.camadasDeNegocio.entidade.pessoas.cliente.Cliente;
 import Restaurante.excessoes.ObjetoExistencia.ObjetoNaoExisteErro;
 import Restaurante.fachada.Fachada;
 import Restaurante.fachada.interfaceFachada.IFachadaGerente;
@@ -18,15 +20,15 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ControleTelaBuscaFuncionario implements Initializable {
+public class ControleTelaBuscaReserva implements Initializable {
     private IFachadaGerente fachada;
 
-    public ControleTelaBuscaFuncionario(){
+    public ControleTelaBuscaReserva(){
         this.fachada = Fachada.getInstance();
     }
 
     @FXML
-    private Label lbCpfBusca, lbNome, lbCpf, lbIdade, lbSexo, lbFuncao, lbNomeClientePego, lbCpfPego, lbIdadePega, lbSexoPego, lbFuncaoPega;
+    private Label lbCpfBusca, lbNome, lbCpf, lbSexo, lbNomeClientePego, lbCpfPego, lbSexoPego;
 
     @FXML
     private Button btSend, btCancelar, btVoltar;
@@ -54,12 +56,8 @@ public class ControleTelaBuscaFuncionario implements Initializable {
         this.lbCpfPego.setVisible(b);
         this.lbNome.setVisible(b);
         this.lbCpf.setVisible(b);
-        this.lbIdadePega.setVisible(b);
-        this.lbIdade.setVisible(b);
         this.lbSexoPego.setVisible(b);
         this.lbSexo.setVisible(b);
-        this.lbFuncaoPega.setVisible(b);
-        this.lbFuncao.setVisible(b);
     }
 
     @FXML
@@ -69,15 +67,13 @@ public class ControleTelaBuscaFuncionario implements Initializable {
 
     @FXML
     private void acaoBotaoSend(ActionEvent event) {
-        String nomeDoPratoBuscado = this.tfNomeBuscado.getText();
         try {
-            Funcionario clienteBuscado = (Funcionario) this.fachada.buscarUmFuncionario(this.tfNomeBuscado.getText());
-            this.lbNomeClientePego.setText(clienteBuscado.getNome());
-            String preco = String.valueOf(clienteBuscado.getIdade());
-            this.lbIdadePega.setText(preco);
-            this.lbFuncaoPega.setText(clienteBuscado.getFuncao());
-            this.lbSexoPego.setText(clienteBuscado.getSexo());
-            this.lbCpfPego.setText(clienteBuscado.getCpf());
+            Pessoa clienteQueReservou = this.fachada.buscarUmCliente(this.tfNomeBuscado.getText());
+            Reserva reserva = this.fachada.buscarUmaReserva(clienteQueReservou);
+            this.lbNomeClientePego.setText(reserva.getClienteQueReservou().getNome());
+            String dataHoraFormatado = reserva.getDataHora().toString();
+            this.lbSexoPego.setText(dataHoraFormatado);
+            this.lbCpfPego.setText(reserva.getClienteQueReservou().getCpf());
             mudarVisibilidades(false, true);
         } catch (ObjetoNaoExisteErro objetoNaoExisteErro) {
             Main.chamarJanela("../gui/erros/TelaPessoaNaoExisteErro.fxml", 400, 150);
@@ -86,10 +82,11 @@ public class ControleTelaBuscaFuncionario implements Initializable {
 
     @FXML
     private void acaoBotaoCancelar(ActionEvent event){
-        Main.chamarJanela("../gui/objetos/TelaFuncionario.fxml", 711, 480);
+        Main.chamarJanela("../gui/objetos/TelaReservas.fxml", 711, 480);
         this.tela = (Stage) this.pane.getScene().getWindow();
         tela.close();
     }
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<GridPane fx:id="gridPane" prefHeight="92.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
+
+    <columnConstraints>
+        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="30.0" minWidth="10.0" prefWidth="30.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="216.0" minWidth="10.0" prefWidth="84.0" />
+        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="386.0" minWidth="10.0" prefWidth="109.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="414.0" minWidth="10.0" prefWidth="101.0" />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    </rowConstraints>
+    <children>
+        <Label fx:id="nome" prefHeight="17.0" prefWidth="67.0" text="Label" GridPane.columnIndex="1" />
+        <Label fx:id="ingredientes" prefHeight="17.0" prefWidth="67.0" text="Label" GridPane.columnIndex="2" />
+        <Label fx:id="preco" prefHeight="17.0" prefWidth="67.0" text="Label" GridPane.columnIndex="3" />
+    </children>
+
+</GridPane>

@@ -40,7 +40,6 @@ public interface IFachadaGerente {
 
     //Reserva
     Reserva buscarUmaReserva(Reserva reservaBuscada) throws ObjetoNaoExisteErro;
-    Reserva buscarUmaReserva(String cpf) throws ObjetoNaoExisteErro;
 
 
     //Pedidos

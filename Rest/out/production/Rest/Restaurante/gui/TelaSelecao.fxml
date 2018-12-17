@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Restaurante.gui.ControleTelaSelecao">
+
+    <children>
+        <ImageView fx:id="imgTop" fitHeight="488.0" fitWidth="720.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../imagens/telaCardapio.png" />
+            </image></ImageView>
+
+        <Button fx:id="btCliente" layoutX="284.0" layoutY="159.0" mnemonicParsing="false" onAction="#clienteView" prefHeight="57.0" prefWidth="117.0" text="Cliente">
+            <font>
+                <Font name="Arial Bold" size="18.0" />
+            </font>
+        </Button>
+        <Button fx:id="btCozinheiro" layoutX="284.0" layoutY="227.0" mnemonicParsing="false" onAction="#cozinheiroView" prefHeight="57.0" prefWidth="117.0" text="Cozinheiro">
+            <font>
+                <Font name="Arial Bold" size="18.0" />
+            </font>
+        </Button>
+        <Button fx:id="btGerente" layoutX="284.0" layoutY="295.0" mnemonicParsing="false" onAction="#gerenteView" prefHeight="57.0" prefWidth="117.0" text="Gerente">
+            <font>
+                <Font name="Arial Bold" size="18.0" />
+            </font>
+        </Button>
+        <Button fx:id="btAtendente" layoutX="401.0" layoutY="295.0" mnemonicParsing="false" onAction="#atendenteView" prefHeight="57.0" prefWidth="117.0" text="Atendente">
+            <font>
+                <Font name="Arial Bold" size="18.0" />
+            </font>
+        </Button>
+    </children>
+
+</AnchorPane>

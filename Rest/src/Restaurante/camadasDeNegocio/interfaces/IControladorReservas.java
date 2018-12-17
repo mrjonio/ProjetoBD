@@ -16,5 +16,4 @@ public interface IControladorReservas {
     void deletarUmaReserva(Reserva reservaQueSeraDeletada) throws ObjetoEmUsoErro, ObjetoNaoExisteErro;
     void mudarReserva(Reserva novosAtributos, Reserva antigaReserva) throws ObjetoJaExisteErro, ObjetoNaoExisteErro;
     Reserva buscarReserva(Reserva reserva) throws ObjetoNaoExisteErro;
-    Reserva buscarReserva(String cpf) throws ObjetoNaoExisteErro;
 }

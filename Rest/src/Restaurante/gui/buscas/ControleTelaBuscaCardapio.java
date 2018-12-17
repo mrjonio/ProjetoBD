@@ -1,7 +1,7 @@
 package Restaurante.gui.buscas;
 
 import Restaurante.camadasDeNegocio.entidade.concretos.Alimenticio.PratoCardapio;
-import Restaurante.excessoes.ObjetoExistencia.ExcecaoObjetoExistencia;
+import Restaurante.excessoes.ObjetoExistencia.ObjetoNaoExisteErro;
 import Restaurante.fachada.Fachada;
 import Restaurante.fachada.interfaceFachada.IFachadaGerente;
 import Restaurante.main.Main;
@@ -36,6 +36,8 @@ public class ControleTelaBuscaCardapio implements Initializable {
 
     @FXML
     private Pane pane;
+
+    private Stage tela;
 
     @FXML
     private TextField tfNomeBuscado;
@@ -78,10 +80,9 @@ public class ControleTelaBuscaCardapio implements Initializable {
             this.lbNomePratoPego.setText(pratoPego.getNome());
             String preco = String.valueOf(pratoPego.getPreco());
             this.lbPrecoPratoPego.setText(preco);
-            this.imgPhoto.setImage(pratoPego.getFoto());
             mudarVisibilidades(false, true);
-        } catch (ExcecaoObjetoExistencia e) {
-            e.mostrarErro();
+        } catch (ObjetoNaoExisteErro objetoNaoExisteErro) {
+            Main.chamarJanela("../gui/erros/TelaPratoNaoExisteErro.fxml", 400, 150);
         }
     }
 
@@ -91,7 +92,7 @@ public class ControleTelaBuscaCardapio implements Initializable {
     @FXML
     private void acaoBotaoCancelar(ActionEvent event){
         Main.chamarJanela("../gui/objetos/TelaCardapio.fxml", 711, 480);
-        Stage tela = (Stage) this.pane.getScene().getWindow();
+        this.tela = (Stage) this.pane.getScene().getWindow();
         tela.close();
     }
 

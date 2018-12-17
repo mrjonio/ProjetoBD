@@ -9,18 +9,22 @@ public class SelecaoGerenciamento {
     }
 
     public void mesas() {
-        Main.chamarJanela("../gui/guiDoGerente/mesa/TelaMesa.fxml",710, 468);
+        //TODO
+        Main.chamarJanela("../gui/guiDoCliente/TelaCardapioCliente.fxml",710, 468);
     }
 
     public void pratos() {
-        Main.chamarJanela("../gui/guiDoGerente/prato/TelaCardapio.fxml",710, 468);
+        //TODO
+        Main.chamarJanela("../gui/guiDoCliente/TelaCardapioCliente.fxml",710, 468);
     }
 
     public void reservas() {
-        Main.chamarJanela("../gui/guiDoGerente/reserva/TelaReserva.fxml",710, 468);
+        //TODO
+        Main.chamarJanela("../gui/guiDoCliente/TelaCardapioCliente.fxml",710, 468);
     }
 
     public void pedidos() {
-        Main.chamarJanela("../gui/guiDoGerente/pedido/TelaPedido.fxml",710, 468);
+        //TODO
+        Main.chamarJanela("../gui/guiDoCliente/TelaCardapioCliente.fxml",710, 468);
     }
 }

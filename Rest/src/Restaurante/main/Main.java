@@ -1,13 +1,23 @@
 package Restaurante.main;
 
-
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+import Restaurante.excessoes.ObjetoExistencia.ObjetoJaExisteErro;
+=======
+=======
+>>>>>>> parent of 2b5b33d... Merge branch 'master' into master
+=======
+>>>>>>> parent of 2b5b33d... Merge branch 'master' into master
 import Restaurante.camadasDeNegocio.entidade.abstrato.Pedido;
 import Restaurante.camadasDeNegocio.entidade.abstrato.Reserva;
 import Restaurante.camadasDeNegocio.entidade.concretos.Alimenticio.Ingrediente;
 import Restaurante.camadasDeNegocio.entidade.concretos.Alimenticio.PratoCardapio;
 import Restaurante.camadasDeNegocio.entidade.concretos.Mesa;
 import Restaurante.camadasDeNegocio.entidade.pessoas.funcionario.Funcionario;
+>>>>>>> parent of 2b5b33d... Merge branch 'master' into master
 import Restaurante.fachada.Fachada;
+import Restaurante.fachada.interfaceFachada.IFachadaGerente;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -15,29 +25,31 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
 
 public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("../gui/TelaSelecao.fxml"));
-        primaryStage.setScene(new Scene(root, 710, 468));
+        Parent root = FXMLLoader.load(getClass().getResource("../gui/objetos/TelaLogin.fxml"));
+        primaryStage.setScene(new Scene(root, 780, 411));
         primaryStage.setResizable(false);
         primaryStage.setTitle("Restaurante");
         primaryStage.show();
     }
 
-
-
-    public static FXMLLoader chamarJanelaLoader(String nomeDaJanela, int width, int heigt) {
+    public static void chamarJanela(String nomeDaJanela, int width, int heigt) {
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> parent of 2b5b33d... Merge branch 'master' into master
+=======
+>>>>>>> parent of 2b5b33d... Merge branch 'master' into master
         Stage stage = new Stage();
         Parent root;
-        FXMLLoader loader = null;
         try {
-            loader = new FXMLLoader(Main.class.getResource(nomeDaJanela));
-            root = loader.load();
+            root = FXMLLoader.load(Main.class.getResource(nomeDaJanela));
             stage.setResizable(false);
             stage.setScene(new Scene(root, width, heigt));
             stage.setTitle("Restaurante");
@@ -45,12 +57,27 @@ public class Main extends Application {
         } catch (IOException e) {
 
         }
-        return loader;
+    }
+
+    public static FXMLLoader chamarJanelaLoader(String nomeDaJanela, int width, int heigt) {
+>>>>>>> parent of 2b5b33d... Merge branch 'master' into master
+        Stage stage = new Stage();
+        Parent root;
+        try {
+            root = FXMLLoader.load(Main.class.getResource(nomeDaJanela));
+            stage.setResizable(false);
+            stage.setScene(new Scene(root, width, heigt));
+            stage.setTitle("Restaurante");
+            stage.show();
+        } catch (IOException e) {
+
+        }
     }
 
 
-
     public static void main(String[] args)  {
+<<<<<<< HEAD
+=======
 
         Fachada fachada =  Fachada.getInstance();
 
@@ -66,7 +93,6 @@ public class Main extends Application {
 
         Funcionario gerente =  new Funcionario("Carlos", "111.111.111-11", 18, "masc", "Gerente", 1999999.00);
         PratoCardapio prat0 = new PratoCardapio("Pão de Queijo", 20.00, ingredientes);
-
         Mesa mesa2 = new Mesa(1, "Vazia");
         Mesa mesa = new Mesa(0, "Oculpado");
         Reserva reserva = new Reserva(LocalDateTime.now().plusDays(1), "111.111.111-11", mesa2);
@@ -76,7 +102,6 @@ public class Main extends Application {
 
         Pedido p = new Pedido(arr, mesa);
         mesa.adicionarPedido(p);
-
 
 
         try {
@@ -94,7 +119,7 @@ public class Main extends Application {
         }
 
 
+>>>>>>> parent of 2b5b33d... Merge branch 'master' into master
         launch(args);
-
     }
 }

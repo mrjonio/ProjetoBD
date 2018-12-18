@@ -5,7 +5,7 @@ package Restaurante.excessoes;
  * (Extensão da classe Exception (exceção)).
  */
 
-public class PratoPendenteErro extends Exception{
+public class PratoPendenteErro extends RuntimeException{
 
     public PratoPendenteErro(String nomeDoPrato){
         super("Esse prato " + nomeDoPrato + " está pendente (EM USO). Não é possível removê-lo!");

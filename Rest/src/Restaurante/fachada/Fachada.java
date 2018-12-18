@@ -135,7 +135,7 @@ public class Fachada implements IFachadaGerente, IFachadaCozinheiro, IFachadaAte
     }
 
     @Override
-    public void retirarUmPratoDoCardapio(String nomeDoPratoQueSeraRetirado) throws ObjetoNaoExisteErro, Exception {
+    public void retirarUmPratoDoCardapio(String nomeDoPratoQueSeraRetirado) throws ObjetoNaoExisteErro, PratoPendenteErro {
         this.camadaCadapio.removerPratoDoCardapio(nomeDoPratoQueSeraRetirado);
     }
 

@@ -93,7 +93,7 @@ public class TelaAtendente {
 
         Optional<Pair<String, Pair<String, String>>> result = dialog.showAndWait();
 
-        if (result == null) {
+        if (result == null || !result.isPresent()) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setContentText("Campos invalidos");
             alert.showAndWait();
@@ -309,13 +309,12 @@ public class TelaAtendente {
             return null;
         });
 
-        Optional<Pair<String, Pair<String, String>>> result = dialog.showAndWait();
+    	
 
-
-        if (result == null) {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setContentText("Campos invalidos");
-            alert.showAndWait();
+		Optional<Pair<String, Pair<String, String>>> result = dialog.showAndWait();
+        
+        
+        if (result == null || !result.isPresent()) {
             return;
         }
 

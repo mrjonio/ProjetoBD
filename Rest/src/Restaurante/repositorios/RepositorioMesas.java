@@ -218,7 +218,6 @@ public class RepositorioMesas implements IRepositorioMesas {
             return  true;
         }
 
-        return this.mesas.isEmpty();
     }
 
     /**

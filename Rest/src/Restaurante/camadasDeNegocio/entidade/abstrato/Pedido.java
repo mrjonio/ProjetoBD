@@ -38,7 +38,7 @@ public class Pedido{
     }
 
     public Mesa getMesaQuePediu(){
-        return mesaQuePediu;
+        return this.mesaQuePediu;
     }
 
     public int getIdPedido(){
@@ -52,6 +52,14 @@ public class Pedido{
     @Override
     public String toString() {
         return new String("Da mesa " +  this.mesaQuePediu.getNumero() + " os pratos " + this.pratoPedido.stream().map(PratoCardapio::getNome).collect(Collectors.toList()));
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof Pedido) {
+            return ((Pedido) o).idPedido == this.idPedido;
+        }
+        return false;
     }
 
 

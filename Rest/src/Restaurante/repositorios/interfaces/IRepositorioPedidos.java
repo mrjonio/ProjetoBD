@@ -12,10 +12,10 @@ import java.util.List;
 
 public interface IRepositorioPedidos {
 
-    double calcularLucro(LocalDateTime dataInicial, LocalDateTime dataFinal);
+    double calcularLucro(LocalDateTime dataInicial, LocalDateTime dataFinal); //OK
     void deletarPedidos(LocalDateTime dataInicial, LocalDateTime dataFinal);
     void adicionarPedido(Pedido pedidoQueSeraAdicionado);
     void removerPedido(Pedido pedidoQueSeraRemovido);
-    Pedido buscarPedido(Pedido pedidoQueSeraBuscado);
+    Pedido buscarPedido(Pedido pedidoQueSeraBuscado); //OK
     List<Pedido> gerarVetorPedido(LocalDateTime inicio, LocalDateTime fim);
 }

@@ -355,6 +355,7 @@ public class TelaCardapio {
         TextField nome = new TextField();
         nome.setText(pratoCardapio.getNome());
         nome.setPromptText("Nome");
+        nome.setDisable(true);
 
         TextField preco = new TextField();
         preco.setText(String.valueOf(pratoCardapio.getPreco()));

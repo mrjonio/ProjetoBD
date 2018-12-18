@@ -326,6 +326,7 @@ public class RepositorioReserva implements IRepositorioReserva{
 
             while(resultado.next()){
                 count++;
+                break;
             }
         } catch (Exception e) {
             e.printStackTrace();

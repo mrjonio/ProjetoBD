@@ -718,6 +718,7 @@ public class TelaCozinheiro {
         });
 
         Optional<Pair<String, Pair<String, String>>> result = dialog.showAndWait();
+        
 
         String nomePrato = "";
         double precoPrato = 0;

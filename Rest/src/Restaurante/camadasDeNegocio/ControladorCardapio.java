@@ -55,7 +55,7 @@ public class ControladorCardapio implements IControladorCadapio {
 	 * @throws ObjetoNaoExisteErro Objeto (prato) não existe.
 	 */
 	@Override
-	public void removerPratoDoCardapio(String nomePratoRemovido) throws ObjetoNaoExisteErro {
+	public void removerPratoDoCardapio(String nomePratoRemovido) throws ObjetoNaoExisteErro, Exception {
 		PratoCardapio pratoQueSeraRemovido = pegarUmPrato(nomePratoRemovido);
 		this.repositorioCardapio.removerPrato(pratoQueSeraRemovido);
 
@@ -96,14 +96,11 @@ public class ControladorCardapio implements IControladorCadapio {
 	 * Método para alterar o atributo de um prato. Busca o prato desejado, seleciona o índice da informação que será
 	 * alterada e a altera.
 	 * @param novoPrato Nome do novo prato, depois da alteração de atributos (informações).
-	 * @param nomeAtual Nome do prato que terá o(s) atributo(s) alterados.
 	 * @throws ObjetoNaoExisteErro Objeto (prato) não existe.
 	 */
 	@Override
-	public void alterarAtributoDeUmPrato(PratoCardapio novoPrato, String nomeAtual) throws ObjetoNaoExisteErro{
-		PratoCardapio pratoAtual = pegarUmPrato(nomeAtual);
-		int index = this.repositorioCardapio.pegarIdex(pratoAtual);
-		this.repositorioCardapio.alterarAtributoPrato(novoPrato, index);
+	public void alterarAtributoDeUmPrato(PratoCardapio novoPrato) throws ObjetoNaoExisteErro{
+		this.repositorioCardapio.alterarAtributoPrato(novoPrato);
 	}
 
 

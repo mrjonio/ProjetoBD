@@ -29,6 +29,8 @@ public class PratoCardapio {
         this.nome = nome;
     }
 
+    public void setPreco(float novoValor) { this.preco = novoValor; }
+
     public double getPreco() {
         return preco;
     }

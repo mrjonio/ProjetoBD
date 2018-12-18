@@ -11,8 +11,8 @@ import Restaurante.excessoes.ObjetoExistencia.ObjetoNaoExisteErro;
 public interface IControladorCadapio {
 
     void adicionarPratoAoCardapio(PratoCardapio prato) throws ObjetoJaExisteErro;
-    void removerPratoDoCardapio(String nomePratoRemovido) throws ObjetoNaoExisteErro;
+    void removerPratoDoCardapio(String nomePratoRemovido) throws ObjetoNaoExisteErro, Exception;
     PratoCardapio pegarUmPrato(String nomeDoPrato) throws ObjetoNaoExisteErro;
     PratoCardapio pegarUmPrato(int indexDoPrato) throws ObjetoNaoExisteErro;
-    void alterarAtributoDeUmPrato(PratoCardapio novoPrato, String nomeAtual) throws ObjetoNaoExisteErro;
+    void alterarAtributoDeUmPrato(PratoCardapio novoPrato) throws ObjetoNaoExisteErro;
 }

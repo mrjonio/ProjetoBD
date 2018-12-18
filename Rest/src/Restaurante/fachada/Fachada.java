@@ -135,7 +135,7 @@ public class Fachada implements IFachadaGerente, IFachadaCozinheiro, IFachadaAte
     }
 
     @Override
-    public void retirarUmPratoDoCardapio(String nomeDoPratoQueSeraRetirado) throws ObjetoNaoExisteErro {
+    public void retirarUmPratoDoCardapio(String nomeDoPratoQueSeraRetirado) throws ObjetoNaoExisteErro, Exception {
         this.camadaCadapio.removerPratoDoCardapio(nomeDoPratoQueSeraRetirado);
     }
 
@@ -151,7 +151,7 @@ public class Fachada implements IFachadaGerente, IFachadaCozinheiro, IFachadaAte
 
     @Override
     public void alterarAtributoDeUmPrato(PratoCardapio novoPrato, String nomeAtual) throws ObjetoNaoExisteErro {
-        this.camadaCadapio.alterarAtributoDeUmPrato(novoPrato, nomeAtual);
+        this.camadaCadapio.alterarAtributoDeUmPrato(novoPrato);
     }
 
     @Override

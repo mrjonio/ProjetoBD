@@ -80,7 +80,7 @@ public class Main extends Application {
         ingredientes.add(c);
 
         Funcionario gerente =  new Funcionario("Carlos", "111.111.111-11", 18, "masc", "Gerente", 1999999.00);
-        PratoCardapio prat0 = new PratoCardapio("Pão de Queijo", 20.00, ingredientes);
+        PratoCardapio prat0 = new PratoCardapio("manga", 20.00, ingredientes);
         Mesa mesa2 = new Mesa(1, "Vazia");
         Mesa mesa = new Mesa(0, "Oculpado");
         Reserva reserva = new Reserva(LocalDateTime.now().plusDays(1), "111.111.111-11", mesa2);
@@ -102,6 +102,7 @@ public class Main extends Application {
             fachada.adicionarUmaMesa(mesa);
             fachada.fazerNovaReserva(reserva);
             fachada.armazenarUmPedido(p);
+//            fachada.adicionarPratoAoCardapio(prato)
 
         } catch (Exception objetoJaExisteErro) {
         }

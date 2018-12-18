@@ -113,7 +113,7 @@ public class ControleTelaMudancaFuncionario implements Initializable {
             int idade = Integer.parseInt(tfIdade.getText());
             Funcionario funcionario = new Funcionario(nome, cpf, idade, sexo, funcao, salario);
             this.fachada.alterarAtributosDeUmFuncionario(funcionario, tfCpfAntigo.getText());
-            Main.chamarJanela("../gui/outros/TelaAlteradoComSucesso.fxml", 400, 150);
+            Main.chamarJanela("../gui/guiDoGerente/funcionario/TelaAlteradoComSucesso.fxml", 400, 150);
         } catch (RuntimeException erro) {
             Main.chamarJanela("../gui/erros/TelaLetraNoLugarDeNumeroErro.fxml", 400, 150);
         } catch (ObjetoNaoExisteErro objetoNaoExisteErro) {
@@ -134,7 +134,7 @@ public class ControleTelaMudancaFuncionario implements Initializable {
             int idade = Integer.parseInt(tfIdade.getText());
             Funcionario funcionario = new Funcionario(nome, cpf, idade, sexo, funcao, salario);
             this.fachada.alterarAtributosDeUmFuncionario(funcionario, tfCpfAntigo.getText());
-            Main.chamarJanela("../gui/outros/TelaAlteradoComSucesso.fxml", 400, 150);
+            Main.chamarJanela("../gui/guiDoGerente/funcionario/TelaAlteradoComSucesso.fxml", 400, 150);
         } catch (RuntimeException erro) {
             Main.chamarJanela("../gui/erros/TelaLetraNoLugarDeNumeroErro.fxml", 400, 150);
         } catch (ObjetoNaoExisteErro objetoNaoExisteErro) {
@@ -144,7 +144,7 @@ public class ControleTelaMudancaFuncionario implements Initializable {
 
     @FXML
     private void acaoBotaoCancelar(ActionEvent event){
-        Main.chamarJanela("../gui/objetos/TelaFuncionario.fxml", 711, 480);
+        Main.chamarJanela("../gui/guiDoGerente/funcionario/TelaFuncionario.fxml", 711, 480);
         this.tela = (Stage) this.pane.getScene().getWindow();
         tela.close();
     }

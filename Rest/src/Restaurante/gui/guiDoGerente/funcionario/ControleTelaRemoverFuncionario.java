@@ -47,7 +47,7 @@ public class ControleTelaRemoverFuncionario implements Initializable {
     private void acaoBotaoSendPessoa(ActionEvent event){
         try {
             fachada.deletarUmFuncionario(this.tfPessoa.getText());
-            Main.chamarJanela("../gui/outros/TelaRemovidoComSucesso.fxml", 400, 150);
+            Main.chamarJanela("../gui/guiDoGerente/funcionario/TelaRemovidoComSucesso.fxml", 400, 150);
         } catch (ObjetoNaoExisteErro objetoNaoExisteErro) {
             Main.chamarJanela("../gui/erros/TelaPessoaNaoExisteErro.fxml", 400, 150);
         }
@@ -55,7 +55,7 @@ public class ControleTelaRemoverFuncionario implements Initializable {
 
     @FXML
     private void acaoBotaoCancelar(ActionEvent event){
-        Main.chamarJanela("../gui/objetos/TelaFuncionario.fxml", 711, 480);
+        Main.chamarJanela("../gui/guiDoGerente/funcionario/TelaFuncionario.fxml", 711, 480);
         this.tela = (Stage) this.pane.getScene().getWindow();
         tela.close();
     }

@@ -87,7 +87,7 @@ public class ControleTelaListarFuncionarios implements Initializable {
 
     @FXML
     private void acaoBotaoCancelar(ActionEvent event){
-        Main.chamarJanela("../gui/objetos/TelaFuncionario.fxml", 711, 480);
+        Main.chamarJanela(".../gui/guiDoGerente/funcionario/TelaFuncionario.fxml", 711, 480);
         this.tela = (Stage) this.pane.getScene().getWindow();
         tela.close();
     }

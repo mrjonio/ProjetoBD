@@ -42,8 +42,7 @@ public class ControladorIngredientes implements IControladorIngredientes {
         boolean existe =  this.repositorioIngrediente.proucurarIngrediente(ingrediente.getNome());
         if(existe){
             Ingrediente buscado = this.pegarUmIngrediente(ingrediente.getNome());
-            int indexBuscado = this.repositorioIngrediente.pegarIdex(buscado);
-            this.repositorioIngrediente.mudarAtributosIngrediente(ingrediente.getQtd(), indexBuscado);
+            this.repositorioIngrediente.mudarAtributosIngrediente(ingrediente, buscado);
         } else{
             throw new ObjetoNaoExisteErro("Ingrediente a ser aumentado");
         }
@@ -71,24 +70,23 @@ public class ControladorIngredientes implements IControladorIngredientes {
         }
     }
 
-    @Override
-    public Ingrediente pegarUmIngrediente(int indexDoIngrediente) throws ObjetoNaoExisteErro {
-            Ingrediente buscado = this.repositorioIngrediente.pegarIngrediente(indexDoIngrediente);
-            if (buscado != null){
-                return buscado;
-            } else {
-                throw new ObjetoNaoExisteErro("Ingrediente buscado");
-            }
-
-    }
+    //@Override
+    //public Ingrediente pegarUmIngrediente(int indexDoIngrediente) throws ObjetoNaoExisteErro {
+    //       Ingrediente buscado = this.repositorioIngrediente.pegarIngrediente(indexDoIngrediente);
+    //        if (buscado != null){
+    //            return buscado;
+    //        } else {
+    //           throw new ObjetoNaoExisteErro("Ingrediente buscado");
+    //        }
+    //}
 
     @Override
     public void diminuirQuantidadeDeIngrediente(Ingrediente ingredienteQueSeraDiminuido, int qtd) throws ObjetoNaoExisteErro, ObjetosInsuficientesErro {
         Ingrediente buscado = this.pegarUmIngrediente(ingredienteQueSeraDiminuido.getNome());
         if(buscado != null){
             if (buscado.getQtd() >= qtd){
-                //setQtd soma, entao se quero diminuir tenho somar c um negativo
-                buscado.setQtd(( (-1) * qtd));
+                Ingrediente novo = new Ingrediente(buscado.getNome(), buscado.getQtd() - qtd);
+                this.alterarAtributoDeUmIngrediente(novo, buscado.getNome());
             } else{
                 throw new ObjetosInsuficientesErro("Ingrediente a ser usado");
             }
@@ -101,8 +99,7 @@ public class ControladorIngredientes implements IControladorIngredientes {
     public void alterarAtributoDeUmIngrediente(Ingrediente novosAtributos, String nomeAtual) throws ObjetoNaoExisteErro {
         Ingrediente buscado = this.pegarUmIngrediente(nomeAtual);
         if(buscado != null){
-            int index = this.repositorioIngrediente.pegarIdex(buscado);
-            this.repositorioIngrediente.mudarAtributosIngrediente(novosAtributos, index);
+            this.repositorioIngrediente.mudarAtributosIngrediente(novosAtributos, buscado);
         } else{
             throw new ObjetoNaoExisteErro("Ingrediente a ser usado");
         }

@@ -14,6 +14,6 @@ public interface IFachadaMesa {
     PratoCardapio pegarUmPrato(String nomeDoPrato) throws ObjetoNaoExisteErro;
     Mesa buscarUmaMesa(int index) throws RepositorioVazioErro, ObjetosInsuficientesErro;
     boolean verificarQuantidadeIngredientes(Ingrediente nomeDoIngrediente, int qtdNecessaria) throws ObjetoNaoExisteErro;
-    void editarMesa(Mesa novosAtributos, Mesa mesaAntiga) throws ObjetoNaoExisteErro;
+    void editarMesa(Mesa novosAtributos, Mesa mesaAntiga) throws ObjetoNaoExisteErro; //SÓ ADICIONA PEDIDO, SÓ O GERERNTE REMOVE
 
 }

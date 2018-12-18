@@ -7,12 +7,12 @@ import Restaurante.camadasDeNegocio.entidade.concretos.Mesa;
  */
 public interface IRepositorioMesas {
 
-    void adicionarMesas(Mesa mesa);
-    Mesa pegarMesa(int index);
-    void removerMesas(Mesa mesaQueSeraRemovida);
-    void alterarAtributosMesa(Mesa novosAtributos, int index);
-    boolean taVazio();
-    boolean indiceContemUmaMesa(int idex);
-    int pegarIndex(Mesa mesa);
-    int quantidadeDeMesas();
+    void adicionarMesas(Mesa mesa); //OK, chamando alterar atributos para fazer o attach
+    Mesa pegarMesa(int index); //OK
+    void removerMesas(Mesa mesaQueSeraRemovida); //OK
+    void alterarAtributosMesa(Mesa novosAtributos, int index); //OK
+    boolean taVazio(); //OK
+    boolean indiceContemUmaMesa(int idex); //OK
+    int pegarIndex(Mesa mesa); //NAO USADO
+    int quantidadeDeMesas(); //OK
 }

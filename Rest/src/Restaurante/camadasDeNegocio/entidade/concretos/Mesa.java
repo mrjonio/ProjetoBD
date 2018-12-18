@@ -49,7 +49,7 @@ public class Mesa {
     }
 
     public void adicionarPedido(Pedido novoPedido){
-        novoPedido.setIdPedido(this.pedidos.size());
+        novoPedido.setIdPedido(0);
         this.pedidos.add(novoPedido);
     }
 

@@ -92,14 +92,20 @@ public class DBViews {
     }
 
     private void folhaPagamentoView(){
-        String view = "CREATE VIEW folhaPagamento" +
-                "AS SELECT SUM(salario)"+
+        String view = "CREATE VIEW folhaPagamento " +
+                "AS SELECT SUM(salario) "+
                 "FROM funcionarios";
         try {
             dbCenter.executarChamada(view);
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
+    }
+
+
+    public void migrar() {
+        this.dbCenter = new DBCenter();
+        this.folhaPagamentoView();
     }
 
 }

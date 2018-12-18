@@ -7,13 +7,12 @@ import Restaurante.camadasDeNegocio.entidade.pessoas.funcionario.Funcionario;
  */
 public interface IRepositorioFuncionario {
 
-
-    void adicionarPessoa(Funcionario funcionarioQueSeraAdicionado);
-    double calcularFolhaDePagamento();
-    boolean proucurarPessoa(String cpf);
-    void removerPessoa(Funcionario funcionarioQueSeraRemovido);
-    void mudarAtributosFuncionario(Funcionario funcionario, int index);
-    Funcionario pegarFuncionario(String cpf);
-    int pegarIdex(Funcionario funcionarioQueSeraPegoIdex);
+    void adicionarPessoa(Funcionario funcionarioQueSeraAdicionado); //OK
+    double calcularFolhaDePagamento(); //OK
+    boolean proucurarPessoa(String cpf); //OK
+    void removerPessoa(Funcionario funcionarioQueSeraRemovido); //OK
+    void mudarAtributosFuncionario(Funcionario funcionario, int index); //OK, TODO: INDEX inutil, mas nao causa problemas
+    Funcionario pegarFuncionario(String cpf); //OK
+    int pegarIdex(Funcionario funcionarioQueSeraPegoIdex); //INUTUL
 
 }

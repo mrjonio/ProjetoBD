@@ -33,7 +33,7 @@ public class RepositorioIngredientes implements IRepositorioIngrediente {
     @Override
     public boolean proucurarIngrediente(String nome) {
         boolean ingrediente = false;
-        String sql = "SELECT * FROM ingredientes";
+        String sql = "SELECT * FROM ingredientes WHERE nome='" + nome + "'";
         try {
             ResultSet encontrou = dbCenter.executarChamada(sql);
             while (encontrou.next()){
@@ -49,7 +49,7 @@ public class RepositorioIngredientes implements IRepositorioIngrediente {
 
     @Override
     public void removerIngrediente(Ingrediente ingredienteQueSeraRemovido) {
-        String sql = "DELETE * FROM ingredientes WHERE nome = '" + ingredienteQueSeraRemovido.getNome() + "'";
+        String sql = "DELETE FROM ingredientes WHERE nome = '" + ingredienteQueSeraRemovido.getNome() + "'";
         try {
             this.dbCenter.executarChamada(sql);
         } catch (ClassNotFoundException | SQLException e) {
@@ -58,25 +58,38 @@ public class RepositorioIngredientes implements IRepositorioIngrediente {
     }
 
     @Override
-    public void mudarAtributosIngrediente(Ingrediente ingrediente, int index) {
-        String sql =  "UPDATE ingredientes NATURAL JOIN pratos_possuem_ingredientes" +
+    public void mudarAtributosIngrediente(Ingrediente ingrediente, Ingrediente antigo) {
+
+        String sql =  "UPDATE ingredientes " +
                 "SET nome ='" + ingrediente.getNome() +"', quantidade ='"+ ingrediente.getQtd() +"'\n" +
-                "WHERE nome = '" + ingrediente.getNome() + "'";
+                "WHERE nome = '" + antigo.getNome() + "'";
+
+
+        String sql2 = "UPDATE pratos_possuem_ingredientes  " +
+                "SET nome_ingrediente ='" + ingrediente.getNome() +"', quantidade ='"+ ingrediente.getQtd() +"'\n" +
+                "WHERE nome_ingrediente = '" + antigo.getNome() + "'";
+
         try {
-            this.dbCenter.executarChamada(sql);
+            if (ingrediente.getNome().equals(antigo.getNome())) {
+                this.dbCenter.executarChamada(sql);
+            } else {
+                this.adicionarIngrediente(ingrediente);
+                this.dbCenter.executarChamada(sql2);
+                this.removerIngrediente(antigo);
+            }
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
     }
 
-    @Override
-    public void mudarAtributosIngrediente(int qtd, int index) {
-        this.ingredientes.get(index).setQtd(qtd);
-    }
+    //@Override
+    //public void mudarAtributosIngrediente(int qtd, int index) {
+    //    this.ingredientes.get(index).setQtd(qtd);
+    //}
 
     @Override
     public Ingrediente pegarIngrediente(String nome) {
-        String sql = "SELECT * FROM ingredientes";
+        String sql = "SELECT * FROM ingredientes WHERE nome='" + nome + "'";
         try {
             ResultSet encontrou = dbCenter.executarChamada(sql);
             while (encontrou.next()) {
@@ -90,14 +103,14 @@ public class RepositorioIngredientes implements IRepositorioIngrediente {
         }
     }
 
-    @Override
-    public Ingrediente pegarIngrediente(int index) {
-        return null;
-    }
+    //@Override
+    //public Ingrediente pegarIngrediente(int index) {
+    //   return null;
+    //}
 
-    @Override
-    public int pegarIdex(Ingrediente ingredienteQueSeraPegoIdex) {
-        return 0;
-    }
+    //@Override
+    //public int pegarIdex(Ingrediente ingredienteQueSeraPegoIdex) {
+    //    return 0;
+    //}
 
 }

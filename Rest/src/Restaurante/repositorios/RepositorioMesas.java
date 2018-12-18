@@ -33,29 +33,20 @@ public class RepositorioMesas implements IRepositorioMesas {
      */
     @Override
     public void adicionarMesas(Mesa mesa) {
-        try {
-            for (Pedido p : mesa.getPedidos()) {
-                for (PratoCardapio c : p.getPratoPedido()) {
-                    for (Ingrediente i : c.getIngredientes()) {
-                        String pratoIng = "INSERT INTO pratos_possuem_ingredientes (nome_prato, nome_ingrediente, quantidade) VALUES" +
-                                "('" + c.getNome() + "', '" + i.getNome() + "', '" + i.getQtd() + "')";
-                        dbCenter.executarChamada(pratoIng);
-                    }
-                    String prato = "INSERT INTO pedidos_tem_pratos (nome_prato, preco, idPedidos) VALUES" +
-                            "('" + c.getNome() + "', '" + c.getPreco() + "', '" + p.getIdPedido() + "')";
-                    dbCenter.executarChamada(prato);
 
-                }
-                String pedido = "INSERT INTO mesas_faz_pedidos (numeroMesa, idPedido) VALUES " +
-                        "('" + mesa.getNumero() + "', '" + p.getIdPedido() + "')";
-                dbCenter.executarChamada(pedido);
-            }
-            String mess = "INSERT INTO mesas (numero, disponibilidade) VALUES ('" +
-                    mesa.getNumero() + "', '" + mesa.isDisponibilidade() + "')";
-            dbCenter.executarChamada(mess);
-        }  catch (SQLException | ClassNotFoundException e) {
+        boolean disp = !mesa.isDisponibilidade().equals("Oculpado");
+
+        String sql = "INSERT INTO mesas VALUES ( "+ mesa.getNumero() + "," + disp +")";
+
+
+        try {
+            this.dbCenter.executarChamada(sql);
+        } catch (Exception e) {
             e.printStackTrace();
         }
+
+        this.alterarAtributosMesa(mesa, mesa.getNumero());
+
     }
 
 
@@ -67,31 +58,43 @@ public class RepositorioMesas implements IRepositorioMesas {
      */
     @Override
     public Mesa pegarMesa(int index) {
-        String sql = "SELECT * FROM mesasOculpadas, mesasReservadas";
+        String sql = "SELECT * FROM mesas";
         Mesa mesa = null;
         try {
             ResultSet mesas = this.dbCenter.executarChamada(sql);
             while (mesas.next()) {
+
                 if (Integer.parseInt(mesas.getString("numero")) == index) {
                     String disponibilidade = mesas.getString("disponibilidade");
-                    mesa = new Mesa(index, disponibilidade);
-                    String sql2 = "SELECT * FROM pedidosMesa WHERE numeroMesa = '" + index + "'";
+                    mesa = new Mesa(index, disponibilidade.equals("0") ? "Oculpada" : "Vazia");
+
+
+
+                    String sql2 = "SELECT * FROM mesas_faz_pedidos WHERE numeroMesa = '" + index + "'";
                     ResultSet pedidos = this.dbCenter.executarChamada(sql2);
                     ArrayList<Pedido> pedido = new ArrayList<>();
                     while (pedidos.next()){
-                        String sql3 = "SELECT * FROM pratosPedidos WHERE idPedido = '" + pedidos.getString("idPedido") + "'";
+                        String sql3 = "SELECT * FROM pedidos_tem_pratos WHERE idpedidos = '" + pedidos.getString("idPedido") + "'";
                         ResultSet pratos = this.dbCenter.executarChamada(sql3);
                         ArrayList<PratoCardapio> prato = new ArrayList<>();
                         while (pratos.next()){
-                            String sql4 = "SELECT * FROM ingredientesPrato WHERE nome_prato = '" + pratos.getString("nome_prato") + "'";
-                            ResultSet ingrediente = this.dbCenter.executarChamada(sql3);
+                            String sql4 = "SELECT * FROM pratos WHERE nome = \""+ pratos.getString("nome_prato") +"\"";
+                            ResultSet pratosResultado = this.dbCenter.executarChamada(sql4);
                             ArrayList<Ingrediente> ingredientes = new ArrayList<>();
-                            while (ingrediente.next()){
-                                Ingrediente ing = new Ingrediente(ingrediente.getString("nome_ingrediente"), Integer.parseInt(ingrediente.getString("quantidade")));
-                                ingredientes.add(ing);
+                            while (pratosResultado.next()) {
+                                String sql5 = "SELECT * FROM pratos_possuem_ingredientes WHERE nome_prato = \"" + pratosResultado.getString("nome_prato") + "\"";
+                                ResultSet ingredientesResultado = this.dbCenter.executarChamada(sql5);
+                                while (ingredientesResultado.next()) {
+                                    String sql6 = "SELECT * FROM ingredientes WHERE nome = +" + ingredientesResultado.getString("nome_ingrediente") + "";
+                                    ResultSet ingredientesTAbela = this.dbCenter.executarChamada(sql6);
+                                    while (ingredientesTAbela.next()) {
+                                        Ingrediente i = new Ingrediente(ingredientesTAbela.getString("nome"), ingredientesTAbela.getInt("quantidade"));
+                                        ingredientes.add(i);
+                                    }
+                                }
                             }
-                            PratoCardapio prat = new PratoCardapio(pratos.getString("nome_prato"), Float.parseFloat(pratos.getString("preco_prato")), ingredientes);
-                            prato.add(prat);
+                            PratoCardapio p = new PratoCardapio(pratosResultado.getString("nome"), pratosResultado.getDouble("preco"), ingredientes);
+                            prato.add(p);
                         }
                         Pedido ped = new Pedido(prato, mesa);
                         pedido.add(ped);
@@ -101,7 +104,7 @@ public class RepositorioMesas implements IRepositorioMesas {
                     }
                 }
             }
-        } catch (ClassNotFoundException | SQLException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return mesa;
@@ -114,8 +117,13 @@ public class RepositorioMesas implements IRepositorioMesas {
      */
     @Override
     public void removerMesas(Mesa mesaQueSeraRemovida) {
-        String sql = "DELETE * FROM mesas NATURAL JOIN mesas_faz_pedidos NATURAL JOIN pedidos_tem_pratos WHERE numero = '" + mesaQueSeraRemovida.getNumero() + "'";
+        //nao testei direito
+        String sql = "DELETE FROM mesas WHERE numero = '" + mesaQueSeraRemovida.getNumero() + "'";
+        String sql2 = "DELETE FROM mesas_faz_pedidos WHERE numeroMesa = '" + mesaQueSeraRemovida.getNumero() + "'";
+        String sql3 = "DELETE FROM atendente_reserva_mesas WHERE numeroMesa = '" + mesaQueSeraRemovida.getNumero() + "'";
         try {
+            this.dbCenter.executarChamada(sql3);
+            this.dbCenter.executarChamada(sql2);
             this.dbCenter.executarChamada(sql);
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
@@ -124,11 +132,58 @@ public class RepositorioMesas implements IRepositorioMesas {
 
     @Override
     public void alterarAtributosMesa(Mesa novosAtributos, int index) {
-        String sql =  "UPDATE mesas\n" +
-                "SET numero ='" + novosAtributos.getNumero() +"', disponibilidade ='"+ novosAtributos.isDisponibilidade() +"'\n" +
-                "WHERE numero = '" + index + "'";
+
+        //só nao atualiza a mesa pro atendente
+
+
+        String sql =  "INSERT IGNORE INTO mesas\n" +"VALUES (" + novosAtributos.getNumero() +", disponibilidade ="+ novosAtributos.isDisponibilidade().equals("Livre") +")\n";
+
         try {
+            Mesa mesa = this.pegarMesa(index);
             this.dbCenter.executarChamada(sql);
+            for (int i = 0; i < novosAtributos.getPedidos().size(); i++) {
+                Pedido p = novosAtributos.getPedidos().get(i);
+
+                if (p.getIdPedido() == 0) {
+                    //novo
+                    p.setIdPedido(this.getFreeId()+ novosAtributos.getPedidos().size());
+                    String sql3 = "INSERT INTO pedidos VALUES ("+ p.getIdPedido() + ",'"+ p.getDataDoPedido().toString() +"')";
+                    this.dbCenter.executarChamada(sql3);
+                    String sql4 = "INSERT INTO mesas_faz_pedidos VALUES ("+ novosAtributos.getNumero() + ","+ p.getIdPedido() +")";
+                    this.dbCenter.executarChamada(sql4);
+
+
+                    for (int j = 0; j < p.getPratoPedido().size(); j++) {
+                        PratoCardapio pratoCardapio = p.getPratoPedido().get(j);
+                        String sql6 = "INSERT INTO pedidos_tem_pratos VALUES ("+ p.getIdPedido() + ",'"+ pratoCardapio.getNome() + "', 0)";
+                    }
+                    return;
+                }
+
+                String sql2 = "SELECT COUNT(*) FROM pedidos WHERE(idpedidos = "+ p.getIdPedido() +")";
+
+                ResultSet attOUnovo = this.dbCenter.executarChamada(sql2);
+                attOUnovo.first();
+
+                if (attOUnovo.getInt(1) > 0) {
+                    //atualiza
+                    String sql5 = "UPDATE mesas_faz_pedidos SET numeroMesa=" + novosAtributos.getNumero() +" WHERE (numeroMesa = " + mesa.getNumero() +" AND idPedido = " + p.getIdPedido() + ")";
+                    this.dbCenter.executarChamada(sql5);
+                } else {
+                    //novo
+                    p.setIdPedido(this.getFreeId()+ novosAtributos.getPedidos().size());
+                    String sql3 = "INSERT INTO pedidos VALUES ("+ p.getIdPedido() + ",'"+ p.getDataDoPedido().toString() +"')";
+                    this.dbCenter.executarChamada(sql3);
+                    String sql4 = "INSERT INTO mesas_faz_pedidos VALUES ("+ novosAtributos.getNumero() + ","+ p.getIdPedido() +")";
+                    this.dbCenter.executarChamada(sql4);
+
+
+                    for (int j = 0; j < p.getPratoPedido().size(); j++) {
+                        PratoCardapio pratoCardapio = p.getPratoPedido().get(j);
+                        String sql6 = "INSERT INTO pedidos_tem_pratos VALUES ("+ p.getIdPedido() + ",'"+ pratoCardapio.getNome() + "', 0)";
+                    }
+                }
+            }
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
@@ -140,7 +195,29 @@ public class RepositorioMesas implements IRepositorioMesas {
      */
     @Override
     public boolean taVazio(){
-        return this.mesas.isEmpty();
+
+        String sql = "SELECT * FROM mesas";
+
+        try {
+            ResultSet resultSet = this.dbCenter.executarChamada(sql);
+            int count = 0;
+
+            while (resultSet.next()) {
+                count++;
+                break;
+            }
+
+            if (count > 0) {
+                return false;
+            } else {
+                return true;
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return  true;
+        }
+
     }
 
     /**
@@ -150,13 +227,18 @@ public class RepositorioMesas implements IRepositorioMesas {
      */
     @Override
     public boolean indiceContemUmaMesa(int idex) {
-        boolean contemMesa = false;
-        for (Mesa mes: this.mesas) {
-            if (mes.getNumero() == idex){
-                contemMesa = true;
-                break;
+        String sql = "SELECT * FROM mesas";
+        try {
+            ResultSet mesas = this.dbCenter.executarChamada(sql);
+            while (mesas.next()) {
+                if (Integer.parseInt(mesas.getString("numero")) == idex) {
+                    return  true;
+                }
             }
-        } return contemMesa;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 
     @Override
@@ -170,8 +252,33 @@ public class RepositorioMesas implements IRepositorioMesas {
      */
     @Override
     public int quantidadeDeMesas() {
-        return this.mesas.size();
+        String sql = "SELECT COUNT(*) FROM mesas";
+        try {
+            ResultSet rs = this.dbCenter.executarChamada(sql);
+            while (rs.next()) {
+                return rs.getInt(1);
+            }
+        }catch (Exception e) {
+            e.printStackTrace();
+            return -1;
+        }
+        return -1;
     }
+
+    private int getFreeId() {
+        int ret = -1;
+        String sql = "SELECT Auto_increment FROM information_schema.tables WHERE table_name='pedidos' AND table_schema='javadb';";
+
+        try {
+            ResultSet resultSet = this.dbCenter.executarChamada(sql);
+            while (resultSet.next()) {
+                ret = resultSet.getInt(1);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return ret;
+    }
+
 }
-
-

@@ -75,7 +75,7 @@ public class ControleTelaFuncionario implements Initializable {
 
     @FXML
     private void acaoBotaoCalcularFolha (ActionEvent event) {
-        Main.chamarJanela(".../gui/guiDoGerente/funcionario/FolhaDePagamento.fxml", 711, 480);
+        Main.chamarJanela("../gui/guiDoGerente/funcionario/FolhaDePagamento.fxml", 711, 480);
         this.tela = (Stage) this.pane.getScene().getWindow();
         tela.close();
     }

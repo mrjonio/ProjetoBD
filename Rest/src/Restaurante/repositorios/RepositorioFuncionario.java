@@ -94,10 +94,11 @@ public class RepositorioFuncionario implements IRepositorioFuncionario {
             if (funcionarioQueSeraRemovido.getFuncao().equals("Atendente")) {
                 String sql = "DELETE FROM atendentes WHERE cpfAtendente = '" + funcionarioQueSeraRemovido.getCpf() + "'";
                 dbCenter.executarChamada(sql);
-            } else {
-                String sql = "DELETE FROM funcionarios WHERE cpf = '" + funcionarioQueSeraRemovido.getCpf() + "'";
-                dbCenter.executarChamada(sql);
             }
+
+            String sql = "DELETE FROM funcionarios WHERE cpf = '" + funcionarioQueSeraRemovido.getCpf() + "'";
+            dbCenter.executarChamada(sql);
+
 
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
@@ -110,8 +111,11 @@ public class RepositorioFuncionario implements IRepositorioFuncionario {
      * @param funcionario Funcionário que terá os atributos modificados.
      * @param index Índice do atributo que será modificado.
      */
+
     @Override
     public void mudarAtributosFuncionario(Funcionario funcionario, int index) {
+        //TODO: INDEX inutil, mas nao causa problemas
+
         try{
         String sql = "UPDATE funcionarios " +
                 " SET nome ='" + funcionario.getNome() +"',  funcao='"+ funcionario.getFuncao() +"', sexo ='" + funcionario.getSexo() +"', salario= '" + funcionario.getSalario() +
@@ -159,14 +163,16 @@ public class RepositorioFuncionario implements IRepositorioFuncionario {
         String sql = "SELECT * FROM folhaPagamento";
         try {
             ResultSet resultSet = dbCenter.executarChamada(sql);
-            if (resultSet.next()){
-                return Double.parseDouble(resultSet.getString("salario"));
-            }else{
-                return 0;
+
+            while (resultSet.next()) {
+                // ELE RETORNA 1 A MENOS
+                return resultSet.getDouble(1) + 1;
             }
+
         } catch (ClassNotFoundException | SQLException e) {
             return 0;
         }
+        return 0;
     }
 
     /**]

@@ -60,7 +60,11 @@ public class ControlePedido {
             try {
                 essaMessa = this.fachadaMesa.buscarUmaMesa(0);
                 Pedido p = new Pedido(this.pedidos, essaMessa);
+                Mesa mesa = new Mesa(essaMessa.getNumero(), essaMessa.isDisponibilidade());
                 essaMessa.adicionarPedido(p);
+                //tive que adiciocar isso pq lembrei que como tudo
+                //é referencia nao precisa editar diretamente
+                this.fachadaMesa.editarMesa(mesa, essaMessa);
                 this.limparPedido();
             } catch (Exception e) {
                 Alert alert = new Alert(Alert.AlertType.WARNING);

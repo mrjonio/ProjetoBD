@@ -185,10 +185,10 @@ public class Fachada implements IFachadaGerente, IFachadaCozinheiro, IFachadaAte
         return this.camadaIngrediente.pegarUmIngrediente(nomeDoIngrediente);
     }
 
-    @Override
-    public Ingrediente pegarUmIngrediente(int indexDoIngrediente) throws ObjetoNaoExisteErro {
-        return this.camadaIngrediente.pegarUmIngrediente(indexDoIngrediente);
-    }
+    //@Override
+    //public Ingrediente pegarUmIngrediente(int indexDoIngrediente) throws ObjetoNaoExisteErro {
+    //    return this.camadaIngrediente.pegarUmIngrediente(indexDoIngrediente);
+    //}
 
     @Override
     public void diminuirQuantidadeDeIngrediente(Ingrediente ingredienteQueSeraDiminuido, int qtd) throws ObjetoNaoExisteErro, ObjetosInsuficientesErro {

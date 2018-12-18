@@ -10,7 +10,7 @@ public interface IControladorIngredientes {
     void aumentarEstoque(Ingrediente ingrediente) throws ObjetoNaoExisteErro;
     void removerIngrediente(String nomeDoIngrediente) throws ObjetoNaoExisteErro;
     Ingrediente pegarUmIngrediente(String nomeDoIngrediente) throws ObjetoNaoExisteErro;
-    Ingrediente pegarUmIngrediente(int indexDoIngrediente) throws ObjetoNaoExisteErro;
+    //Ingrediente pegarUmIngrediente(int indexDoIngrediente) throws ObjetoNaoExisteErro;
     void diminuirQuantidadeDeIngrediente(Ingrediente ingredienteQueSeraDiminuido, int qtd) throws ObjetoNaoExisteErro, ObjetosInsuficientesErro;
     void alterarAtributoDeUmIngrediente(Ingrediente novosAtributos, String nomeAtual) throws ObjetoNaoExisteErro;
     boolean verificarQuantidade(Ingrediente nomeDoIngrediente, int qtdNecessaria) throws ObjetoNaoExisteErro;

@@ -4,6 +4,7 @@ import Restaurante.camadasDeNegocio.interfaces.IControladorCadapio;
 import Restaurante.camadasDeNegocio.entidade.concretos.Alimenticio.PratoCardapio;
 import Restaurante.excessoes.ObjetoExistencia.ObjetoJaExisteErro;
 import Restaurante.excessoes.ObjetoExistencia.ObjetoNaoExisteErro;
+import Restaurante.excessoes.PratoPendenteErro;
 import Restaurante.repositorios.RepositorioCardapio;
 import Restaurante.repositorios.interfaces.IRepositorioCardapio;
 
@@ -55,10 +56,9 @@ public class ControladorCardapio implements IControladorCadapio {
 	 * @throws ObjetoNaoExisteErro Objeto (prato) não existe.
 	 */
 	@Override
-	public void removerPratoDoCardapio(String nomePratoRemovido) throws ObjetoNaoExisteErro, Exception {
+	public void removerPratoDoCardapio(String nomePratoRemovido) throws ObjetoNaoExisteErro, PratoPendenteErro {
 		PratoCardapio pratoQueSeraRemovido = pegarUmPrato(nomePratoRemovido);
 		this.repositorioCardapio.removerPrato(pratoQueSeraRemovido);
-
 	}
 
 	/**

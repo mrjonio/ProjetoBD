@@ -15,11 +15,9 @@ import Restaurante.repositorios.interfaces.IRepositorioCardapio;
  * Criação do arraylist para guardar os objetos do tipo "prato".
  */
 public class RepositorioCardapio implements IRepositorioCardapio{
-    private ArrayList<PratoCardapio> pratos;
     private DBCenter dbCenter;
 
     public RepositorioCardapio() {
-        pratos = new ArrayList<>();
         this.dbCenter = new DBCenter();
     }
 
@@ -93,7 +91,7 @@ public class RepositorioCardapio implements IRepositorioCardapio{
      */
     @Override
     public int pegarIdex(PratoCardapio pratoQueSeraPegoidex) {
-        return this.pratos.indexOf(pratoQueSeraPegoidex);
+        return 0;
     }
 
     /**
@@ -157,7 +155,7 @@ public class RepositorioCardapio implements IRepositorioCardapio{
      * @param pratoQueSeraRetiradoDoCardapio Prato que será removido.
      */
     @Override
-    public void removerPrato(PratoCardapio pratoQueSeraRetiradoDoCardapio) throws Exception {
+    public void removerPrato(PratoCardapio pratoQueSeraRetiradoDoCardapio) throws PratoPendenteErro {
         ResultSet rs;
 
         //TODO: Botar isso no RepositorioPedidos

@@ -98,7 +98,8 @@ public class Main extends Application {
         ingredientes.add(b);
         ingredientes.add(c);
 
-        Funcionario gerente =  new Funcionario("Carlos", "222.222.222-22", 18, "masc", "Gerente", 1999999.00);
+
+        Funcionario gerente =  new Funcionario("Carlos", "111.111.111-11", 18, "masc", "Gerente", 1999999.00);
         PratoCardapio prat0 = new PratoCardapio("manga", 20.00, ingredientes);
 
         Mesa mesa2 = new Mesa(1, "Vazia");
@@ -113,15 +114,15 @@ public class Main extends Application {
 
 
         try {
-            //fachada.cadastrarUmFuncionario(gerente);
-            //fachada.adicionarIngrediente(a);
-            //fachada.adicionarIngrediente(b);
-            //fachada.adicionarIngrediente(c);
-            //fachada.adicionarUmaMesa(mesa2);
-            //fachada.adicionarUmaMesa(mesa);
-            //fachada.fazerNovaReserva(reserva);
-            //fachada.armazenarUmPedido(p);
-            //fachada.adicionarPratoAoCardapio(prat0);
+            fachada.cadastrarUmFuncionario(gerente);
+            fachada.adicionarPratoAoCardapio(prat0);
+            fachada.adicionarIngrediente(a);
+            fachada.adicionarIngrediente(b);
+            fachada.adicionarIngrediente(c);
+            fachada.adicionarUmaMesa(mesa2);
+            fachada.adicionarUmaMesa(mesa);
+            fachada.fazerNovaReserva(reserva);
+            fachada.armazenarUmPedido(p);
 
         } catch (Exception objetoJaExisteErro) {
             objetoJaExisteErro.printStackTrace();

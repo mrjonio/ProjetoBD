@@ -53,6 +53,7 @@ public class RepositorioCardapio implements IRepositorioCardapio{
         String sql =
                 "INSERT INTO pratos VALUES (" +
                         "\"" + prato.getNome() + "\", \"" + prato.getPreco() + "\", x'" + prato.getFotoBytes() + "')";
+
         try {
             this.dbCenter.executarChamada(sql);
         } catch (Exception e) {
@@ -136,6 +137,8 @@ public class RepositorioCardapio implements IRepositorioCardapio{
             pratoPego.setNome(rs.getString("nome"));
             pratoPego.setPreco(rs.getFloat("preco"));
             pratoPego.setFoto(rs.getBytes("imagem"));
+//          pratoPego.setFoto(rs.getBytes("imagem")); //Cata a imagem
+
             return pratoPego;
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();

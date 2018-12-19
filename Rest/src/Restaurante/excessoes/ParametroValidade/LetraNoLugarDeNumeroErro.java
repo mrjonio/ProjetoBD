@@ -7,6 +7,6 @@ package Restaurante.excessoes.ParametroValidade;
 public class LetraNoLugarDeNumeroErro extends ExceptionParametro {
 
     public LetraNoLugarDeNumeroErro(String nomeParametro) {
-        super(nomeParametro);
+        super("Letra no lugar de numero:" + nomeParametro);
     }
 }

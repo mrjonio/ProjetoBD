@@ -2,8 +2,10 @@ package Restaurante.gui.guiDoGerente.funcionario;
 
 
 import Restaurante.camadasDeNegocio.entidade.pessoas.funcionario.Funcionario;
+import Restaurante.excessoes.ObjetoExistencia.ExcecaoObjetoExistencia;
 import Restaurante.excessoes.ObjetoExistencia.ObjetoJaExisteErro;
 import Restaurante.excessoes.ParametroValidade.CampoVazioErro;
+import Restaurante.excessoes.ParametroValidade.ExceptionParametro;
 import Restaurante.excessoes.ParametroValidade.ParametroInvalidoErro;
 import Restaurante.excessoes.ParametroValidade.PessoaMenorDeIdadeErro;
 import Restaurante.fachada.Fachada;
@@ -12,6 +14,7 @@ import Restaurante.main.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -35,7 +38,7 @@ public class ControleTelaCadastroFuncionario implements Initializable {
     private ImageView imgTop;
 
     @FXML
-    private Button btSend, btSair, btGerente, btNormal, btSendGerente;
+    private Button btSend, btSair, btNormal;
 
     @FXML
     private Label lbNome, lbCpf, lbIdade, lbSexo, lbFuncao, lbSalario, lbSenha;
@@ -47,19 +50,12 @@ public class ControleTelaCadastroFuncionario implements Initializable {
     private TextField tfNome, tfCpf, tfSexo, tfFuncao, tfIdade, tfSalario, tfGerente;
 
     private void setarVisibilidade(boolean a, boolean b){
-        this.btGerente.setVisible(a);
         this.lbFuncao.setVisible(a);
         this.tfFuncao.setVisible(a);
         this.btNormal.setVisible(b);
         this.lbSenha.setVisible(b);
         this.tfGerente.setVisible(b);
         this.btSend.setVisible(a);
-        this.btSendGerente.setVisible(b);
-    }
-
-    @FXML
-    private void acaoBotaoGerente(ActionEvent event){
-        setarVisibilidade(false, true);
     }
 
     @FXML
@@ -79,41 +75,24 @@ public class ControleTelaCadastroFuncionario implements Initializable {
             Funcionario funcionarioNormal = new Funcionario(nome, cpf, idade, sexo, funcao, salario);
             funcionarioNormal.eValido();
             this.fachada.cadastrarUmFuncionario(funcionarioNormal);
-            Main.chamarJanela("../gui/outros/TelaCadastradoComSucesso.fxml", 400, 150);
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setHeaderText("Sucesso");
+            alert.setContentText("Cadastro Completo!");
+            alert.showAndWait();
+        } catch (NumberFormatException n){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setHeaderText("Erro");
+            alert.setContentText("Não use letras ou virgula no salário!");
+            alert.showAndWait();
         } catch (RuntimeException erro) {
-            Main.chamarJanela("../gui/erros/TelaLetraNoLugarDeNumeroErro.fxml", 400, 150);
-        } catch (ParametroInvalidoErro parametroInvalidoErro) {
-            Main.chamarJanela("../gui/erros/TelaParametroInvalidoErro.fxml", 400, 150);
-        } catch (CampoVazioErro campoVazioErro) {
-            Main.chamarJanela("../gui/erros/TelaCampoVazioErro.fxml", 400, 150);
-        } catch (PessoaMenorDeIdadeErro pessoaMenorDeIdadeErro) {
-            Main.chamarJanela("../gui/erros/TelaMenorIdadeErro.fxml", 400, 150);
-        } catch (ObjetoJaExisteErro objetoJaExisteErro) {
-           Main.chamarJanela("../gui/erros/TelaFuncionarioJaExisteErro.fxml", 400, 150);
-        }
-    }
-
-    @FXML
-    private void acaoBotaoSendGerente(ActionEvent event){
-        String nome = this.tfNome.getText();
-        String cpf = this.tfCpf.getText();
-        String sexo = this.tfSexo.getText();
-        String funcao = this.tfFuncao.getText();
-        try {
-            double salario = Double.parseDouble(this.tfSalario.getText());
-            int idade = Integer.parseInt(this.tfIdade.getText());
-            Funcionario funcionarioNormal = new Funcionario(nome, cpf, idade, sexo, funcao, salario);
-            funcionarioNormal.eValido();
-            this.fachada.cadastrarUmFuncionario(funcionarioNormal);
-            Main.chamarJanela("../gui/outros/TelaCadastradoComSucesso.fxml", 400, 150);
-        } catch (ParametroInvalidoErro parametroInvalidoErro) {
-            Main.chamarJanela("../gui/erros/TelaParametroInvalidoErro.fxml", 400, 150);
-        } catch (CampoVazioErro campoVazioErro) {
-            Main.chamarJanela("../gui/erros/TelaCampoVazioErro.fxml", 400, 150);
-        } catch (PessoaMenorDeIdadeErro pessoaMenorDeIdadeErro) {
-            Main.chamarJanela("../gui/erros/TelaMenorIdadeErro.fxml", 400, 150);
-        } catch (ObjetoJaExisteErro objetoJaExisteErro) {
-            Main.chamarJanela("../gui/erros/TelaFuncionarioJaExisteErro.fxml", 400, 150);
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setHeaderText("Erro");
+            alert.setContentText("Letra no lugar de número");
+            alert.showAndWait();
+        } catch (ExceptionParametro p) {
+            p.alertar();
+        } catch (ExcecaoObjetoExistencia e) {
+           e.alertar();
         }
     }
 

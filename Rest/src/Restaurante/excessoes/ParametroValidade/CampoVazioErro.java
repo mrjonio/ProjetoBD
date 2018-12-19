@@ -6,6 +6,6 @@ package Restaurante.excessoes.ParametroValidade;
  */
 public class CampoVazioErro extends ExceptionParametro {
     public CampoVazioErro(String nomeParametro) {
-        super(nomeParametro);
+        super("Campo Vazio: " + nomeParametro);
     }
 }

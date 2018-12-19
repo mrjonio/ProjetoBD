@@ -7,6 +7,6 @@ package Restaurante.excessoes.ParametroValidade;
 public class ParametrosIguaisErro extends ExceptionParametro {
 
     public ParametrosIguaisErro(String nomeParametro) {
-        super(nomeParametro);
+        super("Parametros iguais: " + nomeParametro);
     }
 }

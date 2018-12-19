@@ -8,7 +8,7 @@ package Restaurante.excessoes.ObjetoExistencia;
 public class ObjetoNaoExisteErro extends ExcecaoObjetoExistencia {
 
     public ObjetoNaoExisteErro(String nomeDoObjeto){
-        super(nomeDoObjeto);
+        super(nomeDoObjeto + " não encontrado!");
      }
 
 }

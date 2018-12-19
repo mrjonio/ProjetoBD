@@ -91,6 +91,8 @@ public class DBViews {
         }
     }
 
+
+    //////////////////////////////////////////////////////////////////////////////////////
     private void folhaPagamentoView(){
         String view = "CREATE VIEW folhaPagamento " +
                 "AS SELECT SUM(salario) "+
@@ -102,10 +104,51 @@ public class DBViews {
         }
     }
 
+    private void idPedidosCozidos(){
+        String view = "CREATE VIEW idPedidosCozidos AS SELECT idpedidos AS cozidos FROM pedidos JOIN conzinheiro_cozinha_pedido ON pedidos.idpedidos=conzinheiro_cozinha_pedido.idPedido";
+        try {
+            dbCenter.executarChamada(view);
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    private void pedidosCompletosCozidos(){
+        String view = "CREATE VIEW pedidosCompletosCozidos AS SELECT * FROM idPedidosCozidos AS pedidosCozinhados JOIN pedidos AS todosPedidos WHERE pedidosCozinhados.cozidos=todosPedidos.idpedidos";
+        try {
+            dbCenter.executarChamada(view);
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    private void pedidosCozidosComMesas(){
+        String view = "CREATE VIEW pedidosCozidosComMesas AS SELECT * FROM pedidosCompletosCozidos AS pedidosQueForamCozinhados JOIN mesas_faz_pedidos AS mesasP ON mesasP.idPedido=pedidosQueForamCozinhados.idpedidos";
+        try {
+            dbCenter.executarChamada(view);
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void pedidosComMesas(){
+        String view = "CREATE VIEW pedidosComMesas AS SELECT * FROM pedidos JOIN mesas_faz_pedidos ON pedidos.idpedidos=mesas_faz_pedidos.idPedido";
+        try {
+            dbCenter.executarChamada(view);
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
     public void migrar() {
         this.dbCenter = new DBCenter();
         this.folhaPagamentoView();
+        this.idPedidosCozidos();
+        this.pedidosCompletosCozidos();
+        this.pedidosCozidosComMesas();
+        this.pedidosComMesas();
     }
 
 }

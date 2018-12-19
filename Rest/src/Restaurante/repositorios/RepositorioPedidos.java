@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static java.lang.System.exit;
+import static java.lang.System.setOut;
 
 /**
  * Abaixo temos a classe para o repositório de pedidos, que serve para armazenar em um arraylist todas os dados
@@ -39,6 +40,8 @@ public class RepositorioPedidos implements IRepositorioPedidos {
      */
     @Override
     public double calcularLucro(LocalDateTime dataInicial, LocalDateTime dataFinal) {
+        //inclusive os que ainda nao foram cozinhados
+        //TODO: mudar para gerarVetor
         double lucroDosPedidos = 0;
 
 
@@ -79,10 +82,9 @@ public class RepositorioPedidos implements IRepositorioPedidos {
      */
     @Override
     public void deletarPedidos(LocalDateTime dataInicial, LocalDateTime dataFinal){
-        for (Pedido pedidoFor : pedidos){
-            if (pedidoFor.getDataDoPedido().isAfter(dataInicial) && pedidoFor.getDataDoPedido().isBefore(dataFinal)){
-                pedidos.remove(pedidoFor);
-            }
+        ArrayList<Pedido> pedidosLocal = (ArrayList<Pedido>) this.gerarVetorPedido(dataInicial, dataFinal);
+        for (Pedido pedidoFor : pedidosLocal){
+            this.removerPedido(pedidoFor);
         }
     }
 
@@ -93,28 +95,47 @@ public class RepositorioPedidos implements IRepositorioPedidos {
      */
     @Override
     public void adicionarPedido(Pedido pedidoQueSeraAdicionado){
-        this.pedidos.add(pedidoQueSeraAdicionado);
+        //esse pedido já foi criado lá na mesa
+        //TODO: arrumar quando tiver logado de fato
+        String sql = "INSERT INTO conzinheiro_cozinha_pedido VALUES ('222.222.222-22', " + pedidoQueSeraAdicionado.getIdPedido() +" )";
+        try {
+            this.dbCenter.executarChamada(sql);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void removerPedido(Pedido pedidoQueSeraRemovido) {
-        //TODO: REMOVER PELO NUMERO DA MESA E PELA DATA
-        this.pedidos.remove(pedidoQueSeraRemovido);
+        System.out.println("asdas");
+
+
+        String sqlCozinheiro = "DELETE FROM conzinheiro_cozinha_pedido WHERE idPedido=" + pedidoQueSeraRemovido.getIdPedido();
+        String sqlMesas = "DELETE FROM mesas_faz_pedidos WHERE idPedido=" + pedidoQueSeraRemovido.getIdPedido();
+        String sqlPratos = "DELETE FROM pedidos_tem_pratos WHERE idpedidos=" + pedidoQueSeraRemovido.getIdPedido();
+        String sqlPedidos = "DELETE FROM pedidos WHERE idpedidos=" + pedidoQueSeraRemovido.getIdPedido();
+
+        try {
+            this.dbCenter.executarChamada(sqlCozinheiro);
+            this.dbCenter.executarChamada(sqlMesas);
+            this.dbCenter.executarChamada(sqlPratos);
+            this.dbCenter.executarChamada(sqlPedidos);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
     @Override
     public Pedido buscarPedido(Pedido pedidoQueSeraBuscado) {
         Pedido pedido = null;
-        //TODO: ACHAR PELO NUMERO DA MESA E PELA DATA
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("y-M-dd HH:mm:ss");
         String data = pedidoQueSeraBuscado.getDataDoPedido().format(formatter);
 
-        String sql = "SELECT * FROM pedidos JOIN mesas_faz_pedidos ON pedidos.idpedidos=mesas_faz_pedidos.idPedido";// AND pedidos.data ='"+data+"' ";
 
-        String sqlf = "SELECT * FROM ( "+sql+" ) as pedidos2 WHERE pedidos2.data ='"+data+"' ";
+        String sqlf = "SELECT * FROM ( pedidosComMesas ) as pedidos2 WHERE pedidos2.data ='"+data+"' ";
 
-        //String sql = "SELECT * FROM pedido WHERE data ='"+data+"' ";
         Mesa mesa = (new  RepositorioMesas()).pegarMesa(pedidoQueSeraBuscado.getMesaQuePediu().getNumero());
         ArrayList<PratoCardapio> pratos = new ArrayList<>();
         if (mesa == null) return null;
@@ -146,7 +167,6 @@ public class RepositorioPedidos implements IRepositorioPedidos {
 
 
     //TODO: dps pegar do repositorio
-
     private PratoCardapio pegarPrato(String nomePrato) {
         double precoPrato;
         ArrayList<Ingrediente> ingredientes = new ArrayList<>();
@@ -188,34 +208,56 @@ public class RepositorioPedidos implements IRepositorioPedidos {
 
     @Override
     public List<Pedido> gerarVetorPedido(LocalDateTime inicio, LocalDateTime fim) {
+
         List<Pedido> temp = new ArrayList<>();
-        for (Pedido ped: this.pedidos) {
+        List<Pedido> temp2 = new ArrayList<>();
+
+        //TODO: view de limpeza de pedidos que ja passou um dia e nao foram cozinhados
+
+
+        String sql = "SELECT * FROM pedidosCozidosComMesas";
+
+        try {
+            ResultSet rs = this.dbCenter.executarChamada(sql);
+
+            while(rs.next()) {
+                int idMesa = rs.getInt("numeroMesa");
+                String data = rs.getString("data");
+
+                Mesa m = new Mesa(idMesa, "Oculpada");
+                Pedido p = new Pedido(null, m);
+                m.adicionarPedido(p);
+
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy/HH/mm");
+
+                LocalDateTime dateTime = LocalDateTime.of(Integer.parseInt(data.split(" ")[0].split("-")[0]), Integer.parseInt(data.split(" ")[0].split("-")[1]),Integer.parseInt(data.split(" ")[0].split("-")[2]),Integer.parseInt(data.split(" ")[1].split(":")[0]),Integer.parseInt(data.split(" ")[1].split(":")[1]),(int)Double.parseDouble(data.split(" ")[1].split(":")[2]));
+                p.setDataDoPedido(dateTime);
+
+
+                Pedido ret = this.buscarPedido(p);
+
+                if (ret != null) {
+                    temp2.add(ret);
+                } else {
+                    System.out.println("pedido nulo");
+                    return temp;
+                }
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return temp;
+        }
+
+
+
+
+        for (Pedido ped: temp2) {
             if(ped.getDataDoPedido().isAfter(inicio) && ped.getDataDoPedido().isBefore(fim)){
                 temp.add(ped);
             }
         }
         return temp;
     }
-
-    private int getFreeId() {
-        int ret = -1;
-        String sql = "select coalesce(min(t.idpedidos) + 1, 0)\n" +
-                "     from pedidos t left outer join\n" +
-                "     pedidos t2\n" +
-                "     on t.idpedidos = t2.idpedidos - 1\n" +
-                "     where t2.idpedidos is null;";
-
-        try {
-            ResultSet resultSet = this.dbCenter.executarChamada(sql);
-            while (resultSet.next()) {
-                ret = resultSet.getInt(1);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return ret;
-    }
-
 
 }

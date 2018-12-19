@@ -198,7 +198,7 @@ public class TelaMesa {
         for (int i = 0; i < this.qtdMesas; i++) {
             try {
                 Mesa m = fachada.buscarUmaMesa(i);
-                if (m.isDisponibilidade().equals("Oculpado")) {
+                if (m.isDisponibilidade().equals("Oculpada")) {
                     ocupadas++;
                 }
             } catch (Exception e) {}

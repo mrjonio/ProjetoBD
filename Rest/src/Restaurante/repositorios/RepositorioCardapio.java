@@ -52,7 +52,8 @@ public class RepositorioCardapio implements IRepositorioCardapio{
     public void adicionarPratoAoCardapio(PratoCardapio prato) {
         String sql =
                 "INSERT INTO pratos VALUES (" +
-                        "\"" + prato.getNome() + "\", \"" + prato.getPreco() + "\", \"" + prato.getFoto() + "\")";
+                        "\"" + prato.getNome() + "\", \"" + prato.getPreco() + "\", x'" + prato.getFotoBytes() + "')";
+
         try {
             this.dbCenter.executarChamada(sql);
         } catch (Exception e) {
@@ -70,7 +71,7 @@ public class RepositorioCardapio implements IRepositorioCardapio{
     @Override
     public void alterarAtributoPrato(PratoCardapio novoPratoComNovosAtributos){
     	String sql = " UPDATE pratos" +
-                " SET preco=\"" + novoPratoComNovosAtributos.getPreco() + "\", imagem=\"" + novoPratoComNovosAtributos.getFoto() + "\"" +
+                " SET preco=\"" + novoPratoComNovosAtributos.getPreco() + "\", imagem=x'" + novoPratoComNovosAtributos.getFotoBytes() + "'" +
                 " WHERE nome=\"" + novoPratoComNovosAtributos.getNome() + "\"";
         try {
             this.dbCenter.executarChamada(sql);
@@ -135,7 +136,9 @@ public class RepositorioCardapio implements IRepositorioCardapio{
             pratoPego = new PratoCardapio(rs.getString("nome"), rs.getFloat("preco"), ingredientes);
             pratoPego.setNome(rs.getString("nome"));
             pratoPego.setPreco(rs.getFloat("preco"));
-//            pratoPego.setFoto(rs.getBytes("imagem")); //Cata a imagem
+            pratoPego.setFoto(rs.getBytes("imagem"));
+//          pratoPego.setFoto(rs.getBytes("imagem")); //Cata a imagem
+
             return pratoPego;
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();

@@ -9,6 +9,6 @@ package Restaurante.excessoes.ObjetoExistencia;
 public class ObjetoEmUsoErro extends ExcecaoObjetoExistencia {
 
     public ObjetoEmUsoErro(String nomeObjeto) {
-        super(nomeObjeto);
+        super(nomeObjeto + " em uso!");
     }
 }

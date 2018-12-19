@@ -1,5 +1,6 @@
 package Restaurante.gui.guiDoGerente.funcionario;
 
+import Restaurante.excessoes.ObjetoExistencia.ExcecaoObjetoExistencia;
 import Restaurante.excessoes.ObjetoExistencia.ObjetoNaoExisteErro;
 import Restaurante.fachada.Fachada;
 import Restaurante.fachada.interfaceFachada.IFachadaGerente;
@@ -7,6 +8,7 @@ import Restaurante.main.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -47,9 +49,12 @@ public class ControleTelaRemoverFuncionario implements Initializable {
     private void acaoBotaoSendPessoa(ActionEvent event){
         try {
             fachada.deletarUmFuncionario(this.tfPessoa.getText());
-            Main.chamarJanela("../gui/guiDoGerente/funcionario/TelaRemovidoComSucesso.fxml", 400, 150);
-        } catch (ObjetoNaoExisteErro objetoNaoExisteErro) {
-            Main.chamarJanela("../gui/erros/TelaPessoaNaoExisteErro.fxml", 400, 150);
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setHeaderText("Sucesso");
+            alert.setContentText("Removido com sucesso Completo!");
+            alert.showAndWait();
+        } catch (ExcecaoObjetoExistencia objetoNaoExisteErro) {
+            objetoNaoExisteErro.alertar();
         }
     }
 

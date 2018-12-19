@@ -8,6 +8,6 @@ package Restaurante.excessoes.ParametroValidade;
 public class ParametroInvalidoErro extends ExceptionParametro {
 
     public ParametroInvalidoErro(String nomeParametro) {
-        super(nomeParametro);
+        super("Parametro Invalido:" + nomeParametro);
     }
 }

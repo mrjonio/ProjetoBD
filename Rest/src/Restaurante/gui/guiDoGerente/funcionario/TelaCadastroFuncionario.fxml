@@ -60,23 +60,5 @@
          </font>
       </Label>
       <TextField fx:id="tfSalario" layoutX="328.0" layoutY="326.0" prefHeight="25.0" prefWidth="280.0" promptText="Ex:; 900,00" />
-      <Button fx:id="btGerente" layoutX="388.0" layoutY="93.0" mnemonicParsing="false" onAction="#acaoBotaoGerente" text="Gerente">
-         <font>
-            <Font name="Arial Bold" size="18.0" />
-         </font></Button>
-      <Label fx:id="lbSenha" layoutX="138.0" layoutY="291.0" text="Senha do Gerente:" visible="false">
-         <font>
-            <Font name="Arial Bold" size="18.0" />
-         </font>
-      </Label>
-      <TextField fx:id="tfGerente" layoutX="328.0" layoutY="289.0" prefHeight="25.0" prefWidth="280.0" promptText="Senhas fortes" visible="false" />
-      <Button fx:id="btNormal" layoutX="227.0" layoutY="93.0" mnemonicParsing="false" onAction="#acaoBotaoNormal" text="Funcionario" visible="false">
-         <font>
-            <Font name="Arial Bold" size="18.0" />
-         </font></Button>
-      <Button fx:id="btSendGerente" layoutX="251.0" layoutY="409.0" mnemonicParsing="false" onAction="#acaoBotaoSendGerente" text="Enviar" visible="false">
-         <font>
-            <Font name="Arial Bold" size="18.0" />
-         </font></Button>
     </children>
 </Pane>

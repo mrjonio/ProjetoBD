@@ -166,7 +166,7 @@ public class RepositorioFuncionario implements IRepositorioFuncionario {
 
             while (resultSet.next()) {
                 // ELE RETORNA 1 A MENOS
-                return resultSet.getDouble(1) + 1;
+                return Double.parseDouble(resultSet.getString(0));
             }
 
         } catch (ClassNotFoundException | SQLException e) {

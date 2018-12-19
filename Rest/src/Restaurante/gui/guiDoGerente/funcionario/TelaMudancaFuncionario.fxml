@@ -3,7 +3,6 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
@@ -15,37 +14,31 @@
          <image>
             <Image url="@../../../imagens/telasMudanças.png" />
          </image></ImageView>
-        <TextField fx:id="tfCpf" layoutX="401.0" layoutY="196.0" prefHeight="25.0" prefWidth="206.0" promptText="Ex:. 111.111.111-11" visible="false" />
-        <TextField fx:id="tfIdade" layoutX="401.0" layoutY="228.0" prefHeight="25.0" prefWidth="206.0" promptText="Não use letras" visible="false" />
-        <TextField fx:id="tfFuncao" layoutX="401.0" layoutY="298.0" prefHeight="25.0" prefWidth="206.0" promptText="Ex:. Cozinheiro" visible="false" />
-        <TextField fx:id="tfNome" layoutX="401.0" layoutY="163.0" prefHeight="25.0" prefWidth="206.0" promptText="Não use numeros" visible="false" />
-        <Label fx:id="lbNome" layoutX="111.0" layoutY="165.0" text="Novo nome do Funcionario:" visible="false">
+        <TextField fx:id="tfIdade" layoutX="401.0" layoutY="228.0" prefHeight="25.0" prefWidth="206.0" promptText="Não use letras" />
+        <TextField fx:id="tfFuncao" layoutX="401.0" layoutY="298.0" prefHeight="25.0" prefWidth="206.0" promptText="Ex:. Cozinheiro" />
+        <TextField fx:id="tfNome" layoutX="401.0" layoutY="163.0" prefHeight="25.0" prefWidth="206.0" promptText="Não use numeros" />
+        <Label fx:id="lbNome" layoutX="111.0" layoutY="165.0" text="Novo nome do Funcionario:">
             <font>
                 <Font name="Arial Bold" size="18.0" />
             </font>
         </Label>
-        <Label fx:id="lbCpf" layoutX="128.0" layoutY="198.0" text="Novo cpf do Funcionario:" visible="false">
+        <Label fx:id="lbIdade" layoutX="105.0" layoutY="230.0" text="Nova idade do Funcionario:">
             <font>
                 <Font name="Arial Bold" size="18.0" />
             </font>
         </Label>
-        <Label fx:id="lbIdade" layoutX="105.0" layoutY="230.0" text="Nova idade do Funcionario:" visible="false">
+        <Label fx:id="lbSexo" layoutX="107.0" layoutY="266.0" text="Novo sexo do Funcionario:">
             <font>
                 <Font name="Arial Bold" size="18.0" />
             </font>
         </Label>
-        <Label fx:id="lbSexo" layoutX="107.0" layoutY="266.0" text="Novo sexo do Funcionario:" visible="false">
+        <Label fx:id="lbFuncao" layoutX="98.0" layoutY="300.0" text="Nova função no Restaurante:">
             <font>
                 <Font name="Arial Bold" size="18.0" />
             </font>
         </Label>
-        <Label fx:id="lbFuncao" layoutX="98.0" layoutY="300.0" text="Nova função no Restaurante:" visible="false">
-            <font>
-                <Font name="Arial Bold" size="18.0" />
-            </font>
-        </Label>
-        <TextField fx:id="tfSexo" layoutX="401.0" layoutY="264.0" prefHeight="25.0" prefWidth="206.0" promptText="Masculino ou Feminino" visible="false" />
-        <Button fx:id="btSendFuncionario" layoutX="527.0" layoutY="371.0" mnemonicParsing="false" onAction="#acaoBotaoSendFuncionario" text="Enviar" visible="false">
+        <TextField fx:id="tfSexo" layoutX="401.0" layoutY="264.0" prefHeight="25.0" prefWidth="206.0" promptText="Masculino ou Feminino" />
+        <Button fx:id="btSendFuncionario" layoutX="527.0" layoutY="371.0" mnemonicParsing="false" onAction="#acaoBotaoSendFuncionario" text="Enviar">
             <font>
                 <Font name="Arial Bold" size="18.0" />
             </font>
@@ -55,58 +48,19 @@
                 <Font name="Arial Bold" size="18.0" />
             </font>
         </Button>
-        <Label fx:id="lbSalario" layoutX="89.0" layoutY="337.0" text="Novo salario do Funcionario:" visible="false">
+        <Label fx:id="lbSalario" layoutX="89.0" layoutY="337.0" text="Novo salario do Funcionario:">
             <font>
                 <Font name="Arial Bold" size="18.0" />
             </font>
         </Label>
-        <TextField fx:id="tfSalario" layoutX="401.0" layoutY="335.0" prefHeight="25.0" prefWidth="206.0" promptText="Ex:; 900,00" visible="false" />
-      <Label fx:id="lbSenha" layoutX="232.0" layoutY="300.0" text="Nova Senha:" visible="false">
+        <TextField fx:id="tfSalario" layoutX="401.0" layoutY="335.0" prefHeight="25.0" prefWidth="206.0" promptText="Ex:; 900,00" />
+
+      <Label fx:id="lbCpfAntigo" layoutX="238.0" layoutY="124.0" text="Cpf Antigo:">
          <font>
             <Font name="Arial Bold" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="tfSenha" layoutX="401.0" layoutY="298.0" prefHeight="25.0" prefWidth="206.0" visible="false" />
-      <Button fx:id="btGerente" layoutX="98.0" layoutY="233.0" mnemonicParsing="false" onAction="#escolhaGerente" text="GERENTE" textFill="#52752b">
-          <font>
-              <Font name="Arial Bold" size="36.0" />
-          </font>
-         <tooltip>
-            <Tooltip fx:id="ttGerente" text="Gerentes tem mais privilegios, e possuem uma senha" />
-         </tooltip>
-      </Button>
-      <Button fx:id="btNormal" layoutX="401.0" layoutY="233.0" mnemonicParsing="false" onAction="#escolhaNormal" text="NORMAL" textFill="#7c2020">
-          <font>
-              <Font name="Arial Bold" size="36.0" />
-          </font>
-         <tooltip>
-            <Tooltip fx:id="ttNormal" text="Funcionarios que não possuem acesso ao sistema." />
-         </tooltip>
-      </Button>
-      <Label fx:id="lbEscolha" layoutX="68.0" layoutY="152.0" text="Escolha o tipo de funcionario:">
-          <font>
-              <Font name="Arial Bold" size="40.0" />
-          </font>
-      </Label>
-      <Button fx:id="btSendGerente" layoutX="527.0" layoutY="371.0" mnemonicParsing="false" onAction="#acaoBotaoSendGerente" text="Enviar" visible="false">
-         <font>
-            <Font name="Arial Bold" size="18.0" />
-         </font>
-      </Button>
-      <Button fx:id="btVtNormal" layoutX="356.0" layoutY="423.0" mnemonicParsing="false" onAction="#voltarNormal" text="Voltar" visible="false">
-         <font>
-            <Font name="Arial Bold" size="18.0" />
-         </font></Button>
-      <Button fx:id="btVtGerente" layoutX="356.0" layoutY="423.0" mnemonicParsing="false" onAction="#voltarGerente" text="Voltar" visible="false">
-         <font>
-            <Font name="Arial Bold" size="18.0" />
-         </font></Button>
-      <Label fx:id="lbCpfAntigo" layoutX="238.0" layoutY="124.0" text="Cpf Antigo:" visible="false">
-         <font>
-            <Font name="Arial Bold" size="18.0" />
-         </font>
-      </Label>
-      <TextField fx:id="tfCpfAntigo" layoutX="401.0" layoutY="122.0" prefHeight="25.0" prefWidth="206.0" promptText="Ex:. 222.222.222-22" visible="false" />
+      <TextField fx:id="tfCpfAntigo" layoutX="401.0" layoutY="122.0" prefHeight="25.0" prefWidth="206.0" promptText="Ex:. 222.222.222-22" />
     </children>
 
 </Pane>

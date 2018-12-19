@@ -1,6 +1,7 @@
 package Restaurante.gui.guiDoGerente.funcionario;
 
 import Restaurante.camadasDeNegocio.entidade.pessoas.funcionario.Funcionario;
+import Restaurante.excessoes.ObjetoExistencia.ExcecaoObjetoExistencia;
 import Restaurante.excessoes.ObjetoExistencia.ObjetoNaoExisteErro;
 import Restaurante.fachada.Fachada;
 import Restaurante.fachada.interfaceFachada.IFachadaGerente;
@@ -79,8 +80,8 @@ public class ControleTelaBuscaFuncionario implements Initializable {
             this.lbSexoPego.setText(clienteBuscado.getSexo());
             this.lbCpfPego.setText(clienteBuscado.getCpf());
             mudarVisibilidades(false, true);
-        } catch (ObjetoNaoExisteErro objetoNaoExisteErro) {
-            Main.chamarJanela("../gui/erros/TelaPessoaNaoExisteErro.fxml", 400, 150);
+        } catch (ExcecaoObjetoExistencia objetoNaoExisteErro) {
+            objetoNaoExisteErro.alertar();
         }
     }
 

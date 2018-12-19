@@ -134,6 +134,7 @@ public class TelaCardapio {
 
             try {
                 PratoCardapio p = fachada.buscarUmPratoDoCardapio(saida);
+                fachada.verificarPratoPendente(saida);
                 fachada.retirarUmPratoDoCardapio(saida);
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setHeaderText("Prato: " + p.getNome() + " foi removido");

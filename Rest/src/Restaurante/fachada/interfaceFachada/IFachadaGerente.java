@@ -35,6 +35,7 @@ public interface IFachadaGerente {
 
     //Pratos
     PratoCardapio buscarUmPratoDoCardapio(String nomeDoPrato) throws ObjetoNaoExisteErro;
+    public void verificarPratoPendente(String nomePrato) throws PratoPendenteErro;
     void retirarUmPratoDoCardapio(String nomeDoPratoQueSeraRetirado) throws ObjetoNaoExisteErro, Exception;
     void alterarAtributoDeUmPrato(PratoCardapio novoPrato, String nomeAtual) throws ObjetoNaoExisteErro;
 

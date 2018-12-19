@@ -4,6 +4,8 @@ import Restaurante.camadasDeNegocio.entidade.abstrato.Pedido;
 import Restaurante.excessoes.NaoOuveLucroErro;
 import Restaurante.excessoes.ObjetoExistencia.ObjetoNaoExisteErro;
 import Restaurante.excessoes.ObjetoExistencia.ObjetosInsuficientesErro;
+import Restaurante.excessoes.PratoPendenteErro;
+
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -18,4 +20,5 @@ public interface IControladorPedidos {
     List<Pedido> criarListaPedidosDeterminadoPeriodo(LocalDateTime dataInicial, LocalDateTime dataFinal) throws ObjetosInsuficientesErro;
     void removerUmDeterminadopedido(Pedido pedidoQueSeraRemovido) throws ObjetoNaoExisteErro;
     Pedido buscarUmDeterminadoPedido(Pedido pedidoBuscado) throws ObjetoNaoExisteErro;
+    public void verificarPratoPendente(String nomePrato) throws PratoPendenteErro;
 }

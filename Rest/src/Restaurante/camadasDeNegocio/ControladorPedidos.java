@@ -6,6 +6,7 @@ import Restaurante.camadasDeNegocio.entidade.abstrato.Pedido;
 import Restaurante.excessoes.NaoOuveLucroErro;
 import Restaurante.excessoes.ObjetoExistencia.ObjetoNaoExisteErro;
 import Restaurante.excessoes.ObjetoExistencia.ObjetosInsuficientesErro;
+import Restaurante.excessoes.PratoPendenteErro;
 import Restaurante.repositorios.RepositorioPedidos;
 import Restaurante.repositorios.interfaces.IRepositorioPedidos;
 import java.time.LocalDateTime;
@@ -104,5 +105,10 @@ public class ControladorPedidos implements IControladorPedidos {
         }
     }
 
+    public void verificarPratoPendente(String nomePrato) throws PratoPendenteErro {
+        if (this.repositorioPedidos.verificarPratoEmPedido(nomePrato)) {
+            throw new PratoPendenteErro(nomePrato);
+        }
+    }
 
 }

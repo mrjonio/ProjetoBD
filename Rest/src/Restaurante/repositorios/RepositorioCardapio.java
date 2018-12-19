@@ -6,7 +6,6 @@ import java.util.ArrayList;
 
 import Restaurante.camadasDeNegocio.entidade.concretos.Alimenticio.Ingrediente;
 import Restaurante.camadasDeNegocio.entidade.concretos.Alimenticio.PratoCardapio;
-import Restaurante.excessoes.PratoPendenteErro;
 import Restaurante.repositorios.interfaces.IRepositorioCardapio;
 
 /**
@@ -40,7 +39,6 @@ public class RepositorioCardapio implements IRepositorioCardapio{
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
-
         return false;
     }
 
@@ -158,20 +156,7 @@ public class RepositorioCardapio implements IRepositorioCardapio{
      * @param pratoQueSeraRetiradoDoCardapio Prato que será removido.
      */
     @Override
-    public void removerPrato(PratoCardapio pratoQueSeraRetiradoDoCardapio) throws PratoPendenteErro {
-        ResultSet rs;
-
-        //TODO: Botar isso no RepositorioPedidos
-        //Verifica se o existe algum pedido pendente relacionado aquele prato
-        String sql = "SELECT nome_prato " +
-                " FROM pedidos_tem_pratos " +
-                " WHERE (nome_prato=\"" + pratoQueSeraRetiradoDoCardapio.getNome() + "\")";
-        try {
-            rs = this.dbCenter.executarChamada(sql);
-            while(rs.next()) {throw new PratoPendenteErro(pratoQueSeraRetiradoDoCardapio.getNome());}
-        } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
-        }
+    public void removerPrato(PratoCardapio pratoQueSeraRetiradoDoCardapio) {
 
         //Deleta os ingredientes do prato
         removerIngredientesPratos(pratoQueSeraRetiradoDoCardapio.getNome());

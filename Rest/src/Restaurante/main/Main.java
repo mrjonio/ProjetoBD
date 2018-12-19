@@ -10,15 +10,24 @@ import Restaurante.camadasDeNegocio.entidade.pessoas.funcionario.Funcionario;
 import Restaurante.fachada.Fachada;
 import Restaurante.fachada.interfaceFachada.IFachadaGerente;
 import Restaurante.repositorios.DBTabelas;
+import Restaurante.repositorios.DBTriggers;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+
+import static java.lang.System.exit;
 
 public class Main extends Application {
 
@@ -29,6 +38,15 @@ public class Main extends Application {
         primaryStage.setResizable(false);
         primaryStage.setTitle("Restaurante");
         primaryStage.show();
+
+        //TEM Q TER MANGA NO REPOSITORIO
+        Fachada fachada = Fachada.getInstance();
+        PratoCardapio asd = fachada.pegarUmPrato("manga");
+        Alert alert = new Alert(Alert.AlertType.ERROR, "Error", ButtonType.OK);
+        ImageView imageView = new ImageView(asd.getFoto());
+        alert.setGraphic(imageView);
+        alert.showAndWait();
+
     }
 
     public static void chamarJanela(String nomeDaJanela, int width, int heigt) {
@@ -67,7 +85,8 @@ public class Main extends Application {
 
         Fachada fachada =  Fachada.getInstance();
 
-        (new DBTabelas()).migrar();
+        //new DBTabelas().migrar();
+        //new DBTriggers().migrar();
 
         ArrayList<Ingrediente> ingredientes = new ArrayList<>();
 
@@ -79,11 +98,12 @@ public class Main extends Application {
         ingredientes.add(b);
         ingredientes.add(c);
 
-        Funcionario gerente =  new Funcionario("Carlos", "111.111.111-11", 18, "masc", "Gerente", 1999999.00);
+        Funcionario gerente =  new Funcionario("Carlos", "222.222.222-22", 18, "masc", "Gerente", 1999999.00);
         PratoCardapio prat0 = new PratoCardapio("manga", 20.00, ingredientes);
+
         Mesa mesa2 = new Mesa(1, "Vazia");
         Mesa mesa = new Mesa(0, "Oculpado");
-        Reserva reserva = new Reserva(LocalDateTime.now().plusDays(1), "111.111.111-11", mesa2);
+        Reserva reserva = new Reserva(LocalDateTime.now().plusDays(1), "222.222.222-22", mesa2);
 
         ArrayList<PratoCardapio> arr = new ArrayList<>();
         arr.add(prat0);
@@ -93,20 +113,21 @@ public class Main extends Application {
 
 
         try {
-            fachada.cadastrarUmFuncionario(gerente);
-            fachada.adicionarPratoAoCardapio(prat0);
-            fachada.adicionarIngrediente(a);
-            fachada.adicionarIngrediente(b);
-            fachada.adicionarIngrediente(c);
-            fachada.adicionarUmaMesa(mesa2);
-            fachada.adicionarUmaMesa(mesa);
-            fachada.fazerNovaReserva(reserva);
-            fachada.armazenarUmPedido(p);
-//            fachada.adicionarPratoAoCardapio(prato)
+            //fachada.cadastrarUmFuncionario(gerente);
+            //fachada.adicionarIngrediente(a);
+            //fachada.adicionarIngrediente(b);
+            //fachada.adicionarIngrediente(c);
+            //fachada.adicionarUmaMesa(mesa2);
+            //fachada.adicionarUmaMesa(mesa);
+            //fachada.fazerNovaReserva(reserva);
+            //fachada.armazenarUmPedido(p);
+            //fachada.adicionarPratoAoCardapio(prat0);
 
         } catch (Exception objetoJaExisteErro) {
+            objetoJaExisteErro.printStackTrace();
         }
 
         launch(args);
+
     }
 }

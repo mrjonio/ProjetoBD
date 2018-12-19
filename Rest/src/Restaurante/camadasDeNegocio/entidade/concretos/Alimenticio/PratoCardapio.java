@@ -5,8 +5,14 @@ package Restaurante.camadasDeNegocio.entidade.concretos.Alimenticio;
  */
 
 import Restaurante.excessoes.ObjetoExistencia.ObjetoJaExisteErro;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.scene.image.Image;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.util.List;
 
 public class PratoCardapio {
@@ -19,6 +25,7 @@ public class PratoCardapio {
         this.nome = nome;
         this.preco = preco;
         this.ingredientes = ingredientes;
+        this.foto = new Image(this.getClass().getResource("alo.png").toString());
     }
 
     public String getNome() {
@@ -39,7 +46,44 @@ public class PratoCardapio {
         return foto;
     }
 
+    public String getFotoBytes() {
+        try {
+            BufferedImage bImage = SwingFXUtils.fromFXImage(this.foto, null);
+            ByteArrayOutputStream s = new ByteArrayOutputStream();
+            ImageIO.write(bImage, "png", s);
+            byte[] res = s.toByteArray();
+            s.close();
+
+            char[] hexArray = "0123456789ABCDEF".toCharArray();
+            char[] hexChars = new char[res.length * 2];
+            for (int j = 0; j < res.length; j++) {
+                int v = res[j] & 0xFF;
+                hexChars[j * 2] = hexArray[v >>> 4];
+                hexChars[j * 2 + 1] = hexArray[v & 0x0F];
+            }
+            System.out.println(new String(hexChars));
+            return new String(hexChars);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "";
+        }
+
+    }
+
     public void setFoto(Image foto) {
+        this.foto = foto;
+    }
+
+    public void setFoto(byte[] bts) {
+        BufferedImage fotaCrua;
+        ByteArrayInputStream bais = new ByteArrayInputStream(bts);
+        try {
+            fotaCrua =  ImageIO.read(bais);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        Image foto = SwingFXUtils.toFXImage(fotaCrua, null);
         this.foto = foto;
     }
 

@@ -130,7 +130,7 @@ public class DBTabelas {
     private void criarTabPratos () {
         String atributos = "nome VARCHAR(50) NOT NULL,\n" +
                 "  preco FLOAT NOT NULL,\n" +
-                "  imagem TEXT NOT NULL,\n" +
+                "  imagem LONGBLOB NULL,\n" +
                 "  PRIMARY KEY (nome)";
 
         String cmd = criarCmd.replace("$atributos$", atributos);

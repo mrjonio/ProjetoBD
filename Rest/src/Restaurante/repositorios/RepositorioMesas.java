@@ -82,10 +82,10 @@ public class RepositorioMesas implements IRepositorioMesas {
                             ResultSet pratosResultado = this.dbCenter.executarChamada(sql4);
                             ArrayList<Ingrediente> ingredientes = new ArrayList<>();
                             while (pratosResultado.next()) {
-                                String sql5 = "SELECT * FROM pratos_possuem_ingredientes WHERE nome_prato = \"" + pratosResultado.getString("nome_prato") + "\"";
+                                String sql5 = "SELECT * FROM pratos_possuem_ingredientes WHERE nome_prato = \"" + pratosResultado.getString("nome") + "\"";
                                 ResultSet ingredientesResultado = this.dbCenter.executarChamada(sql5);
                                 while (ingredientesResultado.next()) {
-                                    String sql6 = "SELECT * FROM ingredientes WHERE nome = +" + ingredientesResultado.getString("nome_ingrediente") + "";
+                                    String sql6 = "SELECT * FROM ingredientes WHERE nome = +'" + ingredientesResultado.getString("nome_ingrediente") + "'";
                                     ResultSet ingredientesTAbela = this.dbCenter.executarChamada(sql6);
                                     while (ingredientesTAbela.next()) {
                                         Ingrediente i = new Ingrediente(ingredientesTAbela.getString("nome"), ingredientesTAbela.getInt("quantidade"));
@@ -93,7 +93,7 @@ public class RepositorioMesas implements IRepositorioMesas {
                                     }
                                 }
                             }
-                            PratoCardapio p = new PratoCardapio(pratosResultado.getString("nome"), pratosResultado.getDouble("preco"), ingredientes);
+                            PratoCardapio p = new PratoCardapio(pratos.getString("nome_prato"), pratos.getDouble("preco"), ingredientes);
                             prato.add(p);
                         }
                         Pedido ped = new Pedido(prato, mesa);
@@ -146,16 +146,17 @@ public class RepositorioMesas implements IRepositorioMesas {
 
                 if (p.getIdPedido() == 0) {
                     //novo
-                    p.setIdPedido(this.getFreeId()+ novosAtributos.getPedidos().size());
+                    p.setIdPedido(this.getFreeId());
+                    System.out.println(this.getFreeId());
                     String sql3 = "INSERT INTO pedidos VALUES ("+ p.getIdPedido() + ",'"+ p.getDataDoPedido().toString() +"')";
                     this.dbCenter.executarChamada(sql3);
                     String sql4 = "INSERT INTO mesas_faz_pedidos VALUES ("+ novosAtributos.getNumero() + ","+ p.getIdPedido() +")";
                     this.dbCenter.executarChamada(sql4);
 
-
                     for (int j = 0; j < p.getPratoPedido().size(); j++) {
                         PratoCardapio pratoCardapio = p.getPratoPedido().get(j);
                         String sql6 = "INSERT INTO pedidos_tem_pratos VALUES ("+ p.getIdPedido() + ",'"+ pratoCardapio.getNome() + "', 0)";
+                        this.dbCenter.executarChamada(sql6);
                     }
                     return;
                 }
@@ -171,7 +172,7 @@ public class RepositorioMesas implements IRepositorioMesas {
                     this.dbCenter.executarChamada(sql5);
                 } else {
                     //novo
-                    p.setIdPedido(this.getFreeId()+ novosAtributos.getPedidos().size());
+                    p.setIdPedido(this.getFreeId());
                     String sql3 = "INSERT INTO pedidos VALUES ("+ p.getIdPedido() + ",'"+ p.getDataDoPedido().toString() +"')";
                     this.dbCenter.executarChamada(sql3);
                     String sql4 = "INSERT INTO mesas_faz_pedidos VALUES ("+ novosAtributos.getNumero() + ","+ p.getIdPedido() +")";
@@ -181,6 +182,7 @@ public class RepositorioMesas implements IRepositorioMesas {
                     for (int j = 0; j < p.getPratoPedido().size(); j++) {
                         PratoCardapio pratoCardapio = p.getPratoPedido().get(j);
                         String sql6 = "INSERT INTO pedidos_tem_pratos VALUES ("+ p.getIdPedido() + ",'"+ pratoCardapio.getNome() + "', 0)";
+                        this.dbCenter.executarChamada(sql6);
                     }
                 }
             }
@@ -267,7 +269,7 @@ public class RepositorioMesas implements IRepositorioMesas {
 
     private int getFreeId() {
         int ret = -1;
-        String sql = "SELECT Auto_increment FROM information_schema.tables WHERE table_name='pedidos' AND table_schema='javadb';";
+        String sql = "SELECT MAX(idpedidos) FROM pedidos";
 
         try {
             ResultSet resultSet = this.dbCenter.executarChamada(sql);
@@ -278,7 +280,7 @@ public class RepositorioMesas implements IRepositorioMesas {
             e.printStackTrace();
         }
 
-        return ret;
+        return ret+1;
     }
 
 }

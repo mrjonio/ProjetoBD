@@ -119,7 +119,7 @@ public class DBTabelas {
     private void criarTabPedidos () {
         String atributos = "idpedidos INT UNSIGNED NOT NULL,\n" +
                 "  data DATETIME NOT NULL,\n" +
-                "  PRIMARY KEY (idpedidos, data)";
+                "  PRIMARY KEY (idpedidos)";
 
         String cmd = criarCmd.replace("$atributos$", atributos);
         cmd = cmd.replace("$tabela$", tabPedidos);

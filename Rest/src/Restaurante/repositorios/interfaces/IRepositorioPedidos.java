@@ -12,10 +12,13 @@ import java.util.List;
 
 public interface IRepositorioPedidos {
 
-    double calcularLucro(LocalDateTime dataInicial, LocalDateTime dataFinal);
-    void deletarPedidos(LocalDateTime dataInicial, LocalDateTime dataFinal);
-    void adicionarPedido(Pedido pedidoQueSeraAdicionado);
-    void removerPedido(Pedido pedidoQueSeraRemovido);
-    Pedido buscarPedido(Pedido pedidoQueSeraBuscado);
-    List<Pedido> gerarVetorPedido(LocalDateTime inicio, LocalDateTime fim);
+    double calcularLucro(LocalDateTime dataInicial, LocalDateTime dataFinal); //OK
+    void deletarPedidos(LocalDateTime dataInicial, LocalDateTime dataFinal); //OK
+
+    //AQUI NO CASO FICOU PRA QUANDO O COZINHEIRO COZINHA O PEDIDO
+    //A CRIAÇÃO DO PEDIDO SÓ OCORRO QUANDO A MESA CONFIRMA O PEDIDO
+    void adicionarPedido(Pedido pedidoQueSeraAdicionado); //OK
+    void removerPedido(Pedido pedidoQueSeraRemovido); //OK
+    Pedido buscarPedido(Pedido pedidoQueSeraBuscado); //OK
+    List<Pedido> gerarVetorPedido(LocalDateTime inicio, LocalDateTime fim); //OK
 }

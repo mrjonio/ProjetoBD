@@ -96,6 +96,7 @@ public class ControladorPedidos implements IControladorPedidos {
     @Override
     public Pedido buscarUmDeterminadoPedido(Pedido pedidoBuscado) throws ObjetoNaoExisteErro {
         Pedido pedidoBusc = this.repositorioPedidos.buscarPedido(pedidoBuscado);
+        System.out.println(pedidoBusc);
         if(pedidoBusc != null){
             return pedidoBusc;
         } else {

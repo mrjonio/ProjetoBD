@@ -144,6 +144,26 @@ public class RepositorioCardapio implements IRepositorioCardapio{
         return pratoPego;
     }
 
+    @Override
+    public ArrayList<PratoCardapio> pegarTodosPratos() {
+        String sql = "SELECT nome FROM pratos";
+        ArrayList<PratoCardapio> pratos = new ArrayList<>();
+
+        try {
+            ResultSet rs = this.dbCenter.executarChamada(sql);
+            while(rs.next()) {
+                PratoCardapio p = this.pegarPrato(rs.getString("nome"));
+                pratos.add(p);
+            }
+            return pratos;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return pratos;
+        }
+
+
+    }
+
     //Código morto
     @Override
     public PratoCardapio pegarPrato(int numeroPrato) {

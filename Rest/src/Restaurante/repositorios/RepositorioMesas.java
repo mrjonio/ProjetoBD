@@ -10,6 +10,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import static java.lang.System.exit;
+
 /**
  * Abaixo temos a classe para o repositório de mesas, que serve para armazenar em um arraylist todas os dados
  * das mesas cadastradas; e a implementação da interface IRepositorioMesas.
@@ -58,55 +60,62 @@ public class RepositorioMesas implements IRepositorioMesas {
      */
     @Override
     public Mesa pegarMesa(int index) {
-        String sql = "SELECT * FROM mesas";
+        String sql = "SELECT * FROM mesas WHERE numero="+index;
         Mesa mesa = null;
         try {
             ResultSet mesas = this.dbCenter.executarChamada(sql);
-            while (mesas.next()) {
+            mesas.first();
 
-                if (Integer.parseInt(mesas.getString("numero")) == index) {
-                    String disponibilidade = mesas.getString("disponibilidade");
-                    mesa = new Mesa(index, disponibilidade.equals("0") ? "Oculpada" : "Vazia");
+            if (Integer.parseInt(mesas.getString("numero")) == index) {
+                String disponibilidade = mesas.getString("disponibilidade");
+                mesa = new Mesa(index, disponibilidade.equals("0") ? "Oculpada" : "Vazia");
 
 
 
-                    String sql2 = "SELECT * FROM mesas_faz_pedidos WHERE numeroMesa = '" + index + "'";
-                    ResultSet pedidos = this.dbCenter.executarChamada(sql2);
-                    ArrayList<Pedido> pedido = new ArrayList<>();
-                    while (pedidos.next()){
-                        String sql3 = "SELECT * FROM pedidos_tem_pratos WHERE idpedidos = '" + pedidos.getString("idPedido") + "'";
-                        ResultSet pratos = this.dbCenter.executarChamada(sql3);
-                        ArrayList<PratoCardapio> prato = new ArrayList<>();
-                        while (pratos.next()){
-                            String sql4 = "SELECT * FROM pratos WHERE nome = \""+ pratos.getString("nome_prato") +"\"";
-                            ResultSet pratosResultado = this.dbCenter.executarChamada(sql4);
-                            ArrayList<Ingrediente> ingredientes = new ArrayList<>();
-                            while (pratosResultado.next()) {
-                                String sql5 = "SELECT * FROM pratos_possuem_ingredientes WHERE nome_prato = \"" + pratosResultado.getString("nome") + "\"";
-                                ResultSet ingredientesResultado = this.dbCenter.executarChamada(sql5);
-                                while (ingredientesResultado.next()) {
-                                    String sql6 = "SELECT * FROM ingredientes WHERE nome = +'" + ingredientesResultado.getString("nome_ingrediente") + "'";
-                                    ResultSet ingredientesTAbela = this.dbCenter.executarChamada(sql6);
-                                    while (ingredientesTAbela.next()) {
-                                        Ingrediente i = new Ingrediente(ingredientesTAbela.getString("nome"), ingredientesTAbela.getInt("quantidade"));
-                                        ingredientes.add(i);
-                                    }
+                String sql2 = "SELECT * FROM (SELECT * FROM mesas_faz_pedidos AS t1 JOIN pedidos AS t2 WHERE t1.idPedido=t2.idpedidos) AS t3 WHERE numeroMesa = '" + index + "'";
+                ResultSet pedidos = this.dbCenter.executarChamada(sql2);
+                ArrayList<Pedido> pedido = new ArrayList<>();
+                while (pedidos.next()){
+                    String sql3 = "SELECT * FROM (SELECT * FROM pedidos_tem_pratos AS t1 JOIN pratos as t2 WHERE t1.nome_prato=t2.nome ) AS t3 WHERE t3.idpedidos = '" + pedidos.getString("idPedido") + "'";
+                    ResultSet pratos = this.dbCenter.executarChamada(sql3);
+                    ArrayList<PratoCardapio> prato = new ArrayList<>();
+                    while (pratos.next()){
+                        String sql4 = "SELECT * FROM pratos WHERE nome = \""+ pratos.getString("nome_prato") +"\"";
+                        ResultSet pratosResultado = this.dbCenter.executarChamada(sql4);
+                        ArrayList<Ingrediente> ingredientes = new ArrayList<>();
+                        while (pratosResultado.next()) {
+                            String sql5 = "SELECT * FROM pratos_possuem_ingredientes WHERE nome_prato = \"" + pratosResultado.getString("nome") + "\"";
+                            ResultSet ingredientesResultado = this.dbCenter.executarChamada(sql5);
+                            while (ingredientesResultado.next()) {
+                                String sql6 = "SELECT * FROM ingredientes WHERE nome = +'" + ingredientesResultado.getString("nome_ingrediente") + "'";
+                                ResultSet ingredientesTAbela = this.dbCenter.executarChamada(sql6);
+                                while (ingredientesTAbela.next()) {
+                                    Ingrediente i = new Ingrediente(ingredientesTAbela.getString("nome"), ingredientesTAbela.getInt("quantidade"));
+                                    ingredientes.add(i);
                                 }
                             }
-                            PratoCardapio p = new PratoCardapio(pratos.getString("nome_prato"), pratos.getDouble("preco"), ingredientes);
-                            prato.add(p);
                         }
-                        Pedido ped = new Pedido(prato, mesa);
-                        pedido.add(ped);
+                        PratoCardapio p = new PratoCardapio(pratos.getString("nome_prato"), pratos.getDouble("preco"), ingredientes);
+
+                        prato.add(p);
                     }
-                    for (Pedido p: pedido) {
-                        mesa.adicionarPedido(p);
-                    }
+
+                    Pedido ped = new Pedido(prato, mesa);
+                    ped.setIdPedido(pedidos.getInt("idpedidos"));
+                    pedido.add(ped);
+                }
+                for (Pedido p: pedido) {
+                    System.out.println(p.getIdPedido());
+                    mesa.adicionarPedido(p);
                 }
             }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
+        mesa.getPedidos().forEach(pedido -> {
+            System.out.println(pedido.getIdPedido());
+        });
         return mesa;
     }
 

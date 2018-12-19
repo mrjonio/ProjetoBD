@@ -12,7 +12,7 @@ public interface IRepositorioCardapio {
     void adicionarPratoAoCardapio(PratoCardapio prato);
     PratoCardapio pegarPrato(String nomePrato);
     PratoCardapio pegarPrato(int numeroPrato);
-    void removerPrato(PratoCardapio nomePrato) throws PratoPendenteErro;
+    void removerPrato(PratoCardapio nomePrato);
     void alterarAtributoPrato(PratoCardapio nomePrato);
     int pegarIdex(PratoCardapio pratoQueSeraPegoIdex);
 }

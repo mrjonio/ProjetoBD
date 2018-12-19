@@ -56,7 +56,7 @@ public class ControladorCardapio implements IControladorCadapio {
 	 * @throws ObjetoNaoExisteErro Objeto (prato) não existe.
 	 */
 	@Override
-	public void removerPratoDoCardapio(String nomePratoRemovido) throws ObjetoNaoExisteErro, PratoPendenteErro {
+	public void removerPratoDoCardapio(String nomePratoRemovido) throws ObjetoNaoExisteErro {
 		PratoCardapio pratoQueSeraRemovido = pegarUmPrato(nomePratoRemovido);
 		this.repositorioCardapio.removerPrato(pratoQueSeraRemovido);
 	}

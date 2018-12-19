@@ -2,6 +2,7 @@ package Restaurante.repositorios.interfaces;
 
 
 import Restaurante.camadasDeNegocio.entidade.abstrato.Pedido;
+import Restaurante.excessoes.PratoPendenteErro;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -21,4 +22,5 @@ public interface IRepositorioPedidos {
     void removerPedido(Pedido pedidoQueSeraRemovido); //OK
     Pedido buscarPedido(Pedido pedidoQueSeraBuscado); //OK
     List<Pedido> gerarVetorPedido(LocalDateTime inicio, LocalDateTime fim); //OK
+    public boolean verificarPratoEmPedido(String nomePrato) throws PratoPendenteErro;
 }

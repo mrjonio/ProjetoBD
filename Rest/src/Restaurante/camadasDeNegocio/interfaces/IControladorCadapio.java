@@ -12,7 +12,7 @@ import Restaurante.excessoes.PratoPendenteErro;
 public interface IControladorCadapio {
 
     void adicionarPratoAoCardapio(PratoCardapio prato) throws ObjetoJaExisteErro;
-    void removerPratoDoCardapio(String nomePratoRemovido) throws ObjetoNaoExisteErro, PratoPendenteErro;
+    void removerPratoDoCardapio(String nomePratoRemovido) throws ObjetoNaoExisteErro;
     PratoCardapio pegarUmPrato(String nomeDoPrato) throws ObjetoNaoExisteErro;
     PratoCardapio pegarUmPrato(int indexDoPrato) throws ObjetoNaoExisteErro;
     void alterarAtributoDeUmPrato(PratoCardapio novoPrato) throws ObjetoNaoExisteErro;

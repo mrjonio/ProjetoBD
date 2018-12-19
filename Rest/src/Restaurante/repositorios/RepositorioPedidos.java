@@ -5,7 +5,10 @@ import Restaurante.camadasDeNegocio.entidade.abstrato.Pedido;
 import Restaurante.camadasDeNegocio.entidade.concretos.Alimenticio.Ingrediente;
 import Restaurante.camadasDeNegocio.entidade.concretos.Alimenticio.PratoCardapio;
 import Restaurante.camadasDeNegocio.entidade.concretos.Mesa;
+import Restaurante.excessoes.PratoPendenteErro;
 import Restaurante.repositorios.interfaces.IRepositorioPedidos;
+
+import Restaurante.excessoes.PratoPendenteErro;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -14,8 +17,6 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
-import static java.lang.System.exit;
-import static java.lang.System.setOut;
 
 /**
  * Abaixo temos a classe para o repositório de pedidos, que serve para armazenar em um arraylist todas os dados
@@ -258,6 +259,27 @@ public class RepositorioPedidos implements IRepositorioPedidos {
             }
         }
         return temp;
+    }
+
+    /**
+     * Averigua a existencia de um prato que está pendente (sento utilizado)
+     * @param nomePrato Nome do prato que será buscado
+     * @return 'true' para caso o prato esteja sendo utilizado, 'false' para caso não esteja sendo utilizado
+     */
+    public boolean verificarPratoEmPedido(String nomePrato) throws PratoPendenteErro {
+        ResultSet rs;
+        //Verifica se o existe algum pedido pendente relacionado aquele prato
+        String sql = "SELECT nome_prato " +
+                " FROM pedidos_tem_pratos " +
+                " WHERE (nome_prato=\"" + nomePrato + "\")";
+        try {
+            rs = this.dbCenter.executarChamada(sql);
+            while(rs.next()) {return true;}
+            return false;
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+        return true;
     }
 
 }

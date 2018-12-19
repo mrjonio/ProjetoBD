@@ -17,6 +17,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.lang.System.exit;
+
 
 /**
  * Abaixo temos a classe para o repositório de pedidos, que serve para armazenar em um arraylist todas os dados
@@ -98,9 +100,11 @@ public class RepositorioPedidos implements IRepositorioPedidos {
     public void adicionarPedido(Pedido pedidoQueSeraAdicionado){
         //esse pedido já foi criado lá na mesa
         //TODO: arrumar quando tiver logado de fato
-        String sql = "INSERT INTO conzinheiro_cozinha_pedido VALUES ('222.222.222-22', " + pedidoQueSeraAdicionado.getIdPedido() +" )";
+        String sql = "INSERT IGNORE INTO conzinheiro_cozinha_pedido VALUES ('222.222.222-22', " + pedidoQueSeraAdicionado.getIdPedido() +" )";
         try {
+
             this.dbCenter.executarChamada(sql);
+
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -19,6 +19,7 @@ import Restaurante.camadasDeNegocio.entidade.pessoas.funcionario.Funcionario;
 import Restaurante.fachada.interfaceFachada.IFachadaMesa;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -76,6 +77,14 @@ public class Fachada implements IFachadaGerente, IFachadaCozinheiro, IFachadaAte
     @Override
     public PratoCardapio pegarUmPrato(int indexDoPrato) throws ObjetoNaoExisteErro {
         return this.camadaCadapio.pegarUmPrato(indexDoPrato);
+    }
+
+    @Override
+    public ArrayList<PratoCardapio> pegarTodosPratos() throws ObjetoNaoExisteErro {
+     ArrayList<PratoCardapio> ret = this.camadaCadapio.pegarTodosPratos();
+     if (ret == null) {
+         throw new ObjetoNaoExisteErro("Algum prato");
+     } return ret;
     }
 
     @Override

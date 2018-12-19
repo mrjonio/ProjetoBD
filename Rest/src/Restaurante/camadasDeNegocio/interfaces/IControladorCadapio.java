@@ -5,6 +5,8 @@ import Restaurante.excessoes.ObjetoExistencia.ObjetoJaExisteErro;
 import Restaurante.excessoes.ObjetoExistencia.ObjetoNaoExisteErro;
 import Restaurante.excessoes.PratoPendenteErro;
 
+import java.util.ArrayList;
+
 /**
  *  Abaixo temos a interface a ser implementada na camada "cardápio", com suas assinaturas de métodos e exceções.
  */
@@ -16,4 +18,5 @@ public interface IControladorCadapio {
     PratoCardapio pegarUmPrato(String nomeDoPrato) throws ObjetoNaoExisteErro;
     PratoCardapio pegarUmPrato(int indexDoPrato) throws ObjetoNaoExisteErro;
     void alterarAtributoDeUmPrato(PratoCardapio novoPrato) throws ObjetoNaoExisteErro;
+    ArrayList<PratoCardapio> pegarTodosPratos() throws ObjetoNaoExisteErro;
 }

@@ -65,6 +65,20 @@ public class ControleTelaCardapioCliente {
     public void confirmarPedido() {
         //TODO: arrumar isso aqui dps que ajustar o pedido como arraylist
         if (this.pedidos.size() > 0) {
+
+            try {
+                Mesa mesa = this.fachadaMesa.buscarUmaMesa(1);
+                Pedido p = new Pedido(this.pedidos, mesa);
+                mesa.adicionarPedido(p);
+                this.fachadaMesa.editarMesa(mesa, mesa);
+                this.limparPedido();
+            } catch (Exception e) {
+                e.printStackTrace();
+                System.out.println("TEM Q TER Q MESA 1 PRA TESTAR");
+                return;
+            }
+
+
             Pedido p = new Pedido(this.pedidos, new Mesa(1, "Vazia"));
             this.fachadaMesa.armazenarUmPedido(p);
             this.limparPedido();
@@ -86,22 +100,15 @@ public class ControleTelaCardapioCliente {
         pedidos = new ArrayList<>();
 
 
-        ArrayList<PratoCardapio> cardapio = new ArrayList<>();
-        boolean flag = true;
-        int index = 0;
-        PratoCardapio prato;
-
-        while(flag) {
-            try {
-                prato = this.fachadaMesa.pegarUmPrato(index);
-                cardapio.add(prato);
-                index++;
-            }catch (Exception e) {
-                flag = false;
-            }
+        try {
+            ArrayList<PratoCardapio> cardapio = this.fachadaMesa.pegarTodosPratos();
+            observableList.setAll(cardapio);
+        } catch (Exception e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setHeaderText("Problema no cardapio");
+            alert.showAndWait();
+            return;
         }
-
-        observableList.setAll(cardapio);
 
         listView.setItems(observableList);
 

@@ -22,6 +22,8 @@ import javafx.util.Pair;
 import java.util.ArrayList;
 import java.util.Optional;
 
+import static java.lang.System.exit;
+
 public class TelaCozinheiro {
 
     private IFachadaCozinheiro fachada;
@@ -855,7 +857,9 @@ public class TelaCozinheiro {
 
         ListView<Pedido> listView = new ListView<>();
         listView.setPrefWidth(dialog.getWidth() - 10);
+        //TODO: remover de mesa.getPedidos os que ja foram cozinhado, melhor fazer uma consulta, mas nao da mais tempo
         listView.setItems(FXCollections.observableArrayList(m.getPedidos()));
+
 
         listView.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override

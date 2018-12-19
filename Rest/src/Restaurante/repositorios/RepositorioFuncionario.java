@@ -38,7 +38,7 @@ public class RepositorioFuncionario implements IRepositorioFuncionario {
         try {
             dbCenter.executarChamada(sql);
             if (funcao.equals("Cozinheiro")) {
-                String sql2 = "INSERT INTO cozinheiros (cpfCozinheiro) VALUES ('" + cpf + "')";
+                String sql2 = "INSERT INTO cozinheiros VALUES ('" + cpf + "', 0)";
                 dbCenter.executarChamada(sql2);
             }
             if (funcao.equals("Gerente")) {

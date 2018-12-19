@@ -78,6 +78,7 @@ public class DBTabelas {
 
     private void criarTabCozinheiros () {
         String atributos = "cpfCozinheiro VARCHAR(14) NOT NULL,\n" +
+                "  quatidadePratos INT(10) UNSIGNED NULL DEFAULT '0',\n" +
                 "  PRIMARY KEY (cpfCozinheiro),\n" +
                 "  CONSTRAINT FUNCIONARIO_COZINHEIRO\n" +
                 "    FOREIGN KEY (cpfCozinheiro)\n" +
@@ -201,7 +202,7 @@ public class DBTabelas {
     private void criarTabPedidosTemPratos () {
         String atributos = "idpedidos INT UNSIGNED NOT NULL,\n" +
                 "  nome_prato VARCHAR(50) NOT NULL,\n" +
-                "  preco FLOAT UNSIGNED NOT NULL, \n" +
+                "  quantidade FLOAT UNSIGNED NOT NULL, \n" +
                 "  PRIMARY KEY (idpedidos, nome_prato),\n" +
                 "  CONSTRAINT PEDIDO_FEITO\n" +
                 "    FOREIGN KEY (idpedidos)\n" +

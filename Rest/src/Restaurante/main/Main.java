@@ -9,8 +9,10 @@ import Restaurante.camadasDeNegocio.entidade.pessoas.funcionario.Funcionario;
 
 import Restaurante.fachada.Fachada;
 import Restaurante.fachada.interfaceFachada.IFachadaGerente;
+import Restaurante.repositorios.DBCenter;
 import Restaurante.repositorios.DBTabelas;
 import Restaurante.repositorios.DBTriggers;
+import Restaurante.repositorios.DBViews;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
@@ -40,12 +42,17 @@ public class Main extends Application {
         primaryStage.show();
 
         //TEM Q TER MANGA NO REPOSITORIO
-        Fachada fachada = Fachada.getInstance();
-        PratoCardapio asd = fachada.pegarUmPrato("manga");
-        Alert alert = new Alert(Alert.AlertType.ERROR, "Error", ButtonType.OK);
-        ImageView imageView = new ImageView(asd.getFoto());
-        alert.setGraphic(imageView);
-        alert.showAndWait();
+        try {
+          Fachada fachada = Fachada.getInstance();
+          PratoCardapio asd = fachada.pegarUmPrato("manga");
+          if (asd == null ) {
+            return;
+          }
+          Alert alert = new Alert(Alert.AlertType.ERROR, "Error", ButtonType.OK);
+          ImageView imageView = new ImageView(asd.getFoto());
+          alert.setGraphic(imageView);
+          alert.showAndWait();
+        } catch (Exception e) {}
 
     }
 
@@ -85,8 +92,12 @@ public class Main extends Application {
 
         Fachada fachada =  Fachada.getInstance();
 
-        //new DBTabelas().migrar();
-        //new DBTriggers().migrar();
+        System.out.println("CRIANDO TABELAS, COMENTE A LINHA ABAIXO PARA NAO DELETAR TUDO DA TABELA DA PROXIMA VEZ QUE EXECUTAR");
+        new DBTabelas().migrar();
+        System.out.println("CRIANDO VIEWS, SE DER ERRO POR ELAS JA EXISTIREM, NAO É PROBLEMA PQ SÃO VIEWS");
+        new DBViews().migrar();
+        System.out.println("CRIANDO TIRGGERS, SE DER ERRO POR ELAS JA EXISTIREM, NAO É PROBLEMA PQ SÃO TIRGGERS");
+        new DBTriggers().migrar();
 
         ArrayList<Ingrediente> ingredientes = new ArrayList<>();
 
@@ -99,7 +110,7 @@ public class Main extends Application {
         ingredientes.add(c);
 
 
-        Funcionario gerente =  new Funcionario("Carlos", "111.111.111-11", 18, "masc", "Gerente", 1999999.00);
+        Funcionario gerente =  new Funcionario("Carlos", "222.222.222-22", 18, "masc", "Cozinheiro", 1999999.00);
         PratoCardapio prat0 = new PratoCardapio("manga", 20.00, ingredientes);
 
         Mesa mesa2 = new Mesa(1, "Vazia");
@@ -114,11 +125,13 @@ public class Main extends Application {
 
 
         try {
+            System.out.println("INSERINDO ALGUMAS COISAS NO BD");
             fachada.cadastrarUmFuncionario(gerente);
-            fachada.adicionarPratoAoCardapio(prat0);
+            new DBCenter().executarChamada("INSERT INTO atendentes VALUES ('222.222.222-22')");
             fachada.adicionarIngrediente(a);
             fachada.adicionarIngrediente(b);
             fachada.adicionarIngrediente(c);
+            fachada.adicionarPratoAoCardapio(prat0);
             fachada.adicionarUmaMesa(mesa2);
             fachada.adicionarUmaMesa(mesa);
             fachada.fazerNovaReserva(reserva);
@@ -127,7 +140,7 @@ public class Main extends Application {
         } catch (Exception objetoJaExisteErro) {
             objetoJaExisteErro.printStackTrace();
         }
-
+        System.out.println("TUDO OK");
         launch(args);
 
     }

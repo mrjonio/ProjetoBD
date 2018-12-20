@@ -3,7 +3,7 @@ package Restaurante.repositorios;
 
 import java.sql.*;
 
-class DBCenter {
+public class DBCenter {
 
     private static final String driver = "org.mariadb.jdbc.Driver";
     private static final String database = "javadb";

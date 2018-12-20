@@ -160,19 +160,19 @@ public class RepositorioFuncionario implements IRepositorioFuncionario {
      */
     @Override
     public double calcularFolhaDePagamento(){
+        double total = 0;
         String sql = "SELECT * FROM folhaPagamento";
         try {
             ResultSet resultSet = dbCenter.executarChamada(sql);
 
             while (resultSet.next()) {
-                // ELE RETORNA 1 A MENOS
-                return Double.parseDouble(resultSet.getString(0));
+                total += Double.parseDouble(resultSet.getString(1));
             }
 
         } catch (ClassNotFoundException | SQLException e) {
-            return 0;
+            return -1;
         }
-        return 0;
+        return total;
     }
 
     /**]

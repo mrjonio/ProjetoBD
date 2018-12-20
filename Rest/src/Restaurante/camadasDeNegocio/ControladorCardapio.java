@@ -8,6 +8,8 @@ import Restaurante.excessoes.PratoPendenteErro;
 import Restaurante.repositorios.RepositorioCardapio;
 import Restaurante.repositorios.interfaces.IRepositorioCardapio;
 
+import java.util.ArrayList;
+
 /**
  *  Classe CamadaCardápio, seus atributos e construtor.
  *  Implementação da interface IControladorCadapio.
@@ -101,6 +103,16 @@ public class ControladorCardapio implements IControladorCadapio {
 	@Override
 	public void alterarAtributoDeUmPrato(PratoCardapio novoPrato) throws ObjetoNaoExisteErro{
 		this.repositorioCardapio.alterarAtributoPrato(novoPrato);
+	}
+
+
+	@Override
+	public ArrayList<PratoCardapio> pegarTodosPratos() throws ObjetoNaoExisteErro {
+		ArrayList<PratoCardapio> ret = this.repositorioCardapio.pegarTodosPratos();
+		if (ret == null) {
+			throw  new ObjetoNaoExisteErro("Algum prato");
+		}
+		return ret;
 	}
 
 
